@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/background_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:contentDescription="@string/main_background_description"
+        android:scaleType="centerCrop"
+        android:src="@drawable/main_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/center_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="-20dp"
+        android:gravity="center_vertical"
+
+        android:orientation="horizontal"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginEnd="-10dp"
+            android:src="@drawable/delta_logo_orange"
+            android:contentDescription="@string/main_logo_description"
+            />
+
+        <TextView
+            android:id="@+id/text_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bradesco_font_family"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:letterSpacing="0"
+            android:text="@string/main_delta_name"
+            android:textColor="@android:color/white"
+            android:textFontWeight="800"
+            android:textSize="50sp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/text_line1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/bradesco_font_family"
+        android:fontWeight="800"
+        android:gravity="start"
+        android:includeFontPadding="false"
+        android:letterSpacing="0"
+        android:lineSpacingExtra="7dp"
+        android:text="@string/main_description_01"
+        android:textColor="@color/white"
+        android:textFontWeight="800"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@id/text_line2"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_line2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="2dp"
+        android:fontFamily="@font/bradesco_font_family"
+        android:fontWeight="800"
+        android:gravity="start"
+        android:includeFontPadding="false"
+        android:letterSpacing="0"
+        android:lineSpacingExtra="7dp"
+        android:text="@string/main_description_02"
+        android:textColor="@color/white"
+        android:textFontWeight="800"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@id/text_line3_bg"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_line3_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/orange"
+        android:fontFamily="@font/bradesco_font_family"
+        android:fontWeight="800"
+        android:gravity="start"
+        android:includeFontPadding="false"
+        android:letterSpacing="0"
+        android:paddingStart="4dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="4dp"
+        android:paddingBottom="2dp"
+        android:text="@string/main_description_03"
+        android:textColor="@color/white"
+        android:textFontWeight="800"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@id/text_line4"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_line4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="32dp"
+        android:background="@color/orange"
+        android:fontFamily="@font/bradesco_font_family"
+        android:fontWeight="800"
+        android:gravity="start"
+        android:includeFontPadding="false"
+        android:letterSpacing="0"
+        android:paddingStart="4dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="4dp"
+        android:paddingBottom="2dp"
+        android:text="@string/main_description_04"
+        android:textColor="@color/white"
+        android:textFontWeight="800"
+        android:textSize="18sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toTopOf="@id/btn_login"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_login"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_main_button_login"
+        android:fontFamily="@font/bradesco_font_family"
+        android:fontWeight="400"
+        android:gravity="center"
+        android:text="@string/main_button_login"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_register"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_register"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/bg_main_button_register"
+        android:fontFamily="@font/bradesco_font_family"
+        android:fontWeight="400"
+        android:gravity="center"
+        android:text="@string/main_button_register"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_login" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

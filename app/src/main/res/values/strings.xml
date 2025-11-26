@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">DeltaBank</string>
+    <string name="splash_name">delta</string>
+    <string name="splash_logo_description">Logotipo do banco Deltana cor roxa</string>
+    <string name="main_background_description">Mulher jovem sorrindo, de pele clara e cabelo escuro, olhando para um celular que segura com as duas mãos. Ela está em um ambiente urbano noturno ou com luzes baixas. A imagem tem sobreposições digitais e gráficos de interface futuristas e translúcidos, adicionando um tema tecnológico.</string>
+    <string name="main_logo_description">Logotipo do banco Delta na cor laranja</string>
+    <string name="main_delta_name">delta</string>
+
+    <string name="main_description_01">O delta tem benefícios</string>
+    <string name="main_description_02">e praticidades</string>
+    <string name="main_description_03">para você fazer</string>
+    <string name="main_description_04">o que importa</string>
+
+    <string name="main_button_login">Já tenho conta</string>
+    <string name="main_button_register">Criar Conta</string>
+
+</resources>
