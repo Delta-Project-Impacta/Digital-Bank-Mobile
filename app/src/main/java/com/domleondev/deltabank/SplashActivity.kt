@@ -2,14 +2,14 @@ package com.domleondev.deltabank
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 class SplashActivity : AppCompatActivity() {
 
     private val delayBeforeStart = 500L
@@ -29,17 +29,20 @@ class SplashActivity : AppCompatActivity() {
         val logoAnim = AnimationUtils.loadAnimation(this, R.anim.splash_anim)
         val textAnim = AnimationUtils.loadAnimation(this, R.anim.splash_fade_anim)
 
-        Handler(Looper.getMainLooper()).postDelayed({
+        lifecycleScope.launch {
+
+            delay(delayBeforeStart)
+
             logo.visibility = View.VISIBLE
             title.visibility = View.VISIBLE
 
             logo.startAnimation(logoAnim)
             title.startAnimation(textAnim)
-        }, delayBeforeStart)
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            delay(animDuration + extraDelay)
+
+            startActivity(Intent(this@SplashActivity, MainActivity::class.java))
             finish()
-        }, delayBeforeStart + animDuration + extraDelay)
+        }
     }
 }
