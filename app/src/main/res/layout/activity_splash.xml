@@ -26,9 +26,11 @@
             android:layout_marginBottom="-20dp"
             android:src="@drawable/delta_logo_purple"
             android:contentDescription="@string/splash_logo_description"
+            android:visibility="invisible"
             />
 
         <TextView
+            android:id="@+id/splash_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/bradesco_font_family"

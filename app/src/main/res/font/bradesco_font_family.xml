@@ -6,6 +6,11 @@
         android:fontWeight="400" />
 
     <font
+        android:font="@font/bradesco_sans_bold"
+        android:fontStyle="normal"
+        android:fontWeight="700" />
+
+    <font
         android:font="@font/bradesco_sans_xbold"
         android:fontStyle="normal"
         android:fontWeight="800" />
