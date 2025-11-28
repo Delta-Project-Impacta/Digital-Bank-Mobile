@@ -2,7 +2,9 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android"
     android:interpolator="@android:interpolator/fast_out_slow_in"
     android:shareInterpolator="true"
-    android:fillAfter="true"> <alpha
+    android:fillAfter="true">
+
+    <alpha
     android:duration="900"
     android:fromAlpha="0.0"
     android:toAlpha="1.0" />
