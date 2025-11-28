@@ -14,4 +14,36 @@
     <string name="main_button_login">Já tenho conta</string>
     <string name="main_button_register">Criar Conta</string>
 
+    <string name="register_title">Criar Conta</string>
+    <string name="register_text_title">O primeiro passo para abrir sua conta \né informar uns dados ;)</string>
+    <string name="register_name">Nome</string>
+    <string name="register_cpf">CPF</string>
+    <string name="register_birth">Data de Nascimento</string>
+    <string name="register_email">E-mail</string>
+    <string name="register_confirm_email">Confirmar E-mail</string>
+    <string name="register_phone">Celular</string>
+    <string name="button_next">Continuar</string>
+
+    <string name="address_title">Endereço Pessoal</string>
+    <string name="address_text_title">O segundo passo para abrir sua conta\n é informar dados do seu endereço ;)</string>
+    <string name="address_cep">CEP</string>
+    <string name="address_text">Endereço</string>
+    <string name="address_number">Nº</string>
+    <string name="address_complement">Complemento</string>
+    <string name="address_district">Bairro</string>
+    <string name="address_city">Cidade</string>
+    <string name="address_state">Estado</string>
+
+    <string name="password_title">Senha do App</string>
+    <string name="password_text_title"> Escolha uma senha de 6 números \n para entrar no app. Daí você começa\n o cadastro e se precisar, pode \n parar e voltar depois.</string>
+    <string name="password_subtitle">Evite usar sequências, repetições e \n números de documentos ou datas</string>
+    <string name="password_text">Senha</string>
+    <string name="password_confirm">Confirmar Senha</string>
+
+
+    <string name="password_title_account"> Agora insira uma senha \n de 4 dígitos para as suas \n movimentações bancárias</string>
+    <string name="password_account">Senha da Conta</string>
+    <string name="password_confirm_account">Confirme a senha da conta</string>
+    <string name="password_account_subtitle">Evite usar a mesma senha \n do app para ter mais \n segurança</string>
+
 </resources>
