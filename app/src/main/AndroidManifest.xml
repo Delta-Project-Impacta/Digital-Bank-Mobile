@@ -12,9 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeltaBank">
         <activity
-            android:name=".LoginActivity"
+            android:name=".HomeActivity"
             android:exported="false" />
-        <!-- SPLASH -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" /> <!-- SPLASH -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">

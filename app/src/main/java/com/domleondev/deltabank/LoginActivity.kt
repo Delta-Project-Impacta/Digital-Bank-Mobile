@@ -1,5 +1,6 @@
 package com.domleondev.deltabank
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
@@ -15,6 +16,12 @@ class LoginActivity : AppCompatActivity() {
 
         backArrow.setOnClickListener {
             finish()
+        }
+
+        val loginButton = findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.btn_login)
+        loginButton.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 }

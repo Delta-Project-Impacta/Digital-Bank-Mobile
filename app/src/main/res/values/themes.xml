@@ -6,4 +6,21 @@
     </style>
 
     <style name="Theme.DeltaBank" parent="Base.Theme.DeltaBank" />
+
+    <style name="BottomNav.TextAppearance.Inactive" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/bradesco_sans</item>
+        <item name="fontFamily">@font/bradesco_sans</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="BottomNav.TextAppearance.Active" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/bradesco_sans_bold</item>
+        <item name="fontFamily">@font/bradesco_sans_bold</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Custom.ActiveIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
 </resources>
