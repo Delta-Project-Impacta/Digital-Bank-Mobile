@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:attr/colorControlHighlight"> <item>
+    <inset
+        android:insetLeft="20dp"
+        android:insetTop="10dp"
+        android:insetRight="16dp"
+        android:insetBottom="10dp">
+
+        <shape android:shape="rectangle">
+            <solid android:color="@color/orange_10" />
+            <corners android:radius="12dp" />
+        </shape>
+    </inset>
+</item>
+</ripple>

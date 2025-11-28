@@ -56,4 +56,9 @@
     <string name="login_button_login">Entrar</string>
     <string name="login_footer">©2025 Delta</string>
 
+    <string name="bottom_nav_home">Home</string>
+    <string name="bottom_nav_chat">Chat</string>
+    <string name="bottom_nav_extract">Extrato</string>
+    <string name="bottom_nav_profile">Perfil</string>
+
 </resources>
