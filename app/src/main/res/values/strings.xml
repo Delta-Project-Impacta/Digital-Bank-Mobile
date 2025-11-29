@@ -40,7 +40,6 @@
     <string name="password_text">Senha</string>
     <string name="password_confirm">Confirmar Senha</string>
 
-
     <string name="password_title_account"> Agora insira uma senha \n de 4 dígitos para as suas \n movimentações bancárias</string>
     <string name="password_account">Senha da Conta</string>
     <string name="password_confirm_account">Confirme a senha da conta</string>
@@ -60,5 +59,31 @@
     <string name="bottom_nav_chat">Chat</string>
     <string name="bottom_nav_extract">Extrato</string>
     <string name="bottom_nav_profile">Perfil</string>
+
+    <string name="forgot_password_header">Esqueci a Senha</string>
+    <string name="forgot_password_title">Esqueceu a Senha?</string>
+    <string name="forgot_password_description">Informe seu email e enviaremos para você as instruções para redefinir sua senha.</string>
+    <string name="forgot_password_input">E-mail</string>
+    <string name="forgot_password_button">Continuar </string>
+
+    <string name="email_verification_header">Verifique seu E-mail</string>
+    <string name="email_verification_title">Verifique seu E-mail</string>
+    <string name="email_verification_description">Acabamos de enviar um código para o seu E-mail registrado</string>
+    <string name="email_verification_check_text_timer">00:36</string>
+    <string name="email_verification_bottom_01">Não recebeu um código?</string>
+    <string name="email_verification_bottom_02">Reenviar</string>
+    <string name="email_verification_button">Continuar</string>
+
+    <string name="reset_password_header">Redefina sua Senha</string>
+    <string name="reset_password_title">Redefina sua Senha</string>
+    <string name="reset_password_description">Preencha os campos abaixo</string>
+    <string name="reset_password_input_01">Nova Senha</string>
+    <string name="reset_password_input_02">Confirme sua  Senha</string>
+    <string name="reset_password_button">Redefinir</string>
+
+    <string name="password_reseted_header">Senha Redefinida</string>
+    <string name="password_reseted_title">Redefinido com sucesso</string>
+    <string name="password_reseted_description">Agora você pode fazer login na sua conta</string>
+    <string name="password_reseted_button">Fazer Login</string>
 
 </resources>

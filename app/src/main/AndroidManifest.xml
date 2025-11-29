@@ -11,8 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DeltaBank">
-
- <!-- SPLASH -->
+        <!-- SPLASH -->
         <activity
             android:name=".SplashActivity"
             android:exported="true">
@@ -43,7 +42,18 @@
         <activity
             android:name=".HomeActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".PasswordResetedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EmailVerificationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForgotPasswordActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
