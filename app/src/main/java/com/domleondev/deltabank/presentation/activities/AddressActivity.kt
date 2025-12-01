@@ -1,36 +1,37 @@
-package com.domleondev.deltabank
+package com.domleondev.deltabank.presentation.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.domleondev.deltabank.R
 
-class MainActivity : AppCompatActivity() {
+class AddressActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_address)
 
-        val buttonRegister = findViewById<AppCompatButton>(R.id.btn_Register)
-        buttonRegister.setOnClickListener {
+        val addressButtonNext = findViewById<AppCompatButton>(R.id.address_Button_Next)
+        val addressButtonBack = findViewById<ImageView>(R.id.address_Button_Back)
 
-            val intent = Intent(this, RegisterActivity::class.java)
+
+        addressButtonNext.setOnClickListener {
+            intent = Intent(this, PasswordActivity::class.java)
             startActivity(intent)
         }
-
-        val loginButton = findViewById<AppCompatButton>(R.id.btn_login)
-        loginButton.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+        addressButtonBack.setOnClickListener {
+            finish()
         }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
     }
 }

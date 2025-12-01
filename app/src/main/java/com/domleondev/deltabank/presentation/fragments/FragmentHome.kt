@@ -1,10 +1,11 @@
-package com.domleondev.deltabank
+package com.domleondev.deltabank.presentation.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.domleondev.deltabank.R
 
 class FragmentHome: Fragment() {
     companion object{

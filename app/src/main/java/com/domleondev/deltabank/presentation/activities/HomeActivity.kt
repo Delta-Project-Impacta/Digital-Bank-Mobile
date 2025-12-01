@@ -1,11 +1,14 @@
-package com.domleondev.deltabank
+package com.domleondev.deltabank.presentation.activities
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.domleondev.deltabank.presentation.fragments.FragmentChat
+import com.domleondev.deltabank.presentation.fragments.FragmentExtract
+import com.domleondev.deltabank.presentation.fragments.FragmentHome
+import com.domleondev.deltabank.presentation.fragments.FragmentProfile
+import com.domleondev.deltabank.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
@@ -19,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
         navigation.setOnItemSelectedListener { item ->
             when(item.itemId){
                 R.id.bottom_nav_Navigation_Home -> {
-                    replaceFragment(FragmentHome.newInstance())
+                    replaceFragment(FragmentHome.Companion.newInstance())
                     true
                 }
                 R.id.bottom_nav_Navigation_Chat -> {

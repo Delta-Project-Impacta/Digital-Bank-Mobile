@@ -13,7 +13,7 @@
         android:theme="@style/Theme.DeltaBank">
         <!-- SPLASH -->
         <activity
-            android:name=".SplashActivity"
+            android:name=".presentation.activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,37 +22,37 @@
             </intent-filter>
         </activity> <!-- MAIN ACTIVITY NORMAL -->
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.activities.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".presentation.activities.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".AddressActivity"
+            android:name=".presentation.activities.AddressActivity"
             android:exported="false" />
         <activity
-            android:name=".PasswordActivity"
+            android:name=".presentation.activities.PasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".AccountPasswordActivity"
+            android:name=".presentation.activities.AccountPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".presentation.activities.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".presentation.activities.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".PasswordResetedActivity"
+            android:name=".presentation.activities.PasswordResetedActivity"
             android:exported="false" />
         <activity
-            android:name=".ResetPasswordActivity"
+            android:name=".presentation.activities.ResetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".EmailVerificationActivity"
+            android:name=".presentation.activities.EmailVerificationActivity"
             android:exported="false" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".presentation.activities.ForgotPasswordActivity"
             android:exported="false" />
     </application>
 

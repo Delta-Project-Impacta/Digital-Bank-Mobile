@@ -1,4 +1,4 @@
-package com.domleondev.deltabank
+package com.domleondev.deltabank.presentation.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,8 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.domleondev.deltabank.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+
 class SplashActivity : AppCompatActivity() {
 
     private val delayBeforeStart = 500L

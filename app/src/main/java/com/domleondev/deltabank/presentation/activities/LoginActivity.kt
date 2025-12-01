@@ -1,4 +1,4 @@
-package com.domleondev.deltabank
+package com.domleondev.deltabank.presentation.activities
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.domleondev.deltabank.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
 
-        val loginButton = findViewById<androidx.appcompat.widget.AppCompatButton>(R.id.btn_login)
+        val loginButton = findViewById<AppCompatButton>(R.id.btn_login)
         loginButton.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)

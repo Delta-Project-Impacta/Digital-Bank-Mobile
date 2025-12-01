@@ -1,22 +1,30 @@
-package com.domleondev.deltabank
+package com.domleondev.deltabank.presentation.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.domleondev.deltabank.R
 
-class AccountPasswordActivity : AppCompatActivity() {
+class ResetPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_account_password)
+        setContentView(R.layout.activity_reset_password)
 
-        val passwordAccountButtonNext = findViewById<ImageView>(R.id.password_Account_Button_Back)
-
-        passwordAccountButtonNext.setOnClickListener {
+        val backArrow = findViewById<ImageView>(R.id.reset_Password_Arrow_Back)
+        backArrow.setOnClickListener {
             finish()
+        }
+
+        val emailVerificationButtonNext = findViewById<AppCompatButton>(R.id.reset_Password_Button_Next)
+        emailVerificationButtonNext.setOnClickListener {
+            intent = Intent(this, PasswordResetedActivity::class.java)
+            startActivity(intent)
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
