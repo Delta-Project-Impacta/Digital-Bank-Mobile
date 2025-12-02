@@ -11,7 +11,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DeltaBank">
-        <!-- SPLASH -->
+        <activity
+            android:name=".presentation.activities.PixSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PixConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PixReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PixPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PixAmountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.TransferHomeActivity"
+            android:exported="false" /> <!-- SPLASH -->
         <activity
             android:name=".presentation.activities.SplashActivity"
             android:exported="true">

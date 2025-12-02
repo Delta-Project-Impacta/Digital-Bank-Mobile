@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.domleondev.deltabank.R
 
 class FragmentHome: Fragment() {
+
     companion object{
         fun newInstance(): Fragment{
             val fragmentHome = FragmentHome()
