@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">DeltaBank</string>
+    <string name="app_name">Delta</string>
+
     <string name="splash_name">delta</string>
     <string name="splash_logo_description">Logotipo do banco Delta na cor roxa</string>
     <string name="main_background_description">Mulher jovem sorrindo, de pele clara e cabelo escuro, olhando para um celular que segura com as duas mãos. Ela está em um ambiente urbano noturno ou com luzes baixas. A imagem tem sobreposições digitais e gráficos de interface futuristas e translúcidos, adicionando um tema tecnológico.</string>
@@ -85,6 +86,8 @@
     <string name="password_reseted_title">Redefinido com sucesso</string>
     <string name="password_reseted_description">Agora você pode fazer login na sua conta</string>
     <string name="password_reseted_button">Fazer Login</string>
+    
+    <string name="home_client_incial">CR</string>
 
     <string name="transfer_home_title">Pix ou Transferir</string>
     <string name="transfer_home_description">Para quem você vai transferir?</string>
@@ -118,7 +121,7 @@
     <string name="pix_review_description_11_via">PIX</string>
     <string name="pix_review_description_12_message">Mensagem</string>
     <string name="pix_review_description_13_message">Enviando pagamento</string>
-    <string name="pix_review_description_14_total">R$ 0,00</string>
+    <string name="pix_review_description_14_total">R$ 10.000,00</string>
     <string name="pix_review_description_15_total">Valor Total</string>
     <string name="pix_review_button">Continuar</string>
 
