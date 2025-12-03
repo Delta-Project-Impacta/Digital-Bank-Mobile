@@ -46,7 +46,8 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">52sp</item>
         <item name="android:textColorHint">@color/grey</item>
-        <item name="android:hint">●</item> <item name="android:inputType">number</item>
+        <item name="android:hint">●</item>
+        <item name="android:inputType">number</item>
         <item name="android:maxLength">1</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
