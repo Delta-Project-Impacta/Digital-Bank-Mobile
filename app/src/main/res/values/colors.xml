@@ -13,4 +13,8 @@
     <color name="grey_opacity30">#4D383838</color>
 
     <color name="blue">#0451FF</color>
+    <color name="light_grey">#EBEBEB</color>
+    <color name="medium_grey">#D0D0D0</color>
+
+
 </resources>

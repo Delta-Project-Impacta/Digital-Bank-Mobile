@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.activities.PixConfirmationActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/pix_Confirmation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_toolbar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/pix_Confirmation_Close"
+            android:layout_width="36dp"
+            android:layout_height="44dp"
+            android:contentDescription="@string/close_icon_description"
+            android:src="@drawable/ic_close"
+            app:tint="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:textStyle="bold"
+            android:text="@string/pix_confirmation_title"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <TextView
+        android:id="@+id/pix_Confirmation_Description_View"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:textStyle="bold"
+        android:text="@string/pix_confirmation_description_01"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pix_Confirmation" />
+
+    <TextView
+        android:id="@+id/pix_Confirmation_Amount_View"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:textStyle="bold"
+        android:text="@string/pix_confirmation_amount"
+        android:textColor="@color/grey"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pix_Confirmation_Description_View" />
+
+    <TextView
+        android:id="@+id/pix_Confirmation_For_Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+
+        android:text="@string/pix_confirmation_for"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pix_Confirmation_Amount_View" />
+
+    <TextView
+        android:id="@+id/pix_Confirmation_For_Name_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:textStyle="bold"
+        android:text="@string/pix_confirmation_for_name"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/pix_Confirmation_For_Label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pix_Confirmation_For_Label" />
+
+    <TextView
+        android:id="@+id/pix_Confirmation_Institution_Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+
+        android:text="@string/pix_confirmation_institution"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pix_Confirmation_For_Label" />
+
+    <TextView
+        android:id="@+id/pix_Confirmation_Institution_Name_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:textStyle="bold"
+        android:text="@string/pix_confirmation_institution_name"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/pix_Confirmation_Institution_Label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pix_Confirmation_Institution_Label" />
+
+    <TextView
+        android:id="@+id/pix_Confirmation_When_Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+
+        android:text="@string/pix_confirmation_when"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pix_Confirmation_Institution_Label" />
+
+    <TextView
+        android:id="@+id/pix_Confirmation_When_Date_Value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:textStyle="bold"
+        android:text="@string/pix_confirmation_when_date"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/pix_Confirmation_When_Label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/pix_Confirmation_When_Label" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/pix_Confirmation_Button_Next"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/bg_button_primary"
+
+        android:text="@string/pix_confirmation_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

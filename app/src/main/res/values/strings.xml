@@ -86,4 +86,89 @@
     <string name="password_reseted_description">Agora você pode fazer login na sua conta</string>
     <string name="password_reseted_button">Fazer Login</string>
 
+    <string name="transfer_home_title">Pix ou Transferir</string>
+    <string name="transfer_home_description">Para quem você vai transferir?</string>
+    <string name="transfer_home_input">Digite a chave Pix</string>
+    <string name="transfer_home_agency_account">Informar agência e conta</string>
+    <string name="transfer_arrow_description">Ícone de transferir informar agência e conta</string>
+    <string name="transfer_home_button">Continuar</string>
+
+    <string name="pix_amount_title">PIX</string>
+    <string name="pix_amount_description">Transferindo para</string>
+    <string name="pix_amount_name">Anthony Edward Stark</string>
+    <string name="pix_amount_label">Valor</string>
+    <string name="pix_amount_input">R$ 10.000,00</string>
+    <string name="pix_amount_input_eye">Icone de olho, apertar para mudar visibilidade</string>
+    <string name="pix_amount_balance">Saldo conta-corrente</string>
+    <string name="pix_amount_balance_amount">R$ 20.000,00</string>
+    <string name="pix_amount_button">Continuar</string>
+
+
+    <string name="pix_review_title">Confirmação</string>
+    <string name="pix_review_description_01">Você vai enviar</string>
+    <string name="pix_review_description_02">R$ 10.000,00</string>
+    <string name="pix_review_description_03">Saldo Delta</string>
+    <string name="pix_review_description_04">Anthony Edward Stark</string>
+    <string name="pix_review_description_05">Chave Pix:</string>
+    <string name="pix_review_description_06">tonystark@delta.com</string>
+    <string name="pix_review_description_07">Banco Bradesco S/A</string>
+    <string name="pix_review_description_08_when">Quando</string>
+    <string name="pix_review_description_09_when">Agora, sem repetir</string>
+    <string name="pix_review_description_10_via">Via</string>
+    <string name="pix_review_description_11_via">PIX</string>
+    <string name="pix_review_description_12_message">Mensagem</string>
+    <string name="pix_review_description_13_message">Enviando pagamento</string>
+    <string name="pix_review_description_14_total">R$ 0,00</string>
+    <string name="pix_review_description_15_total">Valor Total</string>
+    <string name="pix_review_button">Continuar</string>
+
+    <string name="pix_password_title">Senha</string>
+    <string name="pix_password_description_01">Digite sua senha de 4 dígitos</string>
+    <string name="pix_password_description_02">Essa é a mesma senha de 4 dígitos do seu cartão Delta</string>
+    <string name="pix_password_button">Enviar</string>
+
+    <string name="pix_confirmation_title">Transferência Concluída</string>
+    <string name="pix_confirmation_description_01">Sua transferência foi concluída</string>
+    <string name="pix_confirmation_amount">R$ 10.000,00</string>
+    <string name="pix_confirmation_for">Para</string>
+    <string name="pix_confirmation_for_name">Anthony Edward Stark</string>
+    <string name="pix_confirmation_institution">Instituição</string>
+    <string name="pix_confirmation_institution_name">Banco Bradesco S.A</string>
+    <string name="pix_confirmation_when">Quando</string>
+    <string name="pix_confirmation_when_date">Agora</string>
+    <string name="pix_confirmation_button">Abrir comprovante</string>
+
+    <string name="close_icon_description">Icone de x para fechar a tela e retornar para a home</string>
+    <string name="share_icon_description">Icone para compartilhar</string>
+
+    <string name="pix_success_title">Comprovante</string>
+    <string name="pix_success_description">Comprovante de Transferência</string>
+    <string name="pix_success_date">15 DEZ 2025 - 15:51:05</string>
+    <string name="pix_success_amount_01">Valor</string>
+    <string name="pix_success_amount_02">R$ 10.000,00</string>
+    <string name="pix_success_transfer_type_01">Tipo de Transferência</string>
+    <string name="pix_success_transfer_type_02">Pix</string>
+    <string name="pix_success_transfer_destiny">Destino</string>
+    <string name="pix_success_transfer_destiny_name_01">Nome</string>
+    <string name="pix_success_transfer_destiny_name_02">Anthony Edward Stark</string>
+    <string name="pix_success_transfer_destiny_cpf_01">CPF</string>
+    <string name="pix_success_transfer_destiny_cpf_02">●●●.314.656-●●</string>
+    <string name="pix_success_transfer_destiny_institution_01">Instituição</string>
+    <string name="pix_success_transfer_destiny_institution_02">Banco Bradesco S.A</string>
+    <string name="pix_success_transfer_origin">Origem</string>
+    <string name="pix_success_transfer_origin_name_01">Nome</string>
+    <string name="pix_success_transfer_origin_name_02">Cristiano Ronaldo dos Santos</string>
+    <string name="pix_success_transfer_origin_cpf_01">CPF</string>
+    <string name="pix_success_transfer_origin_cpf_02">●●●.217.712-●●</string>
+    <string name="pix_success_transfer_origin_institution_01">Instituição</string>
+    <string name="pix_success_transfer_origin_institution_02">Banco Delta S.A</string>
+    <string name="pix_success_transfer_origin_agency_01">Agência</string>
+    <string name="pix_success_transfer_origin_agency_02">0007</string>
+    <string name="pix_success_transfer_origin_account_01">Conta</string>
+    <string name="pix_success_transfer_origin_account_02">777777-7</string>
+    <string name="pix_success_delta">Banco Delta S.A</string>
+    <string name="pix_success_delta_cnpj">CNPJ: 01.000.000/0001-00</string>
+    <string name="pix_success_delta_transaction_id_01">ID da transação:</string>
+    <string name="pix_success_delta_transaction_id_02">A123456789012345678c012r54321a</string>
+
 </resources>
