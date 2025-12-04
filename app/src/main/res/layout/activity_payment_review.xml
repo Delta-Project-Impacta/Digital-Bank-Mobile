@@ -184,7 +184,7 @@
         app:layout_constraintTop_toBottomOf="@id/payment_Review_Description_08_View" />
 
     <TextView
-        android:id="@+id/payment_review_description_10_View"
+        android:id="@+id/payment_Review_Description_10_View"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -198,7 +198,7 @@
         app:layout_constraintTop_toBottomOf="@id/payment_Review_Description_09_View" />
 
     <TextView
-        android:id="@+id/payment_review_description_11_View"
+        android:id="@+id/payment_Review_Description_11_View"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -208,10 +208,10 @@
         android:textColor="@color/grey"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/payment_review_description_10_View" />
+        app:layout_constraintTop_toBottomOf="@id/payment_Review_Description_10_View" />
 
     <TextView
-        android:id="@+id/payment_review_description_12_View"
+        android:id="@+id/payment_Review_Description_12_View"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -223,7 +223,7 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/payment_review_description_11_View" />
+        app:layout_constraintTop_toBottomOf="@id/payment_Review_Description_11_View" />
 
     <View
         android:id="@+id/divider_3"
@@ -236,7 +236,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/payment_review_description_15_View" />
+        app:layout_constraintTop_toTopOf="@id/payment_Review_Description_15_View" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/payment_Review_Button_Next"
@@ -255,7 +255,7 @@
 
 
     <TextView
-        android:id="@+id/payment_review_description_15_View"
+        android:id="@+id/payment_Review_Description_15_View"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -269,7 +269,7 @@
         app:layout_constraintVertical_bias="0.3" />
 
     <TextView
-        android:id="@+id/payment_review_description_14_View"
+        android:id="@+id/payment_Review_Description_14_View"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -279,7 +279,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/payment_Review_Button_Next"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/payment_review_description_15_View"
+        app:layout_constraintTop_toBottomOf="@id/payment_Review_Description_15_View"
         app:layout_constraintVertical_bias="0.7" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 

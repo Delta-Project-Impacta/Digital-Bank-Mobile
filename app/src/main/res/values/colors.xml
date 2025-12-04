@@ -4,13 +4,15 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange">#FF5800</color>
     <color name="orange_80">#4DFF5800</color>
-
-    <color name="orange_10">#ffefe6</color>
+    <color name="white_70">#B3FFFFFF</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="orange_10">#FFEFE6</color>
     <color name="blue_gray">#8696BB</color>
 
     <color name="grey">#5E5E5E</color>
     <color name="dark_grey">#393939</color>
     <color name="grey_opacity30">#4D383838</color>
+    <color name="blue_text">#34005D</color>
 
     <color name="blue">#0451FF</color>
     <color name="light_grey">#EBEBEB</color>

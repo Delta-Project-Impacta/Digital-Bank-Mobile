@@ -22,8 +22,7 @@ class PaymentHomeActivity : AppCompatActivity() {
 
         val qrCodeScannerButton = findViewById<ImageView>(R.id.payment_Home_Icon_Camera)
         qrCodeScannerButton.setOnClickListener {
-            intent = Intent(this, QrCodeScannerActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, QrCodeScannerActivity::class.java))
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.payment_Home_Container)) { v, insets ->
