@@ -12,6 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeltaBank">
         <activity
+            android:name=".presentation.activities.QrCodeScannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PaymentSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PaymentConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PaymentPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PaymentReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PaymentHomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.activities.PixSuccessActivity"
             android:exported="false" />
         <activity
@@ -72,5 +90,8 @@
             android:name=".presentation.activities.ForgotPasswordActivity"
             android:exported="false" />
     </application>
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
 </manifest>

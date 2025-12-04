@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
 
 /*               val loginButton = findViewById<AppCompatButton>(R.id.btn_login)
         loginButton.setOnClickListener {
-            val intent = Intent(this, TransferHomeActivity::class.java)
+            val intent = Intent(this, PaymentHomeActivity::class.java)
             startActivity(intent)
         }*/
 
