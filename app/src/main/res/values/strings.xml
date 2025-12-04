@@ -86,7 +86,7 @@
     <string name="password_reseted_title">Redefinido com sucesso</string>
     <string name="password_reseted_description">Agora você pode fazer login na sua conta</string>
     <string name="password_reseted_button">Fazer Login</string>
-    
+
     <string name="home_client_incial">CR</string>
 
     <string name="transfer_home_title">Pix ou Transferir</string>
@@ -254,5 +254,33 @@
     <string name="qr_code_scanner_description">Aponte a câmera para um QR Code</string>
     <string name="qr_code_scanner_bottom">Inserir dados manualmente</string>
     <string name="qr_code_scanner_arrow_description">Seta para inserir os dados manualmente</string>
+
+    <string name="cards_home_title">Cartões</string>
+    <string name="cards_home_bank_name">delta</string>
+    <string name="cards_home_description_name">Cristiano Ronaldo</string>
+    <string name="cards_home_description_number">7777</string>
+    <string name="cards_home_description_card_type">Débito</string>
+    <string name="cards_home_card_unlocked_locked_01">Cartão Desbloqueado</string>
+    <string name="cards_home_card_unlocked_locked_02">Bloquear</string>
+    <string name="cards_home_display_password">Exibir Senha</string>
+    <string name="cards_home_change_password">Alterar Senha</string>
+    <string name="cards_home_second_way">2ª via do cartão</string>
+    <string name="cards_home_icon_go">Ícone de Navegação</string>
+
+    <string name="card_display_password_title">Exibir Senha</string>
+    <string name="card_display_password_description">Recomendamos que você não anote nem compartilhe a senha.</string>
+    <string name="card_display_password_bottom">Mostrar Senha</string>
+
+    <string name="card_change_password_title">Alterar Senha</string>
+    <string name="card_change_password_description_01">Digite sua senha de 4 dígitos</string>
+    <string name="card_change_password_description_02">Essa é a sua senha de 4 dígitos do seu cartão Delta</string>
+    <string name="card_change_password_button">Alterar Senha</string>
+
+    <string name="card_second_way_title">2ª via do Cartão</string>
+    <string name="card_second_way_description_01">Atenção</string>
+    <string name="card_second_way_description_02">Após a confirmação, seu cartão atual será <b>cancelado.</b></string>
+    <string name="card_second_way_description_03">O novo cartão será entregue em até <b>15 dias</b> corridos.</string>
+    <string name="card_second_way_description_04">Essa operação não poderá ser cancelada e haverá um custo de <b>R$ 8.10</b> por reemissão.</string>
+    <string name="card_second_way_button">Confirmar Solicitação</string>
 
 </resources>
