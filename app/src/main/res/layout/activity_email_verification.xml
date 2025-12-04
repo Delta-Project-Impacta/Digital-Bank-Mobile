@@ -109,13 +109,14 @@
 
     <TextView
         android:id="@+id/forgot_Check_Timer"
-        android:layout_width="52dp"
-        android:layout_height="21dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="26dp"
         android:fontFamily="@font/bradesco_sans_bold"
         android:gravity="center"
         android:text="@string/email_verification_check_text_timer"
         android:textSize="18sp"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linear_Layout" />
@@ -150,12 +151,14 @@
             android:id="@+id/email_Verification_Text_Bottom_02"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/email_verification_bottom_02"
-            android:textSize="16sp"
             android:fontFamily="@font/bradesco_sans_bold"
+            android:text="@string/email_verification_bottom_02"
             android:textAlignment="center"
             android:textColor="@color/black"
-            />
+            android:textSize="16sp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?android:attr/selectableItemBackgroundBorderless"/>
 
     </LinearLayout>
 

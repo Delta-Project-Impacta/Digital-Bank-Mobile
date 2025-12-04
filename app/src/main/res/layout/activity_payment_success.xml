@@ -1,20 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/payment_Success_Container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.activities.PixSuccessActivity">
+    tools:context=".presentation.activities.PaymentSuccessActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/pix_Success_Toolbar"
+        android:id="@+id/payment_Success_Toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_toolbar"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/pix_Success_Close"
+            android:id="@+id/payment_Success_Close"
             android:layout_width="36dp"
             android:layout_height="44dp"
             android:tint="@color/white"
@@ -25,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
-            android:text="@string/pix_success_title"
+            android:text="@string/payment_success_title"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -36,148 +37,148 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/pix_Success_Toolbar">
+        app:layout_constraintTop_toBottomOf="@id/payment_Success_Toolbar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/pix_Success_Description"
+                android:id="@+id/payment_Success_Description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="60dp"
-                android:text="@string/pix_success_description"
+                android:text="@string/payment_success_description"
                 android:textColor="@color/black"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@id/pix_Success_Share"
+                app:layout_constraintEnd_toStartOf="@id/payment_Success_Share"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/pix_Success_Share"
+                android:id="@+id/payment_Success_Share"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="30dp"
                 android:contentDescription="@string/share_icon_description"
                 android:src="@drawable/ic_share"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_Description"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_Description"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_Description"
+                app:layout_constraintTop_toTopOf="@id/payment_Success_Description"
                 app:layout_constraintVertical_bias="0" />
 
             <TextView
-                android:id="@+id/pix_Success_Date"
+                android:id="@+id/payment_Success_Date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="30dp"
-                android:text="@string/pix_success_date"
+                android:text="@string/payment_success_date"
                 android:textColor="@color/grey"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_Description" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_Description" />
 
             <TextView
-                android:id="@+id/pix_Success_Amount_Label"
+                android:id="@+id/payment_Success_Amount_Label"
                 style="@style/PixSuccessItemLabel"
                 android:layout_marginTop="30dp"
-                android:text="@string/pix_success_amount_01"
+                android:text="@string/payment_success_amount_01"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_Date" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_Date" />
 
             <TextView
-                android:id="@+id/pix_Success_Amount_Value"
+                android:id="@+id/payment_Success_Amount_Value"
                 style="@style/PixSuccessItemValue"
-                android:text="@string/pix_success_amount_02"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_Amount_Label"
+                android:text="@string/payment_success_amount_02"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_Amount_Label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_Amount_Label" />
+                app:layout_constraintTop_toTopOf="@id/payment_Success_Amount_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_TransferType_Label"
+                android:id="@+id/payment_Success_TransferType_Label"
                 style="@style/PixSuccessItemLabel"
                 android:layout_marginTop="5dp"
-                android:text="@string/pix_success_transfer_type_01"
+                android:text="@string/payment_success_transfer_type_01"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_Amount_Label" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_Amount_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_TransferType_Value"
+                android:id="@+id/payment_Success_TransferType_Value"
                 style="@style/PixSuccessItemValue"
-                android:text="@string/pix_success_transfer_type_02"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_TransferType_Label"
+                android:text="@string/payment_success_transfer_type_02"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_TransferType_Label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_TransferType_Label" />
+                app:layout_constraintTop_toTopOf="@id/payment_Success_TransferType_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_TransferDestiny_Title"
+                android:id="@+id/payment_Success_TransferDestiny_Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="@string/pix_success_transfer_destiny"
+                android:text="@string/payment_success_transfer_destiny"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_TransferType_Label" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_TransferType_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_DestinyName_Label"
+                android:id="@+id/payment_Success_DestinyName_Label"
                 style="@style/PixSuccessItemLabel"
                 android:layout_marginTop="10dp"
-                android:text="@string/pix_success_transfer_destiny_name_01"
+                android:text="@string/payment_success_transfer_destiny_name_01"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_TransferDestiny_Title" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_TransferDestiny_Title" />
 
             <TextView
-                android:id="@+id/pix_Success_DestinyName_Value"
+                android:id="@+id/payment_Success_DestinyName_Value"
                 style="@style/PixSuccessItemValue"
-                android:text="@string/pix_success_transfer_destiny_name_02"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_DestinyName_Label"
+                android:text="@string/payment_success_transfer_destiny_name_02"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_DestinyName_Label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_DestinyName_Label" />
+                app:layout_constraintTop_toTopOf="@id/payment_Success_DestinyName_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_DestinyCpf_Label"
+                android:id="@+id/payment_Success_DestinyCpf_Label"
                 style="@style/PixSuccessItemLabel"
                 android:layout_marginTop="5dp"
-                android:text="@string/pix_success_transfer_destiny_cpf_01"
+                android:text="@string/payment_success_transfer_destiny_cnpj_01"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_DestinyName_Label" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_DestinyName_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_DestinyCpf_Value"
+                android:id="@+id/payment_Success_DestinyCpf_Value"
                 style="@style/PixSuccessItemValue"
-                android:text="@string/pix_success_transfer_destiny_cpf_02"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_DestinyCpf_Label"
+                android:text="@string/payment_success_transfer_destiny_cnpj_02"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_DestinyCpf_Label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_DestinyCpf_Label" />
+                app:layout_constraintTop_toTopOf="@id/payment_Success_DestinyCpf_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_DestinyInstitution_Label"
+                android:id="@+id/payment_Success_DestinyInstitution_Label"
                 style="@style/PixSuccessItemLabel"
                 android:layout_marginTop="5dp"
-                android:text="@string/pix_success_transfer_destiny_institution_01"
+                android:text="@string/payment_success_transfer_destiny_institution_01"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_DestinyCpf_Label" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_DestinyCpf_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_DestinyInstitution_Value"
+                android:id="@+id/payment_Success_DestinyInstitution_Value"
                 style="@style/PixSuccessItemValue"
-                android:text="@string/pix_success_transfer_destiny_institution_02"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_DestinyInstitution_Label"
+                android:text="@string/payment_success_transfer_destiny_institution_02"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_DestinyInstitution_Label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_DestinyInstitution_Label" />
+                app:layout_constraintTop_toTopOf="@id/payment_Success_DestinyInstitution_Label" />
 
             <View
-                android:id="@+id/pix_Success_Divider_Destiny_Origin"
+                android:id="@+id/payment_Success_Divider_Destiny_Origin"
                 android:layout_width="0dp"
                 android:layout_height="2dp"
                 android:layout_marginStart="30dp"
@@ -186,117 +187,117 @@
                 android:background="@drawable/divider_line"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_DestinyInstitution_Label" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_DestinyInstitution_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_TransferOrigin_Title"
+                android:id="@+id/payment_Success_TransferOrigin_Title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="@string/pix_success_transfer_origin"
+                android:text="@string/payment_success_transfer_origin"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_Divider_Destiny_Origin" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_Divider_Destiny_Origin" />
 
             <TextView
-                android:id="@+id/pix_Success_OriginName_Label"
+                android:id="@+id/payment_Success_OriginName_Label"
                 style="@style/PixSuccessItemLabel"
                 android:layout_marginTop="10dp"
-                android:text="@string/pix_success_transfer_origin_name_01"
+                android:text="@string/payment_success_transfer_origin_name_01"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_TransferOrigin_Title" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_TransferOrigin_Title" />
 
             <TextView
-                android:id="@+id/pix_Success_OriginName_Value"
+                android:id="@+id/payment_Success_OriginName_Value"
                 style="@style/PixSuccessItemValue"
-                android:text="@string/pix_success_transfer_origin_name_02"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_OriginName_Label"
+                android:text="@string/payment_success_transfer_origin_name_02"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_OriginName_Label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_OriginName_Label" />
+                app:layout_constraintTop_toTopOf="@id/payment_Success_OriginName_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_OriginCpf_Label"
+                android:id="@+id/payment_Success_OriginCpf_Label"
                 style="@style/PixSuccessItemLabel"
                 android:layout_marginTop="5dp"
-                android:text="@string/pix_success_transfer_origin_cpf_01"
+                android:text="@string/payment_success_transfer_origin_cpf_01"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_OriginName_Label" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_OriginName_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_OriginCpf_Value"
+                android:id="@+id/payment_Success_OriginCpf_Value"
                 style="@style/PixSuccessItemValue"
-                android:text="@string/pix_success_transfer_origin_cpf_02"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_OriginCpf_Label"
+                android:text="@string/payment_success_transfer_origin_cpf_02"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_OriginCpf_Label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_OriginCpf_Label" />
+                app:layout_constraintTop_toTopOf="@id/payment_Success_OriginCpf_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_OriginInstitution_Label"
+                android:id="@+id/payment_Success_OriginInstitution_Label"
                 style="@style/PixSuccessItemLabel"
                 android:layout_marginTop="5dp"
-                android:text="@string/pix_success_transfer_origin_institution_01"
+                android:text="@string/payment_success_transfer_origin_institution_01"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_OriginCpf_Label" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_OriginCpf_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_OriginInstitution_Value"
+                android:id="@+id/payment_Success_OriginInstitution_Value"
                 style="@style/PixSuccessItemValue"
-                android:text="@string/pix_success_transfer_origin_institution_02"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_OriginInstitution_Label"
+                android:text="@string/payment_success_transfer_origin_institution_02"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_OriginInstitution_Label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_OriginInstitution_Label" />
+                app:layout_constraintTop_toTopOf="@id/payment_Success_OriginInstitution_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_OriginAgency_Label"
+                android:id="@+id/payment_Success_OriginAgency_Label"
                 style="@style/PixSuccessItemLabel"
                 android:layout_marginTop="5dp"
-                android:text="@string/pix_success_transfer_origin_agency_01"
+                android:text="@string/payment_success_transfer_origin_agency_01"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_OriginInstitution_Label" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_OriginInstitution_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_OriginAgency_Value"
+                android:id="@+id/payment_Success_OriginAgency_Value"
                 style="@style/PixSuccessItemValue"
-                android:text="@string/pix_success_transfer_origin_agency_02"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_OriginAgency_Label"
+                android:text="@string/payment_success_transfer_origin_agency_02"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_OriginAgency_Label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_OriginAgency_Label" />
+                app:layout_constraintTop_toTopOf="@id/payment_Success_OriginAgency_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_OriginAccount_Label"
+                android:id="@+id/payment_Success_OriginAccount_Label"
                 style="@style/PixSuccessItemLabel"
                 android:layout_marginTop="5dp"
-                android:text="@string/pix_success_transfer_origin_account_01"
+                android:text="@string/payment_success_transfer_origin_account_01"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_OriginAgency_Label" />
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_OriginAgency_Label" />
 
             <TextView
-                android:id="@+id/pix_Success_OriginAccount_Value"
+                android:id="@+id/payment_Success_OriginAccount_Value"
                 style="@style/PixSuccessItemValue"
-                android:text="@string/pix_success_transfer_origin_account_02"
-                app:layout_constraintBottom_toBottomOf="@id/pix_Success_OriginAccount_Label"
+                android:text="@string/payment_success_transfer_origin_account_02"
+                app:layout_constraintBottom_toBottomOf="@id/payment_Success_OriginAccount_Label"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/pix_Success_OriginAccount_Label" />
+                app:layout_constraintTop_toTopOf="@id/payment_Success_OriginAccount_Label" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/pix_Success_Delta_Container"
+                android:id="@+id/payment_Success_Delta_Container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
                 android:background="@color/light_grey"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                app:layout_constraintTop_toBottomOf="@id/pix_Success_OriginAccount_Label">
+                app:layout_constraintTop_toBottomOf="@id/payment_Success_OriginAccount_Label">
 
                 <TextView
-                    android:id="@+id/pix_Success_Delta_Name"
+                    android:id="@+id/payment_Success_Delta_Name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:text="@string/pix_success_delta"
+                    android:text="@string/payment_success_delta"
                     android:textColor="@color/grey"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -304,41 +305,41 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/pix_Success_Delta_Cnpj"
+                    android:id="@+id/payment_Success_Delta_Cnpj"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
 
-                    android:text="@string/pix_success_delta_cnpj"
+                    android:text="@string/payment_success_delta_cnpj"
                     android:textColor="@color/grey"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/pix_Success_Delta_Name" />
+                    app:layout_constraintTop_toBottomOf="@id/payment_Success_Delta_Name" />
 
                 <TextView
-                    android:id="@+id/pix_Success_Delta_TransactionId_Label"
+                    android:id="@+id/payment_Success_Delta_TransactionId_Label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:text="@string/pix_success_delta_transaction_id_01"
+                    android:text="@string/payment_success_delta_transaction_id_01"
                     android:textColor="@color/grey"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/pix_Success_Delta_Cnpj" />
+                    app:layout_constraintTop_toBottomOf="@id/payment_Success_Delta_Cnpj" />
 
                 <TextView
-                    android:id="@+id/pix_Success_Delta_TransactionId_Value"
+                    android:id="@+id/payment_Success_Delta_TransactionId_Value"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="30dp"
-                    android:text="@string/pix_success_delta_transaction_id_02"
+                    android:text="@string/payment_success_delta_transaction_id_02"
                     android:textColor="@color/grey"
                     android:textSize="12sp"
-                    app:layout_constraintBottom_toBottomOf="@id/pix_Success_Delta_TransactionId_Label"
+                    app:layout_constraintBottom_toBottomOf="@id/payment_Success_Delta_TransactionId_Label"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/pix_Success_Delta_TransactionId_Label"
-                    app:layout_constraintTop_toTopOf="@id/pix_Success_Delta_TransactionId_Label" />
+                    app:layout_constraintStart_toEndOf="@id/payment_Success_Delta_TransactionId_Label"
+                    app:layout_constraintTop_toTopOf="@id/payment_Success_Delta_TransactionId_Label" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
