@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.domleondev.deltabank.R
@@ -70,9 +71,9 @@ class EmailVerificationActivity : AppCompatActivity() {
                 timerTextView.text = String.format("%02d:%02d", minutes, seconds)
 
                 if (secondsLeft <= 10) {
-                    timerTextView.setTextColor(resources.getColor(R.color.red, theme))
+                    timerTextView.setTextColor(ContextCompat.getColor(this@EmailVerificationActivity, R.color.red))
                 } else {
-                    timerTextView.setTextColor(resources.getColor(R.color.black, theme))
+                    timerTextView.setTextColor(ContextCompat.getColor(this@EmailVerificationActivity, R.color.black))
                 }
             }
 

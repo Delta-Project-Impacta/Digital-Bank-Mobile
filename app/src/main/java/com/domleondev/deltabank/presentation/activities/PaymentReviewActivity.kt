@@ -54,7 +54,7 @@ class PaymentReviewActivity : AppCompatActivity() {
             }
 
             findViewById<TextView>(R.id.payment_Review_Description_02_View).text = valorFormatado
-            findViewById<TextView>(R.id.payment_review_description_15_View).text = valorFormatado
+            findViewById<TextView>(R.id.payment_Review_Description_15_View).text = valorFormatado
 
             findViewById<TextView>(R.id.payment_Review_Description_04_View).text =
                 nomeBeneficiario ?: "Não informado"
@@ -72,7 +72,7 @@ class PaymentReviewActivity : AppCompatActivity() {
             }
             findViewById<TextView>(R.id.payment_Review_Description_07_View).text = instituicao
 
-            findViewById<TextView>(R.id.payment_review_description_11_View).text = "PIX"
+            findViewById<TextView>(R.id.payment_Review_Description_11_View).text = "PIX"
 
         } catch (e: Exception) {
             Log.e("PIX", "Erro ao parsear", e)
