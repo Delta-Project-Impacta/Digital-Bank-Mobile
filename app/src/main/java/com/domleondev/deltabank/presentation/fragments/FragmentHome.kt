@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.domleondev.deltabank.R
+import com.domleondev.deltabank.presentation.activities.PaymentHomeActivity
 import com.domleondev.deltabank.presentation.activities.TransferHomeActivity
 import com.google.android.material.card.MaterialCardView
 
@@ -31,11 +32,19 @@ class FragmentHome: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val fragmentHomePixTrasfer = view.findViewById<MaterialCardView>(R.id.fragment_Home_Pix_Trasfer)
+        val fragmentHomePixTransfer = view.findViewById<MaterialCardView>(R.id.fragment_Home_Pix_Transfer)
 
-        fragmentHomePixTrasfer.setOnClickListener {
+        fragmentHomePixTransfer.setOnClickListener {
              val intent = Intent(requireContext(), TransferHomeActivity::class.java)
             startActivity(intent)
         }
+
+        val fragmentHomePayTransfer = view.findViewById<MaterialCardView>(R.id.fragment_Home_Pay_Transfer)
+
+        fragmentHomePayTransfer.setOnClickListener {
+            val intent = Intent(requireContext(), PaymentHomeActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }
