@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -11,6 +17,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DeltaBank">
+        <activity
+            android:name=".presentation.activities.CardSecondWayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.CardChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.CardDisplayPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.CardsActivity"
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.QrCodeScannerActivity"
             android:exported="false" />
@@ -90,8 +108,5 @@
             android:name=".presentation.activities.ForgotPasswordActivity"
             android:exported="false" />
     </application>
-
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" android:required="true" />
 
 </manifest>

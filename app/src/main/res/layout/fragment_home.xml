@@ -217,6 +217,7 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/fragment_Home_Cards"
             android:layout_width="100dp"
             android:layout_height="100dp"
             app:cardBackgroundColor="@color/white_70"

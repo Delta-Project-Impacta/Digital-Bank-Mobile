@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.domleondev.deltabank.R
+import com.domleondev.deltabank.presentation.activities.CardsActivity
 import com.domleondev.deltabank.presentation.activities.PaymentHomeActivity
 import com.domleondev.deltabank.presentation.activities.TransferHomeActivity
 import com.google.android.material.card.MaterialCardView
@@ -43,6 +44,13 @@ class FragmentHome: Fragment() {
 
         fragmentHomePayTransfer.setOnClickListener {
             val intent = Intent(requireContext(), PaymentHomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        val fragmentHomeCards = view.findViewById<MaterialCardView>(R.id.fragment_Home_Cards)
+
+        fragmentHomeCards.setOnClickListener {
+            val intent = Intent(requireContext(), CardsActivity::class.java)
             startActivity(intent)
         }
 
