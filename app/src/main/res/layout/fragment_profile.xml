@@ -1,28 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/profile"
+        android:id="@+id/profile_Title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_toolbar"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:contentInsetStartWithNavigation="0dp">
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="50dp"
-        android:text="@string/profile_title"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:text="@string/profile_title"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -44,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@id/profile_Button_Logout"
-        app:layout_constraintTop_toBottomOf="@id/profile">
+        app:layout_constraintTop_toBottomOf="@id/profile_Title">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -81,28 +79,21 @@
                         android:textColor="@color/white"
                         android:textSize="22sp"
                         android:textStyle="bold"
-
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-
-                        app:layout_constraintTop_toTopOf="parent"
-
-                        />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/profile_Value_Name"
+                        android:id="@+id/profile_Name"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:text="@string/profile_name"
                         android:textColor="@color/grey"
                         android:textSize="16sp"
-
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="@id/profile_Label_Initials"
-
                         app:layout_constraintEnd_toEndOf="parent"
-
                         app:layout_constraintStart_toEndOf="@id/profile_Label_Initials"
                         app:layout_constraintTop_toTopOf="@id/profile_Label_Initials" />
 
@@ -114,7 +105,7 @@
                     android:background="@color/medium_grey2" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/option_Bank"
+                    android:id="@+id/profile_Bank"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"
@@ -122,28 +113,30 @@
                     android:paddingVertical="15dp">
 
                     <TextView
-                        android:id="@+id/payment_Confirmation_For_Label"
+                        android:id="@+id/profile_Bank_Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
                         android:text="@string/profile_bank_01"
                         android:textColor="@color/orange"
                         android:textSize="16sp"
                         android:textStyle="bold"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/payment_Confirmation_Amount_View" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/payment_Confirmation_For_Name_Value"
+                        android:id="@+id/profile_Bank_Number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/profile_bank_02"
                         android:textColor="@color/grey"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@id/payment_Confirmation_For_Label"
+
+                        app:layout_constraintBottom_toBottomOf="@id/profile_Bank_Name"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/payment_Confirmation_For_Label" />
+                        app:layout_constraintTop_toTopOf="@id/profile_Bank_Name" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -154,7 +147,7 @@
                     android:background="@color/medium_grey2" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/option_Bank"
+                    android:id="@+id/profile_Agency"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"
@@ -162,28 +155,30 @@
                     android:paddingVertical="15dp">
 
                     <TextView
-                        android:id="@+id/payment_Confirmation_For_Label"
+                        android:id="@+id/profile_Agency_Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
                         android:text="@string/profile_agency_01"
                         android:textColor="@color/orange"
                         android:textSize="16sp"
                         android:textStyle="bold"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/payment_Confirmation_Amount_View" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/payment_Confirmation_For_Name_Value"
+                        android:id="@+id/profile_Agency_Number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/profile_agency_02"
                         android:textColor="@color/grey"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@id/payment_Confirmation_For_Label"
+
+                        app:layout_constraintBottom_toBottomOf="@id/profile_Agency_Name"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/payment_Confirmation_For_Label" />
+                        app:layout_constraintTop_toTopOf="@id/profile_Agency_Name" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -194,7 +189,7 @@
                     android:background="@color/medium_grey2" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/option_Bank"
+                    android:id="@+id/profile_Account"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"
@@ -202,28 +197,30 @@
                     android:paddingVertical="15dp">
 
                     <TextView
-                        android:id="@+id/payment_Confirmation_For_Label"
+                        android:id="@+id/profile_Account_Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
                         android:text="@string/profile_account_01"
                         android:textColor="@color/orange"
                         android:textSize="16sp"
                         android:textStyle="bold"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/payment_Confirmation_Amount_View" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/payment_Confirmation_For_Name_Value"
+                        android:id="@+id/profile_Account_Number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/profile_account_02"
                         android:textColor="@color/grey"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="@id/payment_Confirmation_For_Label"
+
+                        app:layout_constraintBottom_toBottomOf="@id/profile_Account_Name"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/payment_Confirmation_For_Label" />
+                        app:layout_constraintTop_toTopOf="@id/profile_Account_Name" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -234,7 +231,7 @@
                     android:background="@color/medium_grey2" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/option_Bank"
+                    android:id="@+id/profile_Pix"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="?android:attr/selectableItemBackground"
@@ -242,28 +239,29 @@
                     android:paddingVertical="15dp">
 
                     <TextView
-                        android:id="@+id/payment_Confirmation_For_Label"
+                        android:id="@+id/profile_Pix_Name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="40dp"
                         android:text="@string/profile_pix_key_01"
                         android:textColor="@color/orange"
                         android:textSize="16sp"
                         android:textStyle="bold"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/payment_Confirmation_Amount_View" />
+                        app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/payment_Confirmation_For_Name_Value"
+                        android:id="@+id/profile_Pix_Value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/profile_pix_key_02"
                         android:textColor="@color/grey"
                         android:textSize="12sp"
 
-                        app:layout_constraintBottom_toBottomOf="@id/payment_Confirmation_For_Label"
+                        app:layout_constraintBottom_toBottomOf="@id/profile_Pix_Name"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@id/payment_Confirmation_For_Label" />
+                        app:layout_constraintTop_toTopOf="@id/profile_Pix_Name" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
