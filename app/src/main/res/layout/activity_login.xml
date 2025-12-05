@@ -8,41 +8,31 @@
     tools:context=".presentation.activities.LoginActivity">
 
     <!-- HEADER -->
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/header_container"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:background="@drawable/login_header_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_toolbar"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/back_arrow"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/back_arrow"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="@android:color/white"
+            android:layout_width="36dp"
+            android:layout_height="44dp"
             android:contentDescription="@string/back_arrow_description"
-            />
+            android:src="@drawable/ic_back" />
 
         <TextView
-            android:id="@+id/header_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/font_sans_bold"
             android:text="@string/login_header"
-            android:textColor="@android:color/white"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
 
     <!-- Logo + Texto -->
     <androidx.constraintlayout.widget.ConstraintLayout

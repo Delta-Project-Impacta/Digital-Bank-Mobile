@@ -4,6 +4,12 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <application
         android:name=".presentation.DeltaBankApp"
         android:allowBackup="true"
@@ -13,8 +19,55 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Base.Theme.DeltaBank">
-        <!-- SPLASH -->
+        android:theme="@style/Theme.DeltaBank">
+        <activity
+            android:name=".presentation.activities.CardSecondWayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.CardChangePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.CardDisplayPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.CardsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.QrCodeScannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PaymentSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PaymentConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PaymentPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PaymentReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PaymentHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PixSuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PixConfirmationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PixReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PixPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.PixAmountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.TransferHomeActivity"
+            android:exported="false" /> <!-- SPLASH -->
         <activity
             android:name=".presentation.activities.SplashActivity"
             android:exported="true">

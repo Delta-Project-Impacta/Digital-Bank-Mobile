@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transfer_Home_Container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.activities.TransferHomeActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/transfer_Home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_toolbar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/transfer_Home_Arrow_Back"
+            android:layout_width="36dp"
+            android:layout_height="44dp"
+            android:contentDescription="@string/back_arrow_description"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:textStyle="bold"
+            android:text="@string/transfer_home_title"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <TextView
+        android:id="@+id/transfer_Home_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:text="@string/transfer_home_description"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Home" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/transfer_Home_Input_Pix"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        app:endIconDrawable="@drawable/ic_check"
+        app:endIconMode="none"
+        app:endIconTint="@color/orange"
+        app:hintTextColor="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Home_Title">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/transfer_Home_Edit_Pix"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_primary"
+
+            android:hint="@string/transfer_home_input"
+            android:textColor="@color/dark_grey"
+            android:textSize="13sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/transfer_Home_Layout_Account"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Home_Input_Pix">
+
+        <ImageView
+            android:id="@+id/transfer_Home_Icon"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bg_ic_transfer"
+            android:contentDescription="@string/transfer_arrow_description"
+            android:padding="10dp"
+            android:src="@drawable/ic_transfer" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+ 
+            android:text="@string/transfer_home_agency_account"
+            android:textColor="@color/grey"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/transfer_Home_Arrow_Transfer"
+            android:layout_width="36dp"
+            android:layout_height="44dp"
+            android:layout_marginStart="16dp"
+            android:rotationY="180"
+            android:src="@drawable/ic_back"
+            app:tint="@color/medium_grey" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/transfer_Home_Button_Next"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/bg_button_primary"
+
+        android:text="@string/transfer_home_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
