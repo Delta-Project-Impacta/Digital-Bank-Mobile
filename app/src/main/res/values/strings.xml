@@ -15,6 +15,23 @@
     <string name="main_button_login">Já tenho conta</string>
     <string name="main_button_register">Criar Conta</string>
 
+    <string name="home_client_incial">CR</string>
+    <string name="home_hello">Olá,</string>
+    <string name="home_client_name">Cristiano</string>
+    <string name="home_balance_description">Meu saldo: R$</string>
+    <string name="home_balance_text">●●●●●●●</string>
+    <string name="home_card_pix_description">Pix ou Transferir</string>
+    <string name="home_card_pay_description">Pagar</string>
+    <string name="home_card_description">Cartões</string>
+    <string name="home_card_investiments">Investimentos</string>
+    <string name="home_card_savings">Poupança</string>
+    <string name="home_card_pix_keys">Chaves Pix</string>
+    <string name="home_card_loan">Empréstimos</string>
+    <string name="home_card_consortium">Consórcios</string>
+    <string name="home_card_receipts">Comprovantes</string>
+    <string name="home_card_phone_top_up">Recarga de celular</string>
+    <string name="home_card_renegotiation">Renegociação</string>
+
     <string name="register_title">Criar Conta</string>
     <string name="register_text_title">O primeiro passo para abrir sua conta \né informar uns dados ;)</string>
     <string name="register_name">Nome</string>
@@ -102,13 +119,10 @@
     <string name="error_invalid_email">E-mail inválido</string>
     <string name="error_email_not_match">Emails não conferem</string>
     <string name="error_invalid_phone">Número de telefone inválido</string>
-    <string name="error_generic">Ocorreu um erro inesperado</string>
 
     <!-- String dinamica -->
     <string name="hello_user">Olá, %1$s</string>
     <string name="error_firebase_generic"><![CDATA[<string name=\"error_firebase_generic\">Ocorreu um erro inexperado</string>]]></string>
-
-    <string name="home_client_incial">CR</string>
 
     <string name="transfer_home_title">Pix ou Transferir</string>
     <string name="transfer_home_description">Para quem você vai transferir?</string>
@@ -161,6 +175,43 @@
     <string name="pix_confirmation_when">Quando</string>
     <string name="pix_confirmation_when_date">Agora</string>
     <string name="pix_confirmation_button">Abrir comprovante</string>
+
+    <string name="transfer_amount_title">Transferências</string>
+    <string name="transfer_amount_description">Transferindo para</string>
+    <string name="transfer_amount_name">Anthony Edward Stark</string>
+    <string name="transfer_amount_bank">Banco</string>
+    <string name="transfer_amount_bank_name">Banco Bradesco S.A.</string>
+    <string name="transfer_amount_agency">Agência</string>
+    <string name="transfer_amount_agency_number">6753</string>
+    <string name="transfer_amount_account">Conta</string>
+    <string name="transfer_amount_account_number">675376-7</string>
+    <string name="transfer_amount_label">Valor</string>
+    <string name="transfer_amount_input">R$ 10.000,00</string>
+    <string name="transfer_amount_input_eye">Icone de olho, apertar para mudar visibilidade</string>
+    <string name="transfer_amount_balance">Saldo conta-corrente</string>
+    <string name="transfer_amount_balance_amount">R$ 20.000,00</string>
+    <string name="transfer_amount_button">Continuar</string>
+
+    <string name="transfer_review_title">Confirmação</string>
+    <string name="transfer_review_description_01">Você vai enviar</string>
+    <string name="transfer_review_description_02">R$ 10.000,00</string>
+    <string name="transfer_review_description_03">Saldo Delta</string>
+    <string name="transfer_review_description_04">Anthony Edward Stark</string>
+    <string name="transfer_review_description_05">Agência:</string>
+    <string name="transfer_review_description_06">6753</string>
+    <string name="transfer_review_description_07">Conta:</string>
+    <string name="transfer_review_description_08">675376-7</string>
+    <string name="transfer_review_description_09">Banco Bradesco S/A</string>
+    <string name="transfer_review_description_10_when">Quando</string>
+    <string name="transfer_review_description_11_when">Agora, sem repetir</string>
+    <string name="transfer_review_description_12_via">Via</string>
+    <string name="transfer_review_description_13_via">Transferência</string>
+    <string name="transfer_review_description_14_message">Mensagem</string>
+    <string name="transfer_review_description_15_message">Enviando pagamento</string>
+    <string name="transfer_review_description_16_total">R$ 10.000,00</string>
+    <string name="transfer_review_description_17_total">Valor Total</string>
+    <string name="transfer_review_description_18">Conta Corrente</string>
+    <string name="transfer_review_button">Continuar</string>
 
     <string name="close_icon_description">Icone de x para fechar a tela e retornar para a home</string>
     <string name="share_icon_description">Icone para compartilhar</string>
@@ -322,5 +373,31 @@
     <string name="profile_icon_01_description">Icone de compartilhar a conta</string>
     <string name="profile_icon_02_description">Icone de de meus dados</string>
     <string name="profile_icon_03_description">Icone de configurações</string>
+
+    <string name="payment_transfers_title">Transferências</string>
+    <string name="transfers_data_subtitle">Informe os dados para \n a Transferência</string>
+    <string name="transfers_hint_input">Banco</string>
+    <string name="transfers_list_search_not_find">Nenhum banco encontrado</string>
+    <string name="transfers_hint_agency">Agência</string>
+    <string name="transfers_hint_account">Conta</string>
+    <string name="transfers_hint_account_type">Qual é o seu tipo de conta</string>
+    <string name="transfers_account_type_current">Conta corrente</string>
+    <string name="transfers_bank_account_type_savings">Conta poupança</string>
+    <string name="transfers_radio_individual">Pessoa Física</string>
+    <string name="transfers_radio_company">Pessoa Jurídica</string>
+    <string name="transfers_description_name_bank">Digite o nome ou código do seu banco aqui</string>
+    <string name="transfers_description_agency">Digite o número da sua agência</string>
+    <string name="transfers_description_account">Digite o número da sua conta</string>
+    <string name="transfers_description_individual">Pessoa Física</string>
+    <string name="transfers_description_company">Pessoa Jurídica</string>
+    <string name="transfers_description_button_next">Salvar informações e continuar</string>
+
+    <string name="error_empty_bank">Banco é obrigatório.</string>
+    <string name="error_empty_agency">Agência inválida.</string>
+    <string name="error_empty_account">Conta inválida.</string>
+    <string name="error_empty_account_type">Tipo da conta é obrigatório.</string>
+    <string name="error_generic">Ocorreu um erro inesperado.</string>
+    <string name="buttom_sheet_bank_title">Escolha uma opção</string>
+    <string name="button_sheet_bank_input">Digite aqui para pesquisar</string>
 
 </resources>

@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.activities.TransferAmountActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/transfer_Amount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_toolbar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/transfer_Amount_Arrow_Back"
+            android:layout_width="36dp"
+            android:layout_height="44dp"
+            android:contentDescription="@string/back_arrow_description"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:textStyle="bold"
+            android:text="@string/transfer_amount_title"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <TextView
+        android:id="@+id/transfer_Amount_Description_View"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/transfer_amount_description"
+        android:textColor="@color/grey"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount" />
+
+    <TextView
+        android:id="@+id/transfer_Amount_Name_View"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:textStyle="bold"
+        android:text="@string/transfer_amount_name"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Description_View" />
+
+    <TextView
+        android:id="@+id/transfer_Amount_Label_View"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/transfer_amount_label"
+        android:textColor="@color/grey"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Name_View" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/transfer_Amount_Input_Value"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:boxBackgroundColor="@android:color/transparent"
+        app:hintEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Label_View"
+        app:prefixText="R$ "
+        app:prefixTextAppearance="@style/PrefixTextStyle"
+        app:prefixTextColor="@color/dark_grey">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/transfer_Amount_Edit_Value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-20dp"
+            android:background="@android:color/transparent"
+            android:textStyle="bold"
+            android:inputType="numberDecimal"
+            android:textColor="@color/dark_grey"
+            android:textSize="20sp"
+            tools:text="10.000,00" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+<!--    <TextView
+        android:id="@+id/transfer_Amount_Bank_View"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/transfer_amount_bank"
+        android:textColor="@color/grey"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Input_Value" />
+
+    <TextView
+        android:id="@+id/transfer_Amount_Bank_Name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:textStyle="bold"
+        android:text="@string/transfer_amount_bank_name"
+        android:textColor="@color/dark_grey"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Bank_View" />
+
+    <TextView
+        android:id="@+id/transfer_Amount_Agency_View"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/transfer_amount_agency"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Bank_Name" />
+
+    <TextView
+        android:id="@+id/transfer_Amount_Agency_Number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/transfer_amount_agency_number"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Agency_View" />
+
+
+    <TextView
+        android:id="@+id/transfer_Amount_Account_View"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/transfer_amount_account"
+        android:textColor="@color/grey"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Bank_Name" />
+
+    <TextView
+        android:id="@+id/transfer_Amount_Account_Number"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="30dp"
+        android:text="@string/transfer_amount_account_number"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Agency_View" />
+
+    <TextView
+        android:id="@+id/transfer_Amount_Type_Account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:text="@string/transfer_amount_balance"
+        android:textColor="@color/grey"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Agency_Number" />
+-->
+    <TextView
+        android:id="@+id/transfer_Amount_Balance_View"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:textStyle="bold"
+        android:text="@string/transfer_amount_balance"
+        android:textColor="@color/grey"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Label_View" />
+
+    <LinearLayout
+        android:id="@+id/transfer_Amount_Balance_Amount_Layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@id/transfer_Amount_Balance_View"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/transfer_Amount_Balance_View">
+
+        <TextView
+            android:id="@+id/transfer_Amount_Balance_Amount_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/transfer_amount_balance_amount"
+            android:textColor="@color/dark_grey"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/transfer_Amount_Balance_Toggle_Icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:clickable="true"
+            android:contentDescription="@string/transfer_amount_input_eye"
+            android:focusable="true"
+            android:src="@drawable/ic_eye"
+            app:tint="@color/grey" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/transfer_Amount_Button_Next"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="54dp"
+        android:background="@drawable/bg_button_primary"
+
+        android:text="@string/transfer_amount_button"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
