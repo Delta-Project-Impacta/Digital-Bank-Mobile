@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "665550075188",
+    "project_id": "deltabank-dd19d",
+    "storage_bucket": "deltabank-dd19d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:665550075188:android:86c97fe2fbbfc75d2de161",
+        "android_client_info": {
+          "package_name": "com.domleondev.deltabank"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbtfyTW0N_LFVM3ZH45ttEK4ZtleUJBPw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

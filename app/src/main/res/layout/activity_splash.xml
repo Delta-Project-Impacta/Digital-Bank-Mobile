@@ -33,7 +33,7 @@
             android:id="@+id/splash_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bradesco_font_family"
+            android:fontFamily="@font/font_family"
             android:gravity="center"
             android:includeFontPadding="false"
             android:letterSpacing="0"

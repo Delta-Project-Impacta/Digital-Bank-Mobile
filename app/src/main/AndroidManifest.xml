@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <uses-permission android:name="android.permission.CAMERA" />
 
     <uses-feature
@@ -9,6 +11,7 @@
         android:required="true" />
 
     <application
+        android:name=".presentation.DeltaBankApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -16,7 +19,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DeltaBank">
+        android:theme="@style/Base.Theme.DeltaBank">
         <activity
             android:name=".presentation.activities.CardSecondWayActivity"
             android:exported="false" />
@@ -76,37 +79,48 @@
         </activity> <!-- MAIN ACTIVITY NORMAL -->
         <activity
             android:name=".presentation.activities.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
         <activity
             android:name=".presentation.activities.RegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
         <activity
-            android:name=".presentation.activities.AddressActivity"
-            android:exported="false" />
+            android:name=".presentation.activities.RegisterAddressActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
         <activity
-            android:name=".presentation.activities.PasswordActivity"
-            android:exported="false" />
+            android:name=".presentation.activities.RegisterLoginPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
         <activity
-            android:name=".presentation.activities.AccountPasswordActivity"
-            android:exported="false" />
+            android:name=".presentation.activities.RegisterTransactionPasswordActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
         <activity
             android:name=".presentation.activities.LoginActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
         <activity
             android:name=".presentation.activities.HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
         <activity
             android:name=".presentation.activities.PasswordResetedActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
         <activity
             android:name=".presentation.activities.ResetPasswordActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
         <activity
             android:name=".presentation.activities.EmailVerificationActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
         <activity
             android:name=".presentation.activities.ForgotPasswordActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Base.Theme.DeltaBank"/>
     </application>
 
 </manifest>
