@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DeltaBank">
+        android:theme="@style/Base.Theme.DeltaBank">
         <activity
             android:name=".presentation.activities.CardSecondWayActivity"
             android:exported="false" />
