@@ -10,28 +10,34 @@ import androidx.core.view.WindowInsetsCompat
 import com.domleondev.deltabank.R
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var buttonRegister: AppCompatButton
+    private lateinit var buttonLogin: AppCompatButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        val buttonRegister = findViewById<AppCompatButton>(R.id.btn_Register)
+        buttonRegister = findViewById(R.id.btn_Register)
+        buttonLogin = findViewById(R.id.btn_login)
+
         buttonRegister.setOnClickListener {
+
 
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
         }
 
-        val loginButton = findViewById<AppCompatButton>(R.id.btn_login)
-        loginButton.setOnClickListener {
+        buttonLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
     }
 }

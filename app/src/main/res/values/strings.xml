@@ -86,4 +86,25 @@
     <string name="password_reseted_description">Agora você pode fazer login na sua conta</string>
     <string name="password_reseted_button">Fazer Login</string>
 
+    <!-- Validações e mensagens -->
+    <string name="fill_all_fields">Preencha todos os campos</string>
+    <string name="passwords_do_not_match">As senhas não conferem</string>
+    <string name="weak_password">Senha fraca, tente uma mais segura</string>
+    <string name="register_success">Senha cadastrada com sucesso!</string>
+    <string name="error_email_missing">Email ausente</string>
+
+    <string name="error_email_exists">Este e-mail já está cadastrado. Tente outro ou faça login.</string>
+    <string name="error_cpf_exists">Este CPF já está cadastrado. Tente outro ou faça login.</string>
+    <string name="error_invalid_name">Nome incompleto</string>
+    <string name="error_invalid_cpf">CPF Inválido</string>
+    <string name="error_invalid_birth">Data de nascimento inválida</string>
+    <string name="error_invalid_email">E-mail inválido</string>
+    <string name="error_email_not_match">Emails não conferem</string>
+    <string name="error_invalid_phone">Número de telefone inválido</string>
+    <string name="error_generic">Ocorreu um erro inesperado</string>
+
+    <!-- String dinamica -->
+    <string name="hello_user">Olá, %1$s</string>
+    <string name="error_firebase_generic"><![CDATA[<string name=\"error_firebase_generic\">Ocorreu um erro inexperado</string>]]></string>
+
 </resources>

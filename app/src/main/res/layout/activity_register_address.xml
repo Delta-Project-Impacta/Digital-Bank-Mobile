@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.activities.AddressActivity">
+    tools:context=".presentation.activities.RegisterAddressActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/address_Toolbar"
@@ -69,6 +69,17 @@
             android:textColor="@color/dark_grey" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/address_Input_Cep"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/address_Constraint_Layout"
@@ -168,7 +179,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/address_Input_City"
+        android:id="@+id/address_Edit_City"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -189,7 +200,7 @@
         android:textColor="@color/dark_grey" />
 
     <TextView
-        android:id="@+id/address_Input_State"
+        android:id="@+id/address_Edit_State"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -203,7 +214,7 @@
         android:paddingEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_Input_City"
+        app:layout_constraintTop_toBottomOf="@+id/address_Edit_City"
         android:background="@drawable/bg_input_primary"
         android:text="@string/address_state"
         android:textColor="@color/dark_grey" />
@@ -221,6 +232,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address_Input_State" />
+        app:layout_constraintTop_toBottomOf="@+id/address_Edit_State" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
