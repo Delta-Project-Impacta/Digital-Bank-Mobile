@@ -39,15 +39,19 @@
     </style>
 
     <style name="PinInputStyle">
-        <item name="android:layout_width">48dp</item>
-        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_width">56dp</item>
+        <item name="android:layout_height">64dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">52sp</item>
+        <item name="android:textSize">48sp</item>
         <item name="android:textColorHint">@color/grey</item>
         <item name="android:hint">●</item>
         <item name="android:inputType">number</item>
         <item name="android:maxLength">1</item>
         <item name="android:background">@android:color/transparent</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:cursorVisible">false</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
     </style>
 
     <style name="PixSuccessItemLabel">
