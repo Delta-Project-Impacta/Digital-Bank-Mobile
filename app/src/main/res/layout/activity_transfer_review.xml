@@ -295,13 +295,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-
     <TextView
         android:id="@+id/transfer_review_description_17_View"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:textStyle="bold"
+        android:layout_marginBottom="20dp"
         android:text="@string/transfer_review_description_17_total"
         android:textColor="@color/dark_grey"
         android:textSize="20sp"
@@ -314,12 +314,11 @@
         android:id="@+id/transfer_review_description_16_View"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-
+        android:layout_marginBottom="54dp"
         android:text="@string/transfer_review_description_16_total"
         android:textColor="@color/black"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@id/transfer_Review_Button_Next"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/transfer_review_description_17_View" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
