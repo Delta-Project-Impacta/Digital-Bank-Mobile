@@ -401,4 +401,10 @@
     <string name="buttom_sheet_bank_title">Escolha uma opção</string>
     <string name="button_sheet_bank_input">Digite aqui para pesquisar</string>
 
+    <string name="chat_bot_name">Kontein</string>
+    <string name="chat_bot_title">Chat</string>
+    <string name="chat_bot_hint">Digite sua mensagem...</string>
+    <string name="chat_bot_arrow_send_description">Icone para enviar a mensagem</string>
+    <string name="chat_bot_welcome">Oi! Sou o Kontein, inteligência artificial do Delta. Como posso ajudar hoje? 😊</string>
+
 </resources>
