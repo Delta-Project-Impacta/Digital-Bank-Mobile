@@ -51,13 +51,14 @@
         app:layout_constraintTop_toBottomOf="@+id/fragment_Home_Toolbar" />
 
     <TextView
+        android:id="@+id/textViewInitials"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_below="@+id/fragment_Home_Toolbar"
         android:layout_marginStart="19dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
-        android:text="@string/home_client_incial"
+        android:text="@string/home_client_initial"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="22sp"
