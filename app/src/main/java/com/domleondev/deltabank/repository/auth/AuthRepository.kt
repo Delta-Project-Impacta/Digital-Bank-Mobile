@@ -8,8 +8,6 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.tasks.await
 import java.security.MessageDigest
 import kotlin.coroutines.resume
-
-
 class AuthRepository(private val auth: FirebaseAuth) {
 
     private val db = FirebaseFirestore.getInstance()
@@ -55,7 +53,7 @@ class AuthRepository(private val auth: FirebaseAuth) {
             val userData = hashMapOf(
                 "uid" to user.uid,
                 "name" to name,
-                "cpf" to cpf,
+                "cpf" to cpf.replace(Regex("[^\\d]"), ""),
                 "birthDate" to birthDate,
                 "email" to email,
                 "loginPassword" to hash(loginPassword),
@@ -75,27 +73,47 @@ class AuthRepository(private val auth: FirebaseAuth) {
     /**
      * LOGIN POR CPF + SENHA DE 6 DÍGITOS
      */
+
+    suspend fun checkCpfExists(cpf: String): Boolean {
+
+        val query = db.collection("users")
+            .whereEqualTo("cpf", cpf)
+            .get()
+            .await()
+
+        Log.d("LOGIN_FLOW", "Documentos encontrados: ${query.documents.size}")
+
+        query.documents.forEach {
+            Log.d("LOGIN_FLOW", "DOC → cpf salvo: '${it.getString("cpf")}'")
+        }
+
+        return !query.isEmpty
+    }
+
+
     suspend fun loginWithCpf(cpf: String, loginPassword: String): Result<Unit> {
+
         return try {
             val query = db.collection("users")
                 .whereEqualTo("cpf", cpf)
                 .get()
                 .await()
 
-            if (query.isEmpty) return Result.failure(Exception("Credenciais inválidas"))
+            if (query.isEmpty) return Result.failure(Exception("Veio fazio"))
 
             val email = query.documents[0].getString("email")
-                ?: return Result.failure(Exception("Credenciais inválidas"))
+                ?: return Result.failure(Exception("problema com email"))
 
             suspendCancellableCoroutine<Result<Unit>> { cont ->
                 auth.signInWithEmailAndPassword(email, loginPassword)
                     .addOnCompleteListener { task ->
-                        if (task.isSuccessful) cont.resume(Result.success(Unit))
-                        else cont.resume(Result.failure(Exception("Credenciais inválidas")))
+                        if (task.isSuccessful)
+                            cont.resume(Result.success(Unit))
+                        else cont.resume(Result.failure(Exception("problema com a senha")))
                     }
             }
         } catch (e: Exception) {
-            Result.failure(Exception("Credenciais inválidas"))
+            Result.failure(Exception("nenhum dos erros acima"))
         }
     }
 
