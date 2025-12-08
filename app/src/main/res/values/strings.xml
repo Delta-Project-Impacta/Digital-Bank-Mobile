@@ -120,8 +120,8 @@
     <string name="error_email_not_match">Emails não conferem</string>
     <string name="error_invalid_phone">Número de telefone inválido</string>
 
-    <!-- String dinamica -->
-    <string name="hello_user">Olá, %1$s</string>
+    <!-- String home -->
+
     <string name="error_firebase_generic"><![CDATA[<string name=\"error_firebase_generic\">Ocorreu um erro inexperado</string>]]></string>
 
     <string name="transfer_home_title">Pix ou Transferir</string>
@@ -355,9 +355,13 @@
     <string name="card_second_way_description_04">Essa operação não poderá ser cancelada e haverá um custo de <b>R$ 8.10</b> por reemissão.</string>
     <string name="card_second_way_button">Confirmar Solicitação</string>
 
+
     <string name="profile_title">Perfil</string>
-    <string name="profile_name">Cristiano Ronaldo dos Santos</string>
-    <string name="profile_name_ab">CR</string>
+    <string name="profile_name_ab">AB</string> <!-- valor inicial, será substituído dinamicamente -->
+    <string name="profile_name">Nome Completo</string>
+    <string name="profile_pix_key_02">000.000.000-00</string> <!-- valor do CPF, será substituído dinamicamente -->
+    <string name="profile_icon_01_share_01">Compartilhar</string>
+    <string name="profile_icon_01_share_02">Conta</string>
     <string name="profile_bank_01">Banco</string>
     <string name="profile_bank_02">007</string>
     <string name="profile_agency_01">Agência</string>
@@ -365,9 +369,6 @@
     <string name="profile_account_01">Conta-Corrente</string>
     <string name="profile_account_02">777777-7</string>
     <string name="profile_pix_key_01">Pix</string>
-    <string name="profile_pix_key_02">ab6a6abc-438a-4590-8a0b-a27b377b17bx</string>
-    <string name="profile_icon_01_share_01">Compartilhar</string>
-    <string name="profile_icon_01_share_02">Conta</string>
     <string name="profile_icon_02_my_data">Meus dados</string>
     <string name="profile_icon_03_settings">Configurações</string>
     <string name="profile_button">Sair do App</string>
