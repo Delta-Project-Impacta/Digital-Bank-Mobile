@@ -21,15 +21,20 @@ class LoginViewModel(
     val loginResult: StateFlow<Result<Unit>?> get() = _loginResult
     fun login(cpf: String, password: String) {
         viewModelScope.launch {
+            Log.d("LOGIN_VIEWMODEL", "Login iniciado: CPF=$cpf, currentUser antes do login: ${repository.getCurrentUserName()}")
             _loading.value = true
             val result = loginUseCase(cpf, password)
+            Log.d("LOGIN_VIEWMODEL", "Login concluído: CPF=$cpf, result=${result.isSuccess}, currentUser agora: ${repository.getCurrentUserName()}")
             _loginResult.value = result
             _loading.value = false
         }
     }
 
     suspend fun checkCpfExists(cpf: String): Boolean {
-        return repository.checkCpfExists(cpf)
+        Log.d("LOGIN_VIEWMODEL", "Verificando CPF: $cpf, currentUser: ${repository.getCurrentUserName()}")
+        val exists = repository.checkCpfExists(cpf)
+        Log.d("LOGIN_VIEWMODEL", "Resultado da verificação CPF=$cpf: $exists")
+        return exists
     }
 
 }

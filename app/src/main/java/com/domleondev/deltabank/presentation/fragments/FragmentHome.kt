@@ -11,6 +11,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import com.domleondev.deltabank.R
 import com.domleondev.deltabank.presentation.activities.CardsActivity
+import com.domleondev.deltabank.presentation.activities.LoginActivity
 import com.domleondev.deltabank.presentation.activities.PaymentHomeActivity
 import com.domleondev.deltabank.presentation.activities.TransferHomeActivity
 import com.google.android.material.card.MaterialCardView
@@ -59,9 +60,13 @@ class FragmentHome : Fragment() {
         val currentUser = auth.currentUser
         if (currentUser != null) {
             fetchUserData(currentUser.uid)
+        } else {
+            // Usuário não logado → redireciona pro login
+            val intent = Intent(requireContext(), LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
 
-        // Olho para mostrar/ocultar saldo
         // Olho para mostrar/ocultar saldo
         val ivEye = view.findViewById<ImageView>(R.id.imageView)
         var saldoVisivel = false
@@ -87,7 +92,7 @@ class FragmentHome : Fragment() {
             }
         }
 
-        // Cards clicáveis (precisa testar)
+        // Cards clicáveis
         val fragmentHomePixTransfer = view.findViewById<MaterialCardView>(R.id.fragment_Home_Pix_Transfer)
         fragmentHomePixTransfer.setOnClickListener {
             val intent = Intent(requireContext(), TransferHomeActivity::class.java)

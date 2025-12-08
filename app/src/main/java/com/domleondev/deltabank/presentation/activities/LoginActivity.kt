@@ -37,28 +37,24 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
-        // ------------------ VIEWMODEL ------------------
-        val repository = AuthRepository(FirebaseAuth.getInstance())
+        val auth = FirebaseAuth.getInstance()
+        if (auth.currentUser != null) auth.signOut()
+
+        val repository = AuthRepository(auth)
         val loginUseCase = LoginUseCase(repository)
         val factory = LoginViewModelFactory(loginUseCase, repository)
         viewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
 
-        // ------------------ VIEWS ------------------
         val cpfInput = findViewById<TextInputEditText>(R.id.input_cpf)
         val passwordInput = findViewById<TextInputEditText>(R.id.input_password)
         val loginButton = findViewById<AppCompatButton>(R.id.btn_login)
-
-        // ------------------ MÁSCARA DE CPF ------------------
         cpfInput.addCpfMask()
 
-        // ------------------ FUNÇÃO DE VALIDAÇÃO ------------------
         suspend fun validateCpfInFirebase(cpfClean: String): Boolean {
             return viewModel.checkCpfExists(cpfClean)
         }
 
-        // ------------------ CONFIG BIOMETRIA ------------------
         val executor = ContextCompat.getMainExecutor(this)
-
         biometricPrompt = BiometricPrompt(
             this,
             executor,
@@ -66,42 +62,56 @@ class LoginActivity : AppCompatActivity() {
 
                 override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult) {
                     super.onAuthenticationSucceeded(result)
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Biometria verificada!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this@LoginActivity, "Biometria verificada!", Toast.LENGTH_SHORT).show()
 
-                    startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
-                    finish()
+                    val sharedPref = getSharedPreferences("login_data", MODE_PRIVATE)
+
+                    val cpfText = if (cpfInput.text.toString().isNotEmpty())
+                        cpfInput.text.toString()
+                    else
+                        sharedPref.getString("last_cpf", "") ?: ""
+
+                    val cpfClean = cpfText.replace(Regex("[^\\d]"), "")
+
+                    // Pega a senha salva para o CPF
+                    val savedPassword = sharedPref.getString("${cpfClean}_password", "") ?: ""
+                    val firstTimeDone = sharedPref.getBoolean("${cpfClean}_first_time_done", false)
+
+                    val passwordText = if (passwordInput.text.toString().isNotEmpty())
+                        passwordInput.text.toString()
+                    else
+                        savedPassword
+
+                    if (cpfClean.isNotEmpty() && passwordText.isNotEmpty() && firstTimeDone) {
+                        lifecycleScope.launch {
+                            val exists = viewModel.checkCpfExists(cpfClean)
+                            if (exists) {
+                                viewModel.login(cpfClean, passwordText)
+                            } else {
+                                Toast.makeText(this@LoginActivity, "CPF não encontrado", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    } else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "Preencha a senha pela primeira vez para usar a biometria",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
 
                 override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
                     super.onAuthenticationError(errorCode, errString)
-
                     if (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON) {
-                        Toast.makeText(
-                            this@LoginActivity,
-                            "Biometria cancelada",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(this@LoginActivity, "Biometria cancelada", Toast.LENGTH_SHORT).show()
                         return
                     }
-
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Erro: $errString",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this@LoginActivity, "Erro: $errString", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onAuthenticationFailed() {
                     super.onAuthenticationFailed()
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Biometria não reconhecida",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this@LoginActivity, "Biometria não reconhecida", Toast.LENGTH_SHORT).show()
                 }
             }
         )
@@ -113,40 +123,31 @@ class LoginActivity : AppCompatActivity() {
             .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG)
             .build()
 
-        // ------------------ MOSTRA BIOMETRIA AO CLICAR NO INPUT ------------------
         passwordInput.setOnFocusChangeListener { _, hasFocus ->
-            if (hasFocus) {
-                biometricPrompt.authenticate(promptInfo)
-            }
+            if (hasFocus) biometricPrompt.authenticate(promptInfo)
         }
 
-        // ------------------ OBSERVA RESULTADO DO LOGIN NORMAL ------------------
         lifecycleScope.launchWhenStarted {
             viewModel.loginResult.collect { result ->
                 result ?: return@collect
-
                 if (result.isSuccess) {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Login realizado com sucesso!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
+                    val sharedPref = getSharedPreferences("login_data", MODE_PRIVATE)
+                    val cpfClean = cpfInput.text.toString().replace(Regex("[^\\d]"), "")
+                    sharedPref.edit().apply {
+                        putString("${cpfClean}_password", passwordInput.text.toString())
+                        putBoolean("${cpfClean}_first_time_done", true) // Marca que digitou senha
+                        putString("last_cpf", cpfClean)
+                        apply()
+                    }
                     startActivity(Intent(this@LoginActivity, HomeActivity::class.java))
                     finish()
                 } else {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "CPF ou senha incorretos",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this@LoginActivity, "CPF ou senha incorretos", Toast.LENGTH_SHORT).show()
                 }
             }
         }
 
-        // ------------------ CLIQUE DO BOTÃO LOGIN ------------------
         loginButton.setOnClickListener {
-
             val cpfText = cpfInput.text.toString()
             val passwordText = passwordInput.text.toString()
             val cpfClean = cpfText.replace(Regex("[^\\d]"), "")
@@ -155,7 +156,6 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Digite os 11 dígitos do CPF", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-
             if (passwordText.length < 6) {
                 Toast.makeText(this, "A senha deve conter no mínimo 6 dígitos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -163,31 +163,20 @@ class LoginActivity : AppCompatActivity() {
 
             lifecycleScope.launch {
                 val exists = validateCpfInFirebase(cpfClean)
-
                 if (!exists) {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "CPF não encontrado",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    Toast.makeText(this@LoginActivity, "CPF não encontrado", Toast.LENGTH_SHORT).show()
                     return@launch
                 }
-
                 viewModel.login(cpfClean, passwordText)
             }
         }
 
-        // ------------------ ESQUECI MINHA SENHA ------------------
         findViewById<TextView>(R.id.tv_forgot_password).setOnClickListener {
             startActivity(Intent(this, ForgotPasswordActivity::class.java))
         }
 
-        // ------------------ VOLTAR ------------------
-        findViewById<ImageView>(R.id.back_arrow).setOnClickListener {
-            finish()
-        }
+        findViewById<ImageView>(R.id.back_arrow).setOnClickListener { finish() }
 
-        // ------------------ INSETS ------------------
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.login_root)) { v, insets ->
             val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(bars.left, bars.top, bars.right, bars.bottom)

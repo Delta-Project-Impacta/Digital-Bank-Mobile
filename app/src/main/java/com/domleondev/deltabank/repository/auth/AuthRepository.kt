@@ -8,6 +8,7 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.tasks.await
 import java.security.MessageDigest
 import kotlin.coroutines.resume
+
 class AuthRepository(private val auth: FirebaseAuth) {
 
     private val db = FirebaseFirestore.getInstance()
@@ -15,7 +16,6 @@ class AuthRepository(private val auth: FirebaseAuth) {
     fun getCurrentUserName(): String? {
         val name = auth.currentUser?.displayName
         return name
-
     }
 
     /**
@@ -42,13 +42,16 @@ class AuthRepository(private val auth: FirebaseAuth) {
             // 2. Atualiza displayName e espera o retorno
             val profileUpdates = UserProfileChangeRequest.Builder()
                 .setDisplayName(name).build()
+            Log.d("AUTH_REPO", "Usuário criado: ${auth.currentUser?.uid}")
             user.updateProfile(profileUpdates).await()
+            Log.d("AUTH_REPO", "Perfil atualizado: ${auth.currentUser?.displayName}")
 
             fun hash(input: String): String {
                 return MessageDigest.getInstance("SHA-256")
                     .digest(input.toByteArray())
                     .joinToString("") { "%02x".format(it) }
             }
+
             // 3. Salva dados no Firestore e espera o retorno
             val userData = hashMapOf(
                 "uid" to user.uid,
@@ -73,7 +76,6 @@ class AuthRepository(private val auth: FirebaseAuth) {
     /**
      * LOGIN POR CPF + SENHA DE 6 DÍGITOS
      */
-
     suspend fun checkCpfExists(cpf: String): Boolean {
 
         val query = db.collection("users")
@@ -81,15 +83,14 @@ class AuthRepository(private val auth: FirebaseAuth) {
             .get()
             .await()
 
-        Log.d("LOGIN_FLOW", "Documentos encontrados: ${query.documents.size}")
+        Log.d("AUTH_REPO", "Documentos encontrados: ${query.documents.size}")
 
         query.documents.forEach {
-            Log.d("LOGIN_FLOW", "DOC → cpf salvo: '${it.getString("cpf")}'")
+            Log.d("AUTH_REPO", "DOC → cpf salvo: '${it.getString("cpf")}'")
         }
 
         return !query.isEmpty
     }
-
 
     suspend fun loginWithCpf(cpf: String, loginPassword: String): Result<Unit> {
 
@@ -105,8 +106,10 @@ class AuthRepository(private val auth: FirebaseAuth) {
                 ?: return Result.failure(Exception("problema com email"))
 
             suspendCancellableCoroutine<Result<Unit>> { cont ->
+                Log.d("AUTH_REPO", "Antes do signIn, currentUser: ${auth.currentUser?.uid}")
                 auth.signInWithEmailAndPassword(email, loginPassword)
                     .addOnCompleteListener { task ->
+                        Log.d("AUTH_REPO", "Login completo. Sucesso: ${task.isSuccessful}, currentUser: ${auth.currentUser?.uid}")
                         if (task.isSuccessful)
                             cont.resume(Result.success(Unit))
                         else cont.resume(Result.failure(Exception("problema com a senha")))
@@ -128,5 +131,13 @@ class AuthRepository(private val auth: FirebaseAuth) {
             "transactionPassword" to (doc.getString("transactionPassword") ?: "")
         )
     }
-}
 
+    /**
+     * LOGOUT
+     */
+    fun logout() {
+        auth.signOut()  // Limpa o cache do FirebaseAuth
+        Log.d("AUTH_REPO", "Logout executado, currentUser: ${auth.currentUser?.uid}")
+        // se tiver listeners de usuário, pode resetar aqui se necessário
+    }
+}
