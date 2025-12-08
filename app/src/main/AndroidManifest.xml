@@ -19,7 +19,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Base.Theme.DeltaBank">
+        android:theme="@style/Theme.Delta.Light">
         <activity
             android:name=".presentation.activities.CardSecondWayActivity"
             android:exported="false" />
@@ -66,6 +66,18 @@
             android:name=".presentation.activities.PixAmountActivity"
             android:exported="false" />
         <activity
+            android:name="com.domleondev.deltatransfers.presentation.activities.TransfersDataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.TransferAmountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.TransferReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.activities.TransferPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.activities.TransferHomeActivity"
             android:exported="false" /> <!-- SPLASH -->
         <activity
@@ -79,48 +91,37 @@
         </activity> <!-- MAIN ACTIVITY NORMAL -->
         <activity
             android:name=".presentation.activities.MainActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.RegisterActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.RegisterAddressActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.RegisterLoginPasswordActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.RegisterTransactionPasswordActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.LoginActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.HomeActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.PasswordResetedActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.ResetPasswordActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.EmailVerificationActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.ForgotPasswordActivity"
-            android:exported="false"
-            android:theme="@style/Base.Theme.DeltaBank"/>
+            android:exported="false" />
     </application>
 
 </manifest>

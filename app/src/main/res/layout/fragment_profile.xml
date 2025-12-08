@@ -295,11 +295,23 @@
                         android:padding="5dp"
                         android:src="@drawable/ic_share" />
 
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="1"
+                        android:text="@string/profile_icon_01_share_01"
+                        android:textAlignment="center"
+                        android:textColor="@color/orange"
+                        app:autoSizeTextType="uniform"
+                        app:autoSizeMinTextSize="8sp"
+                        app:autoSizeMaxTextSize="13sp"
+                        app:autoSizeStepGranularity="1sp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="@string/profile_icon_01_share"
+                        android:text="@string/profile_icon_01_share_02"
                         android:textAlignment="center"
                         android:textColor="@color/orange"
                         android:textSize="13sp" />
@@ -323,14 +335,19 @@
                         android:contentDescription="@string/profile_icon_02_description"
                         android:src="@drawable/ic_my_data" />
 
-                    <TextView
+                    <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
+                        android:maxLines="1"
                         android:text="@string/profile_icon_02_my_data"
                         android:textAlignment="center"
+
                         android:textColor="@color/orange"
-                        android:textSize="13sp" />
+                        app:autoSizeMaxTextSize="13sp"
+                        app:autoSizeMinTextSize="8sp"
+                        app:autoSizeStepGranularity="1sp"
+                        app:autoSizeTextType="uniform" />
                 </LinearLayout>
 
                 <LinearLayout

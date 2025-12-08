@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.domleondev.deltatransfers.presentation.activities.TransfersDataActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/payment_Transfer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_toolbar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/payment_Transfers_Arrow_Back"
+            android:layout_width="36dp"
+            android:layout_height="44dp"
+            android:contentDescription="@string/back_arrow_description"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="50dp"
+            android:text="@string/payment_transfers_title"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <TextView
+        android:id="@+id/transfers_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="38dp"
+        android:fontFamily="@font/font_sans_bold"
+        android:text="@string/transfers_data_subtitle"
+        android:textStyle="bold"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payment_Transfer" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/transfers_Input_Name_Bank"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="16dp"
+        app:errorEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transfers_Title">
+
+        <TextView
+            android:id="@+id/transfers_Edit_Name_Bank"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/bg_input_primary"
+            android:gravity="start|center"
+            android:hint="@string/transfers_hint_input"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text=""
+            android:textColorHint="@color/dark_grey"
+            android:textSize="16sp"
+            app:errorEnabled="false"
+            app:drawableEndCompat="@drawable/ic_arrowdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bank_Title" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/transfers_Input_Agency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@string/transfers_description_agency"
+        app:hintTextColor="@color/dark_grey"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        app:errorEnabled="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transfers_Input_Name_Bank">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/transfers_Edit_Agency"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:maxLength="4"
+            android:textColor="@color/grey"
+            android:background="@drawable/bg_input_primary"
+            android:hint="@string/transfers_hint_agency"
+            android:textColorHint="@color/dark_grey"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/transfers_Input_Account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        app:errorEnabled="false"
+        android:contentDescription="@string/transfers_description_account"
+        app:hintTextColor="@color/dark_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transfers_Input_Agency">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/transfers_Edit_Account"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLength="10"
+            android:textColor="@color/grey"
+            android:inputType="textCapCharacters"
+            android:background="@drawable/bg_input_primary"
+            android:hint="@string/transfers_hint_account"
+            android:textColorHint="@color/dark_grey" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/transfers_Input_Account_Type"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="16dp"
+        app:endIconDrawable="@drawable/ic_arrowdown"
+        app:errorEnabled="false"
+        app:hintTextColor="@color/dark_grey"
+        app:endIconTint="@color/orange"
+        android:textColor="@color/dark_grey"
+        android:textColorHint="@color/dark_grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transfers_Input_Account">
+
+        <AutoCompleteTextView
+            android:id="@+id/dropdown_Account_Type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:popupBackground="@drawable/bg_dropdown_list"
+            android:background="@drawable/bg_input_primary"
+            android:textColor="@color/grey"
+            android:hint="@string/transfers_hint_account_type"
+            android:focusable="false"
+            android:inputType="none"
+            android:textColorHint="@color/grey"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <RadioGroup
+        android:id="@+id/transfers_Radio_Group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transfers_Input_Account_Type">
+
+        <RadioButton
+            android:id="@+id/transfers_Radio_Individual"
+            android:checked="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/transfers_description_individual"
+            android:text="@string/transfers_radio_individual" />
+
+        <RadioButton
+            android:id="@+id/transfers_Radio_Company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/transfers_description_company"
+            android:text="@string/transfers_radio_company" />
+    </RadioGroup>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/payment_Transfers_Button_Next"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/bg_button_primary"
+        android:text="@string/button_next"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
