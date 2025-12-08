@@ -31,7 +31,6 @@
     <string name="home_card_receipts">Comprovantes</string>
     <string name="home_card_phone_top_up">Recarga de celular</string>
     <string name="home_card_renegotiation">Renegociação</string>
-    <string name="home_balance_amount">200.000,00</string>
 
     <string name="register_title">Criar Conta</string>
     <string name="register_text_title">O primeiro passo para abrir sua conta \né informar uns dados ;)</string>
