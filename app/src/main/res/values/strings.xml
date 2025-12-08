@@ -15,11 +15,11 @@
     <string name="main_button_login">Já tenho conta</string>
     <string name="main_button_register">Criar Conta</string>
 
-    <string name="home_client_incial">CR</string>
+    <string name="home_client_initial">U</string>
     <string name="home_hello">Olá,</string>
-    <string name="home_client_name">Cristiano</string>
-    <string name="home_balance_description">Meu saldo: R$</string>
-    <string name="home_balance_text">●●●●●●●</string>
+    <string name="home_client_name">Usuário</string>
+    <string name="home_balance_description">Meu saldo: </string>
+    <string name="home_balance_text">R$ 0,00</string>
     <string name="home_card_pix_description">Pix ou Transferir</string>
     <string name="home_card_pay_description">Pagar</string>
     <string name="home_card_description">Cartões</string>
