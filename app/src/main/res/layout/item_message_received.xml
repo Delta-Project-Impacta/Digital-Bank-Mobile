@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:text="@string/chat_bot_name"
             android:textSize="12sp"
+            android:fontFamily="@font/font_sans_medium"
             android:textColor="@color/chatbot_name"
             android:layout_marginTop="4dp" />
 
@@ -39,6 +40,7 @@
         android:layout_weight="1"
         android:background="@drawable/bg_chat_bot_msg_received"
         android:textColor="@color/grey"
+        android:fontFamily="@font/font_sans"
         android:padding="12dp"
         android:layout_marginStart="12dp"
         android:maxWidth="280dp"

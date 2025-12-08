@@ -94,6 +94,8 @@ dependencies {
     implementation("androidx.camera:camera-view:1.4.0")
     implementation("androidx.camera:camera-extensions:1.4.0")
 
+    //Biometria
+    implementation("androidx.biometric:biometric:1.2.0-alpha05")
     // ML Kit
     implementation("com.google.mlkit:barcode-scanning:17.3.0")
 
