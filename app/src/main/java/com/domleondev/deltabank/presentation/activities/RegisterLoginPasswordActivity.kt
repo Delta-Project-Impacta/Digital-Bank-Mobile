@@ -13,10 +13,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.domleondev.deltabank.databinding.ActivityRegisterLoginPasswordBinding
-import com.domleondev.deltabank.presentation.usecase.RegisterLoginPasswordUseCase
-import com.domleondev.deltabank.presentation.viewModel.RegisterLoginPasswordViewModelFactory
+import com.domleondev.deltabank.domain.usecase.RegisterLoginPasswordUseCase
+import com.domleondev.deltabank.viewModel.RegisterLoginPasswordViewModelFactory
 import com.domleondev.deltabank.presentation.states.RegisterLoginPasswordState
-import com.domleondev.deltabank.presentation.viewModel.RegisterLoginPasswordViewModel
+import com.domleondev.deltabank.viewModel.RegisterLoginPasswordViewModel
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay

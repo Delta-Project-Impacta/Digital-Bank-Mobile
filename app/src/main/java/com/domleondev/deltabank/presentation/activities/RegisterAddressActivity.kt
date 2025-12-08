@@ -21,12 +21,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.domleondev.deltabank.R
 import com.domleondev.deltabank.presentation.dialogs.BottomSheetAdapter
-import com.domleondev.deltabank.presentation.repository.response.CityResponse
-import com.domleondev.deltabank.presentation.repository.response.StateResponse
+import com.domleondev.deltabank.repository.response.CityResponse
+import com.domleondev.deltabank.repository.response.StateResponse
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.textfield.TextInputEditText
 import kotlin.getValue
-import com.domleondev.deltabank.presentation.viewModel.RegisterAddressViewModel
+import com.domleondev.deltabank.viewModel.RegisterAddressViewModel
 
 class RegisterAddressActivity : AppCompatActivity() {
 
