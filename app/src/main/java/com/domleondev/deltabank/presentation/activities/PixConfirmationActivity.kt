@@ -22,15 +22,6 @@ class PixConfirmationActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val pixConfirmationClose = findViewById<ImageView>(R.id.pix_Confirmation_Close)
-
-        pixConfirmationClose.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java).apply {
-                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-            }
-            startActivity(intent)
-        }
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

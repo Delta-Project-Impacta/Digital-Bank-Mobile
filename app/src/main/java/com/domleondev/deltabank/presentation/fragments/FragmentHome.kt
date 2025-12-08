@@ -25,8 +25,6 @@ class FragmentHome : Fragment() {
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
 
-    companion object{
-        fun newInstance(): Fragment{
     // TextViews dinâmicos
     private lateinit var tvName: TextView
     private lateinit var tvBalance: TextView
@@ -109,25 +107,6 @@ class FragmentHome : Fragment() {
         }
     }
 
-        val balanceTextView = view.findViewById<TextView>(R.id.fragment_Home_Balance_Amount_Text)
-        val toggleIcon = view.findViewById<ImageView>(R.id.fragment_Home_Balance_Toggle_Icon)
-
-        val realBalance = getString(R.string.home_balance_amount)
-        val maskedBalance = "●●●●●●●"
-
-        balanceTextView.text = maskedBalance
-        toggleIcon.setImageResource(R.drawable.ic_eye_off)
-
-        toggleIcon.setOnClickListener {
-
-            isBalanceVisible = !isBalanceVisible
-
-            if (isBalanceVisible) {
-                balanceTextView.text = realBalance
-                toggleIcon.setImageResource(R.drawable.ic_eye)
-            } else {
-                balanceTextView.text = maskedBalance
-                toggleIcon.setImageResource(R.drawable.ic_eye_off)
     // Função para puxar nome, saldo e iniciais do Firebase
     private fun fetchUserData(uid: String) {
         db.collection("users").document(uid).get()
