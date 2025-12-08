@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
-            android:textStyle="bold"
+            android:fontFamily="@font/font_sans_bold"
             android:text="@string/transfer_amount_title"
             android:textAlignment="center"
             android:textColor="@color/white"
@@ -43,6 +43,7 @@
         android:text="@string/transfer_amount_description"
         android:textColor="@color/grey"
         android:textSize="16sp"
+        android:fontFamily="@font/font_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/transfer_Amount" />
@@ -54,7 +55,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_bold"
         android:text="@string/transfer_amount_name"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -72,6 +73,7 @@
         android:text="@string/transfer_amount_label"
         android:textColor="@color/grey"
         android:textSize="16sp"
+        android:fontFamily="@font/font_sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Name_View" />
@@ -89,6 +91,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Label_View"
         app:prefixText="R$ "
+        android:fontFamily="@font/font_sans_bold"
         app:prefixTextAppearance="@style/PrefixTextStyle"
         app:prefixTextColor="@color/dark_grey">
 
@@ -98,7 +101,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="-20dp"
             android:background="@android:color/transparent"
-            android:textStyle="bold"
+            android:fontFamily="@font/font_sans_bold"
             android:inputType="numberDecimal"
             android:textColor="@color/dark_grey"
             android:textSize="20sp"
@@ -128,7 +131,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_bold"
         android:text="@string/transfer_amount_bank_name"
         android:textColor="@color/dark_grey"
         android:textSize="20sp"
@@ -145,7 +148,7 @@
         android:text="@string/transfer_amount_agency"
         android:textColor="@color/grey"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Bank_Name" />
 
@@ -170,7 +173,7 @@
         android:text="@string/transfer_amount_account"
         android:textColor="@color/grey"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_bold"
         android:layout_marginEnd="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/transfer_Amount_Bank_Name" />
@@ -193,7 +196,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_bold"
         android:text="@string/transfer_amount_balance"
         android:textColor="@color/grey"
         android:textSize="14sp"
@@ -206,7 +209,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="60dp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_bold"
         android:text="@string/transfer_amount_balance"
         android:textColor="@color/grey"
         android:textSize="14sp"
@@ -231,6 +234,7 @@
             android:layout_marginEnd="8dp"
             android:text="@string/transfer_amount_balance_amount"
             android:textColor="@color/dark_grey"
+            android:fontFamily="@font/font_sans"
             android:textSize="14sp" />
 
         <ImageView
@@ -251,7 +255,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="54dp"
         android:background="@drawable/bg_button_primary"
-
+        android:fontFamily="@font/font_sans_xbold"
         android:text="@string/transfer_amount_button"
         android:textAllCaps="false"
         android:textColor="@color/white"

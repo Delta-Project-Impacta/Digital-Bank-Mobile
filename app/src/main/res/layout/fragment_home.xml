@@ -30,12 +30,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/font_family"
             android:text="@string/app_name"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/font_sans_bold" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -58,13 +57,12 @@
         android:layout_below="@+id/fragment_Home_Toolbar"
         android:layout_marginStart="19dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="@font/font_family"
         android:gravity="center"
         android:text="@string/home_client_initial"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="22sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragment_Home_Toolbar" />
 
@@ -93,11 +91,10 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="29dp"
         android:layout_marginEnd="150dp"
-        android:fontFamily="@font/font_family"
         android:text="@string/home_client_name"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_bold"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/fragment_Home_Toolbar" />
 
@@ -117,31 +114,31 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/fragment_Home_Balance_Amount_Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView2"
         android:layout_marginStart="12dp"
         android:layout_marginTop="38dp"
         android:layout_marginEnd="40dp"
-        android:layout_toStartOf="@+id/imageView"
-        android:fontFamily="@font/font_family"
+        android:layout_toStartOf="@+id/fragment_Home_Balance_Toggle_Icon"
         android:text="@string/home_balance_text"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_bold"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/fragment_Home_Balance_Toggle_Icon"
+        android:layout_width="25dp"
+        android:layout_height="18dp"
         android:layout_below="@+id/textView2"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="46dp"
         android:src="@drawable/ic_eye_white"
+        app:tint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
@@ -149,7 +146,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
+        android:layout_below="@+id/fragment_Home_Balance_Amount_Text"
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
@@ -157,7 +154,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4">
+        app:layout_constraintTop_toBottomOf="@+id/fragment_Home_Balance_Amount_Text">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/fragment_Home_Pix_Transfer"
