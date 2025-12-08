@@ -30,7 +30,7 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/font_sans_bold" />
     </com.google.android.material.appbar.MaterialToolbar>
 
     <ScrollView
@@ -53,7 +53,7 @@
                 android:text="@string/payment_success_description"
                 android:textColor="@color/black"
                 android:textSize="22sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/font_sans_bold"
                 app:layout_constraintEnd_toStartOf="@id/payment_Success_Share"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -79,6 +79,7 @@
                 android:layout_marginEnd="30dp"
                 android:text="@string/payment_success_date"
                 android:textColor="@color/grey"
+                android:fontFamily="@font/font_sans"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +125,7 @@
                 android:text="@string/payment_success_transfer_destiny"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/font_sans_bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/payment_Success_TransferType_Label" />
@@ -197,7 +198,7 @@
                 android:text="@string/payment_success_transfer_origin"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/font_sans_bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/payment_Success_Divider_Destiny_Origin" />
@@ -300,7 +301,7 @@
                     android:text="@string/payment_success_delta"
                     android:textColor="@color/grey"
                     android:textSize="18sp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/font_sans_bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -309,7 +310,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-
+                    android:fontFamily="@font/font_sans"
                     android:text="@string/payment_success_delta_cnpj"
                     android:textColor="@color/grey"
                     android:textSize="18sp"
@@ -322,6 +323,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:text="@string/payment_success_delta_transaction_id_01"
+                    android:fontFamily="@font/font_sans"
                     android:textColor="@color/grey"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -335,6 +337,7 @@
                     android:layout_marginEnd="30dp"
                     android:text="@string/payment_success_delta_transaction_id_02"
                     android:textColor="@color/grey"
+                    android:fontFamily="@font/font_sans"
                     android:textSize="12sp"
                     app:layout_constraintBottom_toBottomOf="@id/payment_Success_Delta_TransactionId_Label"
                     app:layout_constraintEnd_toEndOf="parent"

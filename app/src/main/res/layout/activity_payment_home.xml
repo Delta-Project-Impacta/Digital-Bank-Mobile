@@ -29,21 +29,21 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/font_sans_bold" />
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/payment_Home_Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:text="@string/payment_home_description_01"
-        android:textAlignment="viewStart"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_semibold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/payment_Home" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -68,6 +68,7 @@
             android:background="@drawable/bg_input_primary"
             android:hint="@string/payment_home_input"
             android:textColor="@color/dark_grey"
+            android:fontFamily="@font/font_sans"
             android:textSize="13sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -106,7 +107,7 @@
         android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_semibold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider" />
 
@@ -143,7 +144,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:fontFamily="@font/font_sans"
                 android:text="@string/payment_home_icon_01"
                 android:textAlignment="center"
                 android:textColor="@color/orange"
@@ -169,7 +170,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:fontFamily="@font/font_sans"
                 android:text="@string/payment_home_icon_02"
                 android:textAlignment="center"
                 android:textColor="@color/orange"
@@ -194,7 +195,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
+                android:fontFamily="@font/font_sans"
                 android:text="@string/payment_home_icon_03"
                 android:textAlignment="center"
                 android:textColor="@color/orange"

@@ -33,13 +33,12 @@
             android:id="@+id/splash_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/font_family"
             android:gravity="center"
             android:includeFontPadding="false"
             android:letterSpacing="0"
             android:text="@string/splash_name"
             android:textColor="@android:color/white"
-            android:textFontWeight="800"
+            android:fontFamily="@font/font_sans_xbold"
             android:textSize="50sp"
             android:textStyle="normal" />
 

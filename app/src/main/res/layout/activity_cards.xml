@@ -28,7 +28,7 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/font_sans_bold" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -69,6 +69,7 @@
                 android:text="@string/cards_home_bank_name"
                 android:textColor="@android:color/white"
                 android:textFontWeight="800"
+                android:fontFamily="@font/font_sans_xbold"
                 android:textSize="26sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/logo"
@@ -96,7 +97,7 @@
             android:text="@string/cards_home_description_name"
             android:textColor="@color/black"
             android:textSize="22sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/font_sans_bold" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -112,7 +113,7 @@
                 android:text="@string/cards_home_description_number"
                 android:textColor="@color/black"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/font_sans_bold" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -130,7 +131,7 @@
                 android:text="@string/cards_home_description_card_type"
                 android:textColor="@color/black"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/font_sans_bold" />
 
         </LinearLayout>
 
@@ -142,7 +143,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="25dp"
-
+        android:fontFamily="@font/font_sans_medium"
         android:text="@string/cards_home_card_unlocked_locked_01"
         android:textColor="@color/grey"
         android:textSize="16sp"
@@ -157,7 +158,7 @@
         android:text="@string/cards_home_card_unlocked_locked_02"
         android:textColor="@color/red"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/font_sans_semibold"
         app:layout_constraintBottom_toBottomOf="@id/card_For_Label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/card_For_Label" />
@@ -186,6 +187,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_sans"
                 android:text="@string/cards_home_display_password"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -221,6 +223,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/font_sans"
                 android:text="@string/cards_home_change_password"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -258,6 +261,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/cards_home_second_way"
                 android:textColor="@color/black"
+                android:fontFamily="@font/font_sans"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
