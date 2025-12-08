@@ -11,14 +11,12 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.domleondev.deltabank.databinding.ActivityRegisterTransactionPasswordBinding
-import com.domleondev.deltabank.presentation.repository.auth.AuthRepository
+import com.domleondev.deltabank.repository.auth.AuthRepository
 import com.domleondev.deltabank.presentation.states.RegisterTransactionPasswordState
-import com.domleondev.deltabank.presentation.usecase.RegisterTransactionPasswordUseCase
-import com.domleondev.deltabank.presentation.viewModel.RegisterTransactionPasswordViewModel
-import com.domleondev.deltabank.presentation.viewModel.RegisterTransactionPasswordViewModelFactory
+import com.domleondev.deltabank.domain.usecase.RegisterTransactionPasswordUseCase
+import com.domleondev.deltabank.viewModel.RegisterTransactionPasswordViewModel
+import com.domleondev.deltabank.viewModel.RegisterTransactionPasswordViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.userProfileChangeRequest
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.launch
 
 class RegisterTransactionPasswordActivity : AppCompatActivity() {
@@ -133,7 +131,6 @@ class RegisterTransactionPasswordActivity : AppCompatActivity() {
                         val profileUpdates = com.google.firebase.auth.ktx.userProfileChangeRequest {
                             displayName = name
                         }
-                        //user?.updateProfile(profileUpdates)
 
                         // Vai para próxima activity
                         startActivity(Intent(this@RegisterTransactionPasswordActivity, LoginActivity::class.java))
@@ -160,51 +157,4 @@ class RegisterTransactionPasswordActivity : AppCompatActivity() {
             }
         }
     }
-
-    /*private fun observeViewModel() {
-        lifecycleScope.launch {
-            viewModel.state.collect { state ->
-                when (state) {
-
-                    is RegisterTransactionPasswordState.Idle -> {
-                        binding.passwordAccountProgress.visibility = View.GONE
-                    }
-
-                    is RegisterTransactionPasswordState.Loading -> {
-                        binding.passwordAccountProgress.visibility = View.VISIBLE
-                    }
-
-                    is RegisterTransactionPasswordState.Success -> {
-                        binding.passwordAccountProgress.visibility = View.GONE
-
-                        Toast.makeText(
-                            this@RegisterTransactionPasswordActivity,
-                            "Conta criada com sucesso. Faça seu login!",
-                            Toast.LENGTH_LONG
-                        ).show()
-
-                        goToHome()
-                    }
-
-                    is RegisterTransactionPasswordState.Error -> {
-                        binding.passwordAccountProgress.visibility = View.GONE
-                        binding.passwordAccountButtonNext.isEnabled = true
-
-                        Toast.makeText(
-                            this@RegisterTransactionPasswordActivity,
-                            state.message,
-                            Toast.LENGTH_LONG
-                        ).show()
-
-                        viewModel.resetState() // TESTAR SE RESETAR APPOS SENHA ERRADAX
-                    }
-                }
-            }
-        }
-    }
-
-    private fun goToHome() {
-        startActivity(Intent(this, LoginActivity::class.java))
-        finish()
-    }*/
 }

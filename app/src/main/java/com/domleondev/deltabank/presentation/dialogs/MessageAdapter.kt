@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.domleondev.deltabank.R
-import com.domleondev.deltabank.presentation.repository.geminirepository.Message
+import com.domleondev.deltabank.repository.geminirepository.Message
 import java.text.SimpleDateFormat
 import java.util.*
 

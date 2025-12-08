@@ -19,7 +19,7 @@
             android:layout_width="36dp"
             android:layout_height="44dp"
             android:src="@drawable/ic_back"
-            android:tint="@color/orange"
+            app:tint="@color/orange"
             android:contentDescription="@string/back_arrow_description" />
 
         <TextView
@@ -66,7 +66,7 @@
                 android:alpha="1"
                 android:background="@android:color/transparent" />
 
-            <com.domleondev.deltabank.presentation.CameraOverlayView
+            <com.domleondev.deltabank.viewModel.CameraOverlayViewModel
                 android:id="@+id/overlayView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -101,7 +101,7 @@
             android:layout_marginEnd="30dp"
             android:src="@drawable/ic_back"
             android:scaleX="-1"
-            android:tint="@color/orange"
+            app:tint="@color/orange"
             android:contentDescription="@string/qr_code_scanner_arrow_description" />
     </com.google.android.material.appbar.MaterialToolbar>
 

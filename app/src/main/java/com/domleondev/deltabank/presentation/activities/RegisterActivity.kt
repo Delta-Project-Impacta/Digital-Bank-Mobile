@@ -2,23 +2,24 @@ package com.domleondev.deltabank.presentation.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.domleondev.deltabank.presentation.viewModel.ValidationResult
+import com.domleondev.deltabank.viewModel.ValidationResult
 import com.domleondev.deltabank.R
 import com.domleondev.deltabank.databinding.ActivityRegisterBinding
-import com.domleondev.deltabank.presentation.addCpfMask
-import com.domleondev.deltabank.presentation.addDateMask
-import com.domleondev.deltabank.presentation.addPhoneMask
+import com.domleondev.deltabank.domain.usecase.ValidateBirthDateUseCase
+import com.domleondev.deltabank.domain.usecase.ValidateCpfUseCase
+import com.domleondev.deltabank.domain.usecase.ValidateEmailUseCase
+import com.domleondev.deltabank.domain.usecase.ValidateNameUseCase
+import com.domleondev.deltabank.domain.usecase.ValidatePhoneUseCase
+import com.domleondev.deltabank.domain.usecase.addCpfMask
+import com.domleondev.deltabank.domain.usecase.addDateMask
+import com.domleondev.deltabank.domain.usecase.addPhoneMask
 import kotlin.getValue
-import com.domleondev.deltabank.presentation.usecase.*
-import com.domleondev.deltabank.presentation.viewModel.FirebaseCheckResult
-import com.domleondev.deltabank.presentation.viewModel.RegisterViewModel
-import com.domleondev.deltabank.presentation.viewModel.RegisterViewModelFactory
-import com.google.firebase.auth.FirebaseAuth
-
+import com.domleondev.deltabank.viewModel.FirebaseCheckResult
+import com.domleondev.deltabank.viewModel.RegisterViewModel
+import com.domleondev.deltabank.viewModel.RegisterViewModelFactory
 
 
 class RegisterActivity : AppCompatActivity() {
