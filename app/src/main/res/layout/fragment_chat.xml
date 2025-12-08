@@ -22,7 +22,7 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/font_sans_bold" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -60,6 +60,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/font_sans"
                 android:hint="@string/chat_bot_hint"
                 android:imeOptions="actionSend"
                 android:inputType="text" />

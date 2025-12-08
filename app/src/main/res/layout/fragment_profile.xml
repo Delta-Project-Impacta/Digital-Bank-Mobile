@@ -20,7 +20,7 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:fontFamily="@font/font_sans_bold" />
 
     </com.google.android.material.appbar.MaterialToolbar>
 
@@ -34,6 +34,7 @@
         android:textAllCaps="false"
         android:textColor="@color/dark_orange"
         android:textSize="18sp"
+        android:fontFamily="@font/font_sans_semibold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -78,7 +79,7 @@
                         android:text="@string/profile_name_ab"
                         android:textColor="@color/white"
                         android:textSize="22sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/font_sans_xbold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -91,7 +92,7 @@
                         android:text="@string/profile_name"
                         android:textColor="@color/grey"
                         android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/font_sans_bold"
                         app:layout_constraintBottom_toBottomOf="@id/profile_Label_Initials"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@id/profile_Label_Initials"
@@ -119,7 +120,7 @@
                         android:text="@string/profile_bank_01"
                         android:textColor="@color/orange"
                         android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/font_sans_bold"
 
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -132,7 +133,7 @@
                         android:text="@string/profile_bank_02"
                         android:textColor="@color/grey"
                         android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/font_sans_bold"
 
                         app:layout_constraintBottom_toBottomOf="@id/profile_Bank_Name"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -161,7 +162,7 @@
                         android:text="@string/profile_agency_01"
                         android:textColor="@color/orange"
                         android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/font_sans_bold"
 
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -174,7 +175,7 @@
                         android:text="@string/profile_agency_02"
                         android:textColor="@color/grey"
                         android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/font_sans_bold"
 
                         app:layout_constraintBottom_toBottomOf="@id/profile_Agency_Name"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -203,7 +204,7 @@
                         android:text="@string/profile_account_01"
                         android:textColor="@color/orange"
                         android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/font_sans_bold"
 
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -216,7 +217,7 @@
                         android:text="@string/profile_account_02"
                         android:textColor="@color/grey"
                         android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/font_sans_bold"
 
                         app:layout_constraintBottom_toBottomOf="@id/profile_Account_Name"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -245,7 +246,7 @@
                         android:text="@string/profile_pix_key_01"
                         android:textColor="@color/orange"
                         android:textSize="16sp"
-                        android:textStyle="bold"
+                        android:fontFamily="@font/font_sans_bold"
 
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -255,6 +256,7 @@
                         android:id="@+id/profile_Pix_Value"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/font_sans"
                         android:text="@string/profile_pix_key_02"
                         android:textColor="@color/grey"
                         android:textSize="12sp"
@@ -303,6 +305,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/orange"
                         app:autoSizeTextType="uniform"
+                        android:fontFamily="@font/font_sans"
                         app:autoSizeMinTextSize="8sp"
                         app:autoSizeMaxTextSize="13sp"
                         app:autoSizeStepGranularity="1sp" />
@@ -310,7 +313,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:fontFamily="@font/font_sans"
                         android:text="@string/profile_icon_01_share_02"
                         android:textAlignment="center"
                         android:textColor="@color/orange"
@@ -338,7 +341,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:fontFamily="@font/font_sans"
                         android:maxLines="1"
                         android:text="@string/profile_icon_02_my_data"
                         android:textAlignment="center"
@@ -369,7 +372,7 @@
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
+                        android:fontFamily="@font/font_sans"
                         android:maxLines="1"
                         android:text="@string/profile_icon_03_settings"
                         android:textAlignment="center"
