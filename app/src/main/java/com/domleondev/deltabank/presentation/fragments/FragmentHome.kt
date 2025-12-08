@@ -18,9 +18,6 @@ class FragmentHome: Fragment() {
 
     private var isBalanceVisible = false
 
-    private lateinit var balanceTextView : TextView
-    private lateinit var toggleIcon : ImageView
-
     companion object{
         fun newInstance(): Fragment{
             val fragmentHome = FragmentHome()
@@ -61,8 +58,8 @@ class FragmentHome: Fragment() {
             startActivity(intent)
         }
 
-        balanceTextView = view.findViewById(R.id.fragment_Home_Balance_Amount_Text)
-        toggleIcon = view.findViewById(R.id.fragment_Home_Balance_Toggle_Icon)
+        val balanceTextView = view.findViewById<TextView>(R.id.fragment_Home_Balance_Amount_Text)
+        val toggleIcon = view.findViewById<ImageView>(R.id.fragment_Home_Balance_Toggle_Icon)
 
         val realBalance = getString(R.string.home_balance_amount)
         val maskedBalance = "●●●●●●●"
