@@ -10,23 +10,27 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.domleondev.deltabank.R
 
-class TransferPasswordActivity : AppCompatActivity() {
+class TransferConfirmationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_transfer_password)
+        setContentView(R.layout.activity_transfer_confirmation)
 
-        val transferPasswordArrowBack = findViewById<ImageView>(R.id.transfer_Password_Arrow_Back)
-        val transferPasswordButtonNext = findViewById<AppCompatButton>(R.id.transfer_Password_Button_Next)
+        val transferSuccessButtonNext = findViewById<AppCompatButton>(R.id.transfer_Confirmation_Button_Next)
 
-        transferPasswordArrowBack.setOnClickListener {
-            finish()
-        }
-        transferPasswordButtonNext.setOnClickListener {
-            intent = Intent(this, TransferConfirmationActivity::class.java)
+        transferSuccessButtonNext.setOnClickListener {
+            val intent = Intent(this, TransferSuccessActivity::class.java)
             startActivity(intent)
         }
 
+        val transferConfirmationClose = findViewById<ImageView>(R.id.transfer_Confirmation_Close)
+
+        transferConfirmationClose.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+            }
+            startActivity(intent)
+        }
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
