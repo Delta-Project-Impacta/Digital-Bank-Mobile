@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/font_sans_xbold"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="16dp"
+        android:text="@string/read_title"
+        android:textAlignment="center"
+        android:textColor="@color/dark_grey"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="@color/medium_grey" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/option_qr_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/font_sans_semibold"
+        android:paddingVertical="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="@string/read_qr_code"
+        android:textColor="@color/dark_grey"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="20dp"
+        android:background="@color/medium_grey" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/option_barcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/font_sans_semibold"
+        android:paddingVertical="12dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:text="@string/read_barcode"
+        android:textColor="@color/dark_grey"
+        android:textSize="16sp" />
+</LinearLayout>

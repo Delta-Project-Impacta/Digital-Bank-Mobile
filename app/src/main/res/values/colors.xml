@@ -16,6 +16,7 @@
 
     <color name="blue">#0451FF</color>
     <color name="light_grey">#EBEBEB</color>
+    <color name="light_grey2">#E5E5E5</color>
     <color name="medium_grey">#D0D0D0</color>
     <color name="black_30">#4D000000</color>
 
@@ -32,5 +33,6 @@
     <color name="bg_chatbot_msg_send_solid">#6A7784</color>
     <color name="chatbot_name">#773C6F</color>
 
+    <color name="bg_scanner_menu">#F7F6F6</color>
 
 </resources>
