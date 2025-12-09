@@ -85,7 +85,6 @@
         app:hintTextColor="@color/dark_grey"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="16dp"
-        app:boxBackgroundMode="outline"
         app:errorEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +97,7 @@
             android:inputType="number"
             android:maxLength="4"
             android:textColor="@color/grey"
-
+            android:background="@drawable/bg_input_primary"
             android:hint="@string/transfers_hint_agency"
             android:textColorHint="@color/dark_grey"/>
 
@@ -111,7 +110,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="16dp"
-        app:boxBackgroundMode="outline"
         app:errorEnabled="false"
         android:contentDescription="@string/transfers_description_account"
         app:hintTextColor="@color/dark_grey"
@@ -126,7 +124,7 @@
             android:maxLength="10"
             android:textColor="@color/grey"
             android:inputType="textCapCharacters"
-
+            android:background="@drawable/bg_input_primary"
             android:hint="@string/transfers_hint_account"
             android:textColorHint="@color/dark_grey" />
 
@@ -140,7 +138,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="16dp"
-        app:boxBackgroundMode="outline"
         app:endIconDrawable="@drawable/ic_arrowdown"
         app:errorEnabled="false"
         app:hintTextColor="@color/dark_grey"
@@ -156,7 +153,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:popupBackground="@drawable/bg_dropdown_list"
-
+            android:background="@drawable/bg_input_primary"
             android:textColor="@color/grey"
             android:hint="@string/transfers_hint_account_type"
             android:focusable="false"
