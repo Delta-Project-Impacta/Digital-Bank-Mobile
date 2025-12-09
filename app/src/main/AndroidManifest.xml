@@ -71,12 +71,6 @@
             android:name="com.domleondev.deltatransfers.presentation.activities.TransfersDataActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.activities.TransferSuccessActivity"
-            android:exported="false" />
-        <activity
-            android:name=".presentation.activities.TransferConfirmationActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.activities.TransferAmountActivity"
             android:exported="false" />
         <activity
