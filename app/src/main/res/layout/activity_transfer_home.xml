@@ -54,6 +54,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="30dp"
+        app:boxBackgroundMode="outline"
         app:endIconDrawable="@drawable/ic_check"
         app:endIconMode="none"
         app:endIconTint="@color/orange"
@@ -66,7 +67,7 @@
             android:id="@+id/transfer_Home_Edit_Pix"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
+
             android:fontFamily="@font/font_sans"
             android:hint="@string/transfer_home_input"
             android:textColor="@color/dark_grey"

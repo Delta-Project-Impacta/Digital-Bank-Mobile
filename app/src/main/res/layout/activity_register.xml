@@ -51,9 +51,10 @@
         android:id="@+id/register_Input_Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
         android:layout_marginEnd="16dp"
+        app:boxBackgroundMode="outline"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +64,7 @@
             android:id="@+id/register_Edit_Nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
+
             android:hint="@string/register_name"
             android:textColor="@color/dark_grey" />
 
@@ -76,6 +77,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="16dp"
+        app:boxBackgroundMode="outline"
         app:hintTextColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,7 +87,7 @@
             android:id="@+id/register_Edit_Cpf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
+
             android:hint="@string/register_cpf"
             android:inputType="number"
             android:maxLength="14"
@@ -100,6 +102,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="16dp"
+        app:boxBackgroundMode="outline"
         app:hintTextColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +112,7 @@
             android:id="@+id/register_Edit_Birth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
+
             android:hint="@string/register_birth"
             android:maxLength="10"
             android:inputType="date"
@@ -124,6 +127,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="16dp"
+        app:boxBackgroundMode="outline"
         app:hintTextColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,7 +137,7 @@
             android:id="@+id/register_Edit_Phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
+
             android:hint="@string/register_phone"
             android:inputType="phone"
             android:maxLength="15"
@@ -148,6 +152,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="16dp"
+        app:boxBackgroundMode="outline"
         app:endIconMode="none"
         app:endIconDrawable="@drawable/ic_check"
         app:endIconTint="@color/orange"
@@ -160,7 +165,7 @@
             android:id="@+id/register_Edit_Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
+
             android:hint="@string/register_email"
             android:textColor="@color/dark_grey" />
 
@@ -173,6 +178,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="16dp"
+        app:boxBackgroundMode="outline"
         app:endIconMode="none"
         app:endIconDrawable="@drawable/ic_check"
         app:endIconTint="@color/orange"
@@ -185,7 +191,7 @@
             android:id="@+id/register_Edit_Confirm_Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
+
             android:hint="@string/register_confirm_email"
             android:textColor="@color/dark_grey" />
 
