@@ -46,7 +46,7 @@ class FragmentExtract: Fragment() {
         // Olho para mostrar/ocultar saldo
         val ivEye = view.findViewById<ImageView>(R.id.imageView5)
         var saldoVisivel = false
-        tvBalance.text = "••••••" // saldo escondido por padrão
+        tvBalance.text = "R$ •••••••" // saldo escondido por padrão
 
         ivEye.setOnClickListener {
             saldoVisivel = !saldoVisivel
@@ -64,7 +64,7 @@ class FragmentExtract: Fragment() {
                 }
             } else {
                 // esconde saldo
-                tvBalance.text = "•••••••"
+                tvBalance.text = "R$ ••••••••"
             }
         }
 
