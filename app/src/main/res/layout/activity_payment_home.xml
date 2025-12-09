@@ -25,11 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
+            android:fontFamily="@font/font_sans_bold"
             android:text="@string/payment_home_title"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="18sp"
-            android:fontFamily="@font/font_sans_bold" />
+            android:textSize="18sp" />
     </com.google.android.material.appbar.MaterialToolbar>
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -37,13 +37,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:fontFamily="@font/font_sans_semibold"
         android:text="@string/payment_home_description_01"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:fontFamily="@font/font_sans_semibold"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/payment_Home" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -66,9 +66,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_input_primary"
+            android:fontFamily="@font/font_sans"
             android:hint="@string/payment_home_input"
             android:textColor="@color/dark_grey"
-            android:fontFamily="@font/font_sans"
             android:textSize="13sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -77,7 +77,6 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="20dp"
-
         android:contentDescription="@string/payment_icon_00_description"
         android:scaleType="fitCenter"
         android:src="@drawable/ic_camera"
@@ -103,11 +102,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
+        android:fontFamily="@font/font_sans_semibold"
         android:text="@string/payment_home_description_02"
         android:textAlignment="viewStart"
         android:textColor="@color/black"
         android:textSize="20sp"
-        android:fontFamily="@font/font_sans_semibold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider" />
 
@@ -204,5 +203,37 @@
 
     </LinearLayout>
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/menu_content_container"
+        android:layout_width="230dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_camera_menu"
+        android:elevation="10dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/payment_Home_Icon_Camera">
+
+        <include
+            layout="@layout/dialog_scanner_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:id="@+id/menu_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
