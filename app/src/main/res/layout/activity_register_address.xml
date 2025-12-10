@@ -55,6 +55,7 @@
         android:layout_marginTop="52dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        app:boxBackgroundMode="outline"
         app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +65,7 @@
             android:id="@+id/address_Edit_Cep"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
+
             android:hint="@string/address_cep"
             android:textColor="@color/dark_grey" />
 
@@ -96,6 +97,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="106dp"
+            app:boxBackgroundMode="outline"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -105,7 +107,7 @@
                 android:id="@+id/address_Edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_input_primary"
+
                 android:hint="@string/address_text"
                 android:textColor="@color/grey" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -115,6 +117,7 @@
             android:layout_width="76dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            app:boxBackgroundMode="outline"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -123,7 +126,7 @@
                 android:id="@+id/address_Edit_Number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_input_primary"
+
                 android:hint="@string/address_number"
                 android:textColor="@color/grey" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -136,6 +139,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="16dp"
+        app:boxBackgroundMode="outline"
         app:hintTextColor="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -145,7 +149,7 @@
             android:id="@+id/address_Edit_Complement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
+
             android:hint="@string/address_complement"
             android:maxLength="10"
             android:inputType="date"
@@ -160,6 +164,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="16dp"
+        app:boxBackgroundMode="outline"
         app:endIconMode="none"
         app:endIconDrawable="@drawable/ic_check"
         app:endIconTint="@color/orange"
@@ -172,7 +177,7 @@
             android:id="@+id/address_Edit_District"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
+
             android:hint="@string/address_district"
             android:textColor="@color/dark_grey" />
 
