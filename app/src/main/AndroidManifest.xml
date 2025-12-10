@@ -87,8 +87,8 @@
             android:exported="false" />
         <activity
             android:name=".presentation.activities.TransferHomeActivity"
-            android:exported="false" /> <!-- SPLASH -->
-        <activity
+            android:exported="false" />
+         <activity
             android:name=".presentation.activities.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -114,6 +114,7 @@
             android:exported="false" />
         <activity
             android:name=".presentation.activities.LoginActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="false" />
         <activity
             android:name=".presentation.activities.HomeActivity"
