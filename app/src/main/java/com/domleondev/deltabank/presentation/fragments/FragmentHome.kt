@@ -6,8 +6,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.ImageView
+import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.domleondev.deltabank.R
 import com.domleondev.deltabank.presentation.activities.CardsActivity
@@ -52,16 +54,15 @@ class FragmentHome : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         // TextViews do usuário
-        tvName = view.findViewById(R.id.textView2)      // Nome
-        tvBalance = view.findViewById(R.id.textView4)   // Saldo
-        tvInitials = view.findViewById(R.id.textViewInitials) // Inicial
+        tvName = view.findViewById(R.id.textView2)
+        tvBalance = view.findViewById(R.id.textView4)
+        tvInitials = view.findViewById(R.id.textViewInitials)
 
         // Puxa dados do Firebase
         val currentUser = auth.currentUser
         if (currentUser != null) {
             fetchUserData(currentUser.uid)
         } else {
-            // Usuário não logado → redireciona pro login
             val intent = Intent(requireContext(), LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
@@ -70,36 +71,37 @@ class FragmentHome : Fragment() {
         // Olho para mostrar/ocultar saldo
         val ivEye = view.findViewById<ImageView>(R.id.imageView)
         var saldoVisivel = false
-        tvBalance.text = "••••••" // saldo escondido por padrão
+        tvBalance.text = "••••••••"
 
         ivEye.setOnClickListener {
             saldoVisivel = !saldoVisivel
             if (saldoVisivel) {
-                // mostra saldo real
                 val currentUser = auth.currentUser
                 if (currentUser != null) {
                     db.collection("users").document(currentUser.uid).get()
                         .addOnSuccessListener { doc ->
                             val balance = doc.getDouble("balance") ?: 0.0
-                            val formattedBalance = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
-                                .format(balance)
+                            val formattedBalance =
+                                NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+                                    .format(balance)
                             tvBalance.text = formattedBalance
                         }
                 }
             } else {
-                // esconde saldo
-                tvBalance.text = "••••••"
+                tvBalance.text = "••••••••"
             }
         }
 
         // Cards clicáveis
-        val fragmentHomePixTransfer = view.findViewById<MaterialCardView>(R.id.fragment_Home_Pix_Transfer)
+        val fragmentHomePixTransfer =
+            view.findViewById<MaterialCardView>(R.id.fragment_Home_Pix_Transfer)
         fragmentHomePixTransfer.setOnClickListener {
             val intent = Intent(requireContext(), TransferHomeActivity::class.java)
             startActivity(intent)
         }
 
-        val fragmentHomePayTransfer = view.findViewById<MaterialCardView>(R.id.fragment_Home_Pay_Transfer)
+        val fragmentHomePayTransfer =
+            view.findViewById<MaterialCardView>(R.id.fragment_Home_Pay_Transfer)
         fragmentHomePayTransfer.setOnClickListener {
             val intent = Intent(requireContext(), PaymentHomeActivity::class.java)
             startActivity(intent)
@@ -110,9 +112,32 @@ class FragmentHome : Fragment() {
             val intent = Intent(requireContext(), CardsActivity::class.java)
             startActivity(intent)
         }
+
+        // --- CORREÇÃO DA TRANSPARÊNCIA (NOVIDADE AQUI) ---
+        // Pegamos a referência da Toolbar
+        val toolbar = view.findViewById<View>(R.id.fragment_Home_Toolbar)
+
+        ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            // Aplicamos padding APENAS na Toolbar.
+            // O view principal (fundo laranja) continua esticado lá no topo (atrás do relógio).
+            // A Toolbar desce a altura da barra de status (bars.top) para o texto aparecer.
+            toolbar.setPadding(
+                toolbar.paddingLeft,
+                bars.top, // AQUI: Empurra o título para baixo
+                toolbar.paddingRight,
+                toolbar.paddingBottom
+            )
+
+            // Se o final da sua tela estiver cortando atrás da BottomNav,
+            // você pode adicionar um padding bottom no view principal aqui também:
+            // v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, bars.bottom)
+
+            insets
+        }
     }
 
-    // Função para puxar nome, saldo e iniciais do Firebase
     private fun fetchUserData(uid: String) {
         db.collection("users").document(uid).get()
             .addOnSuccessListener { doc ->
@@ -120,17 +145,14 @@ class FragmentHome : Fragment() {
                     val fullName = doc.getString("name") ?: "Usuário"
                     val firstName = fullName.split(" ").firstOrNull() ?: fullName
 
-                    // Nome
                     tvName.text = firstName
 
-                    // Iniciais
                     val initials = fullName.split(" ")
                         .mapNotNull { it.firstOrNull()?.uppercaseChar() }
                         .take(2)
                         .joinToString("")
                     tvInitials.text = initials
 
-                    // Saldo formatado
                     val balance = doc.getDouble("balance") ?: 0.0
                     val formattedBalance = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
                         .format(balance)
