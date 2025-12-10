@@ -96,12 +96,13 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintTextColor="@color/transparent"
                 android:elevation="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_cpf"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/bg_input_primary"
                     android:fontFamily="@font/font_sans"
                     android:hint="@string/login_cpf_input"
@@ -125,16 +126,18 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:hintTextColor="@color/transparent"
                 android:elevation="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_password"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/bg_input_primary"
                     android:fontFamily="@font/font_sans"
                     android:hint="@string/login_password_input"
                     android:inputType="numberPassword"
+                    android:imeOptions="actionDone"
                     android:layout_margin="10dp"
                     android:textColorHint="@color/grey"
                     android:textSize="16sp" />
