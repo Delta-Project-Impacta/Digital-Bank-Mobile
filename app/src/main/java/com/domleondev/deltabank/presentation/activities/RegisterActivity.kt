@@ -21,10 +21,24 @@ import com.domleondev.deltabank.viewModel.FirebaseCheckResult
 import com.domleondev.deltabank.viewModel.RegisterViewModel
 import com.domleondev.deltabank.viewModel.RegisterViewModelFactory
 
+import android.graphics.Color
+import android.os.Build
+import android.view.View
+import android.widget.CheckBox
+import android.widget.TextView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
+import com.domleondev.deltabank.databinding.RegisterBottomSheetBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var registerTermBottomSheet : TextView
+    private lateinit var checkBox: CheckBox
 
     private val viewModel: RegisterViewModel by viewModels {
         RegisterViewModelFactory(
@@ -45,6 +59,55 @@ class RegisterActivity : AppCompatActivity() {
         setupListeners()
         observeValidation()
         observeFirebaseCheck()
+
+        registerTermBottomSheet = findViewById(R.id.register_Term_Bottom_Sheet)
+        checkBox = findViewById(R.id.check_Box)
+
+        //  Configuração universal de status bar transparente
+        val window = window
+
+// LÓGICA DE VERSÕES CORRIGIDA
+        when {
+            // Android 10 e anteriores (API < 30)
+            Build.VERSION.SDK_INT < Build.VERSION_CODES.R -> {
+                @Suppress("DEPRECATION")
+                window.decorView.systemUiVisibility =
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION // <--- ESSA É A CHAVE!
+
+                @Suppress("DEPRECATION")
+                window.statusBarColor = Color.TRANSPARENT
+                @Suppress("DEPRECATION")
+                window.navigationBarColor = Color.TRANSPARENT // <--- Força a cor aqui
+            }
+
+            // Android 11+ (API >= 30)
+            else -> {
+                // Este comando diz: "Não ajuste o layout pelas barras, deixe passar por trás"
+                WindowCompat.setDecorFitsSystemWindows(window, false)
+
+                val controller = WindowInsetsControllerCompat(window, window.decorView)
+                controller.isAppearanceLightStatusBars = true
+                // controller.isAppearanceLightNavigationBars = true // Descomente se os ícones da navbar sumirem
+
+                @Suppress("DEPRECATION")
+                window.statusBarColor = Color.TRANSPARENT
+                @Suppress("DEPRECATION")
+                window.navigationBarColor = Color.TRANSPARENT // <--- Garante a transparência
+            }
+        }
+        val headerContainer = findViewById<View>(R.id.register_Toolbar)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.register_root)) { v, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(bars.left, 0, bars.right, 0)
+            headerContainer.setPadding(0, bars.top, 0, 0)
+            insets
+        }
+
+        binding.registerTermBottomSheet.setOnClickListener {
+            showBottomSheetDialog()
+        }
     }
 
     private fun applyMasks() {
@@ -61,8 +124,9 @@ class RegisterActivity : AppCompatActivity() {
             val email = binding.registerEditEmail.text.toString()
             val confirmEmail = binding.registerEditConfirmEmail.text.toString()
             val phone = binding.registerEditPhone.text.toString()
+            val isChecked = checkBox.isChecked
 
-            viewModel.validateFields(name, cpf, birth, email, confirmEmail, phone)
+            viewModel.validateFields(name, cpf, birth, email, confirmEmail, phone, isChecked)
         }
 
         binding.registerButtonBack.setOnClickListener { finish() }
@@ -88,6 +152,7 @@ class RegisterActivity : AppCompatActivity() {
                         "invalid_email" -> R.string.error_invalid_email
                         "email_not_match" -> R.string.error_email_not_match
                         "invalid_phone" -> R.string.error_invalid_phone
+                        "invalid_term" -> R.string.error_invalid_term
                         else -> R.string.error_generic
                     }
                     Toast.makeText(this, getString(message), Toast.LENGTH_SHORT).show()
@@ -127,5 +192,26 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         startActivity(intent)
+    }
+    private fun showBottomSheetDialog() {
+        val dialog = BottomSheetDialog(this)
+        val sheetBinding: RegisterBottomSheetBinding =
+            RegisterBottomSheetBinding.inflate(layoutInflater, null, false)
+
+        dialog.setContentView(sheetBinding.root)
+
+        sheetBinding.registerBottomClose.setOnClickListener {
+            dialog.dismiss()
+        }
+        sheetBinding.registerTermButton.setOnClickListener {
+            checkBox.isChecked = true
+            dialog.dismiss()
+        }
+
+        // Permite fechar tocando fora (opcional)
+        dialog.setCancelable(true)
+        dialog.setCanceledOnTouchOutside(true)
+
+        dialog.show()
     }
 }
