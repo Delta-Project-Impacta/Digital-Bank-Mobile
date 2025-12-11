@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+    android:id="@+id/register_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.activities.RegisterActivity">
@@ -34,176 +34,243 @@
 
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <TextView
-        android:id="@+id/text_Register_Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="@string/register_text_title"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:fontFamily="@font/font_sans_bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_Toolbar" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_Input_Name"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:hintTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_Register_Title">
+        app:layout_constraintTop_toBottomOf="@+id/register_Toolbar">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_Edit_Nome"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/scroll_Constraint_Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
-            android:hint="@string/register_name"
-            android:textColor="@color/dark_grey" />
+            android:orientation="vertical">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <TextView
+                android:id="@+id/text_Register_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/font_sans_bold"
+                android:text="@string/register_text_title"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_Input_Cpf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="16dp"
-        app:hintTextColor="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_Input_Name">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_Input_Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp"
+                android:layout_marginEnd="16dp"
+                app:hintTextColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_Register_Title">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_Edit_Cpf"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
-            android:hint="@string/register_cpf"
-            android:inputType="number"
-            android:maxLength="14"
-            android:textColor="@color/dark_grey" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/register_Edit_Nome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input_primary"
+                    android:inputType="textVisiblePassword"
+                    android:hint="@string/register_name"
+                    android:textColor="@color/dark_grey" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_Input_Birth"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="16dp"
-        app:hintTextColor="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_Input_Cpf">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_Input_Cpf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                app:hintTextColor="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_Input_Name">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_Edit_Birth"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
-            android:hint="@string/register_birth"
-            android:maxLength="10"
-            android:inputType="date"
-            android:textColor="@color/dark_grey" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/register_Edit_Cpf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input_primary"
+                    android:hint="@string/register_cpf"
+                    android:inputType="number"
+                    android:maxLength="14"
+                    android:textColor="@color/dark_grey" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_Input_Phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="16dp"
-        app:hintTextColor="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_Input_Confirm_Email">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_Input_Birth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                app:hintTextColor="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_Input_Cpf">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_Edit_Phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
-            android:hint="@string/register_phone"
-            android:inputType="phone"
-            android:maxLength="15"
-            android:textColor="@color/dark_grey" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/register_Edit_Birth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input_primary"
+                    android:hint="@string/register_birth"
+                    android:inputType="date"
+                    android:maxLength="10"
+                    android:textColor="@color/dark_grey" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_Input_Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="16dp"
-        app:endIconMode="none"
-        app:endIconDrawable="@drawable/ic_check"
-        app:endIconTint="@color/orange"
-        app:hintTextColor="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_Input_Birth">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_Input_Phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                app:hintTextColor="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_Input_Confirm_Email">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_Edit_Email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
-            android:hint="@string/register_email"
-            android:textColor="@color/dark_grey" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/register_Edit_Phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input_primary"
+                    android:hint="@string/register_phone"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:textColor="@color/dark_grey" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/register_Input_Confirm_Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="16dp"
-        app:endIconMode="none"
-        app:endIconDrawable="@drawable/ic_check"
-        app:endIconTint="@color/orange"
-        app:hintTextColor="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_Input_Email">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_Input_Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                app:endIconDrawable="@drawable/ic_check"
+                app:endIconMode="none"
+                app:endIconTint="@color/orange"
+                app:hintTextColor="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_Input_Birth">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/register_Edit_Confirm_Email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_input_primary"
-            android:hint="@string/register_confirm_email"
-            android:textColor="@color/dark_grey" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/register_Edit_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input_primary"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/register_email"
+                    android:textColor="@color/dark_grey" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/register_Button_Next"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_button_primary"
-        android:text="@string/button_next"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:fontFamily="@font/font_sans_semibold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/register_Input_Phone" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/register_Input_Confirm_Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="16dp"
+                app:endIconDrawable="@drawable/ic_check"
+                app:endIconMode="none"
+                app:endIconTint="@color/orange"
+                app:hintTextColor="@color/grey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_Input_Email">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/register_Edit_Confirm_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_input_primary"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/register_confirm_email"
+                    android:textColor="@color/dark_grey" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                app:flow_horizontalAlign="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/register_Input_Phone">
+
+                <CheckBox
+                    android:id="@+id/check_Box"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register_agree_term"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/check_Box"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:id="@+id/register_Term_Bottom_Sheet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/register_privacy_policy"
+                    android:textColor="@color/blue"
+                    android:layout_marginStart="2dp"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/textView4"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="SmallSp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/register_Button_Next"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/bg_button_primary"
+                android:fontFamily="@font/font_sans_semibold"
+                android:text="@string/button_next"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
