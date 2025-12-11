@@ -1,6 +1,7 @@
 package com.domleondev.deltabank.presentation.fragments
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
@@ -32,6 +34,8 @@ class FragmentHome : Fragment() {
     private lateinit var tvName: TextView
     private lateinit var tvBalance: TextView
     private lateinit var tvInitials: TextView
+
+    private var balanceVisible = false
 
     companion object {
         fun newInstance(): Fragment {
@@ -71,26 +75,52 @@ class FragmentHome : Fragment() {
         // Olho para mostrar/ocultar saldo
         val ivEye = view.findViewById<ImageView>(R.id.imageView)
         var saldoVisivel = false
+
+        // Começa com saldo escondido e olho fechado
         tvBalance.text = "••••••••"
+        ivEye.setImageResource(R.drawable.ic_eye_off_bold)
+
+        // Aplicar cor branca ao ícone
+        ivEye.imageTintList = ColorStateList.valueOf(
+            ContextCompat.getColor(requireContext(), R.color.white)
+        )
 
         ivEye.setOnClickListener {
             saldoVisivel = !saldoVisivel
+
             if (saldoVisivel) {
+                ivEye.setImageResource(R.drawable.ic_eye_bold)
+
+                // Mantém sempre branco
+                ivEye.imageTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(requireContext(), R.color.white)
+                )
+
                 val currentUser = auth.currentUser
                 if (currentUser != null) {
-                    db.collection("users").document(currentUser.uid).get()
+                    db.collection("users")
+                        .document(currentUser.uid)
+                        .get()
                         .addOnSuccessListener { doc ->
                             val balance = doc.getDouble("balance") ?: 0.0
-                            val formattedBalance =
-                                NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
-                                    .format(balance)
+                            val formattedBalance = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+                                .format(balance)
                             tvBalance.text = formattedBalance
                         }
                 }
             } else {
+                ivEye.setImageResource(R.drawable.ic_eye_off_bold)
+
+                // Mantém sempre branco
+                ivEye.imageTintList = ColorStateList.valueOf(
+                    ContextCompat.getColor(requireContext(), R.color.white)
+                )
+
                 tvBalance.text = "••••••••"
             }
         }
+
+
 
         // Cards clicáveis
         val fragmentHomePixTransfer =
@@ -156,7 +186,10 @@ class FragmentHome : Fragment() {
                     val balance = doc.getDouble("balance") ?: 0.0
                     val formattedBalance = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
                         .format(balance)
-                    tvBalance.text = formattedBalance
+
+                    if (balanceVisible) {
+                        tvBalance.text = formattedBalance
+                    }
                 }
             }
             .addOnFailureListener {
