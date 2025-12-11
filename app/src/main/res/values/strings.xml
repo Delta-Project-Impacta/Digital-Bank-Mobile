@@ -78,8 +78,8 @@
     <string name="password_confirm">Confirmar Senha</string>
 
     <string name="password_title_account"> Agora insira uma senha \n de 4 dígitos para as suas \n movimentações bancárias</string>
-    <string name="password_account">Senha da Conta</string>
-    <string name="password_confirm_account">Confirme a senha da conta</string>
+    <string name="password_account">Senha de Transações</string>
+    <string name="password_confirm_account">Confirme a senha de Transações</string>
     <string name="password_account_subtitle">Evite usar a mesma senha \n do app para ter mais \n segurança</string>
     <string name="back_arrow_description">Seta de voltar</string>
     <string name="login_logo_description">Logotipo do banco Delta na cor laranja</string>
