@@ -28,6 +28,16 @@ import com.google.android.material.textfield.TextInputEditText
 import kotlin.getValue
 import com.domleondev.deltabank.viewModel.RegisterAddressViewModel
 
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import androidx.lifecycle.lifecycleScope
+
+import android.graphics.Color
+import android.os.Build
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsControllerCompat
+
 class RegisterAddressActivity : AppCompatActivity() {
 
     private val viewModel: RegisterAddressViewModel by viewModels()
@@ -47,6 +57,7 @@ class RegisterAddressActivity : AppCompatActivity() {
     private var name: String? = null
     private var cpf: String? = null
     private var birth: String? = null
+    private var buscaCepJob: Job? = null // Variável para controlar o cancelamento
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -119,9 +130,45 @@ class RegisterAddressActivity : AppCompatActivity() {
             }
         }
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+//  Configuração universal de status bar transparente
+        val window = window
+
+// LÓGICA DE VERSÕES CORRIGIDA
+        when {
+            // Android 10 e anteriores (API < 30)
+            Build.VERSION.SDK_INT < Build.VERSION_CODES.R -> {
+                @Suppress("DEPRECATION")
+                window.decorView.systemUiVisibility =
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION // <--- ESSA É A CHAVE!
+
+                @Suppress("DEPRECATION")
+                window.statusBarColor = Color.TRANSPARENT
+                @Suppress("DEPRECATION")
+                window.navigationBarColor = Color.TRANSPARENT // <--- Força a cor aqui
+            }
+
+            // Android 11+ (API >= 30)
+            else -> {
+                // Este comando diz: "Não ajuste o layout pelas barras, deixe passar por trás"
+                WindowCompat.setDecorFitsSystemWindows(window, false)
+
+                val controller = WindowInsetsControllerCompat(window, window.decorView)
+                controller.isAppearanceLightStatusBars = true
+                // controller.isAppearanceLightNavigationBars = true // Descomente se os ícones da navbar sumirem
+
+                @Suppress("DEPRECATION")
+                window.statusBarColor = Color.TRANSPARENT
+                @Suppress("DEPRECATION")
+                window.navigationBarColor = Color.TRANSPARENT // <--- Garante a transparência
+            }
+        }
+        val headerContainer = findViewById<View>(R.id.address_Toolbar)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.address_root)) { v, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(bars.left, 0, bars.right, 0)
+            headerContainer.setPadding(0, bars.top, 0, 0)
             insets
         }
     }
@@ -166,12 +213,24 @@ class RegisterAddressActivity : AppCompatActivity() {
         inputAddressCep.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
             override fun afterTextChanged(s: Editable?) {
-                val cep = s.toString().replace("-", "").trim()
-                if (cep.length == 8) {
-                    viewModel.buscarCep(cep)
-                } else {
-                    cepValido = false
+                // 1. Cancela a busca anterior se ela ainda não aconteceu (Debounce)
+                buscaCepJob?.cancel()
+
+                // 2. Cria uma nova espera de 500ms
+                buscaCepJob = lifecycleScope.launch {
+                    delay(500) // Espera meio segundo para ver se a máscara ou o usuário vai digitar mais algo
+
+                    val cep = s.toString().replace("-", "").trim()
+
+                    // 3. Só chama se tiver 8 dígitos e for diferente da última busca (opcional)
+                    if (cep.length == 8) {
+                        viewModel.buscarCep(cep)
+                    } else {
+                        cepValido = false
+                        // Opcional: Limpar campos se o usuário apagar o CEP
+                    }
                 }
             }
         })
