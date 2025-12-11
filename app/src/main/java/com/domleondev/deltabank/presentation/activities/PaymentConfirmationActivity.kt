@@ -2,6 +2,8 @@ package com.domleondev.deltabank.presentation.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
@@ -10,17 +12,39 @@ import androidx.core.view.WindowInsetsCompat
 import com.domleondev.deltabank.R
 
 class PaymentConfirmationActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_payment_confirmation)
 
-        val paymentSuccessButtonNext = findViewById<AppCompatButton>(R.id.payment_Confirmation_Button_Next)
-        paymentSuccessButtonNext.setOnClickListener {
-            val intent = Intent(this, PaymentSuccessActivity::class.java)
+        val amount = intent.getStringExtra("EXTRA_AMOUNT") ?: ""
+        val recipientName = intent.getStringExtra("EXTRA_RECIPIENT_NAME") ?: ""
+        val institutionName = intent.getStringExtra("EXTRA_INSTITUTION_NAME") ?: ""
+        val paymentType = intent.getStringExtra("EXTRA_PAYMENT_TYPE") ?: ""
+
+        findViewById<TextView>(R.id.payment_Confirmation_Amount_View).text = amount
+        findViewById<TextView>(R.id.payment_Confirmation_For_Name_Value).text = recipientName
+        findViewById<TextView>(R.id.payment_Confirmation_Institution_Name_Value).text = institutionName
+
+        val nextButton = findViewById<AppCompatButton>(R.id.payment_Confirmation_Button_Next)
+        nextButton.setOnClickListener {
+            val intent = Intent(this, PaymentSuccessActivity::class.java).apply {
+                putExtra("EXTRA_AMOUNT", amount)
+                putExtra("EXTRA_RECIPIENT_NAME", recipientName)
+                putExtra("EXTRA_INSTITUTION_NAME", institutionName)
+                putExtra("EXTRA_PAYMENT_TYPE", paymentType)
+            }
             startActivity(intent)
         }
-        
+
+        findViewById<ImageView>(R.id.payment_Confirmation_Close).setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
+        }
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.payment_Confirmation_Container)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

@@ -67,7 +67,7 @@
                 android:alpha="1"
                 android:background="@android:color/transparent" />
 
-            <com.domleondev.deltabank.viewModel.CameraOverlayViewModel
+            <com.domleondev.deltabank.viewModel.QRCodeViewModel
                 android:id="@+id/overlayView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
