@@ -54,6 +54,9 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="10dp"
         app:boxBackgroundMode="outline"
+        app:endIconMode="custom"
+        app:endIconDrawable="@drawable/ic_arrow_send"
+        app:endIconTint="@android:color/transparent"
         app:hintTextColor="@color/grey"
         app:layout_constraintEnd_toStartOf="@id/payment_Home_Icon_Camera"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,12 +66,12 @@
             android:id="@+id/payment_Home_Edit_Pay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:fontFamily="@font/font_sans"
             android:hint="@string/payment_home_input"
             android:textColor="@color/dark_grey"
             android:textSize="13sp" />
     </com.google.android.material.textfield.TextInputLayout>
+
 
     <ImageView
         android:id="@+id/payment_Home_Icon_Camera"
@@ -201,11 +204,11 @@
 
     </LinearLayout>
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/menu_content_container"
         android:layout_width="230dp"
-        android:layout_height="148dp"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="20dp"
         android:background="@drawable/bg_camera_menu"

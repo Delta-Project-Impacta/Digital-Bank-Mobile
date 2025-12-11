@@ -286,7 +286,7 @@
     <string name="transfer_confirmation_when">Quando</string>
     <string name="transfer_confirmation_button">Abrir comprovante</string>
 
-    <string name="close_icon_description">Icone de x para fechar a tela e retornar para a home</string>
+    <string name="close_icon_description">Icone de x para fechar a tela e retornar</string>
     <string name="share_icon_description">Icone para compartilhar</string>
 
     <string name="pix_success_title">Comprovante</string>
@@ -509,5 +509,8 @@
     <string name="read_title">O que deseja pagar?</string>
     <string name="read_barcode">Ler o código de barras</string>
     <string name="read_qr_code">Ler o QR code</string>
+
+    <string name="barcode_title">Encaixe o código de barras no retângulo</string>
+    <string name="barcode_button">Digitar código</string>
 
 </resources>
