@@ -40,7 +40,26 @@
     <string name="register_email">E-mail</string>
     <string name="register_confirm_email">Confirmar E-mail</string>
     <string name="register_phone">Celular</string>
+    <string name="register_agree_term">Li e estou de acordo com o </string>
+    <string name="register_privacy_policy">Termo de Uso e Política de Privacidade</string>
     <string name="button_next">Continuar</string>
+
+    <string name="register_term_title">Os Termos e a política de Privacidade \n do WhatsApp serão atualizados.</string>
+    <string name="register_term_subtitle_one">Atualizações importantes</string>
+    <string name="register_term_subtitle_two">Lei Geral de Proteção de Dados.</string>
+    <string name="register_term_text_paragraph">Em caso de incidentes de segurança que possa gerar risco ou dano relevante para você ou qualquer um de nossos usuários/clientes, comunicaremos aos afetados e a Autoridade Nacional de Proteção de Dados sobre o ocorrido, em consonância com as disposições da Lei Geral de Proteção de Dados.</string>
+    <string name="register_term_text_paragraph_one">I – Quaisquer consequências decorrentes da negligência, imprudência ou imperícia dos usuários em relação a seus dados individuais. Garantimos e nos responsabilizamos apenas pela segurança dos processos de tratamento de dados e do cumprimento das finalidades descritas no presente instrumento. Destacamos que a responsabilidade em relação à confidencialidade dos dados de acesso é do usuário.</string>
+    <string name="register_term_text_paragraph_two">II – Ações maliciosas
+        <font color="#0451FF">de terceiros, como ataque</font>
+        de hackers, exceto se comprovada conduta culposa ou deliberada da (nome empresarial simplificado).
+        Destacamos que em caso de incidentes de segurança que possam gerar risco ou dano relevante para você ou qualquer um de nossos usuários/clientes, comunicaremos aos afetados e a Autoridade Nacional de Proteção de Dados sobre o ocorrido e cumpriremos as providências necessárias.
+    </string>
+    <string name="register_term_text_paragraph_three">
+        III – Inveracidade das informações inseridas pelo usuário/cliente nos registros necessários para a utilização dos serviços da (
+        <font color="#0451FF">nome empresarial simplificado</font>
+        ); quaisquer consequências.
+    </string>
+    <string name="register_term_button">Concordar</string>
 
     <string name="address_title">Endereço Pessoal</string>
     <string name="address_text_title">O segundo passo para abrir sua conta\n é informar dados do seu endereço ;)</string>
@@ -119,6 +138,7 @@
     <string name="error_invalid_email">E-mail inválido</string>
     <string name="error_email_not_match">Emails não conferem</string>
     <string name="error_invalid_phone">Número de telefone inválido</string>
+    <string name="error_invalid_term">Aceitar os termos</string>
 
     <!-- String home -->
 

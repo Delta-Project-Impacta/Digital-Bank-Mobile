@@ -19,6 +19,9 @@ class RegisterViewModel(
     private val validatePhone: ValidatePhoneUseCase,
 ) : ViewModel() {
 
+    fun isCheckboxValid(isChecked: Boolean): Boolean {
+        return isChecked
+    }
     private val db = FirebaseFirestore.getInstance()
 
     private val _validationState = MutableLiveData<ValidationResult>()
@@ -33,7 +36,8 @@ class RegisterViewModel(
         birth: String,
         email: String,
         confirmEmail: String,
-        phone: String
+        phone: String,
+        isChecked: Boolean
     ) {
         if (!validateName(name)) {
             _validationState.value = ValidationResult.Error("invalid_name")
@@ -57,6 +61,10 @@ class RegisterViewModel(
         }
         if (!validatePhone(phone)) {
             _validationState.value = ValidationResult.Error("invalid_phone")
+            return
+        }
+        if (!isCheckboxValid(isChecked)) {
+            _validationState.value = ValidationResult.Error("invalid_term")
             return
         }
 
