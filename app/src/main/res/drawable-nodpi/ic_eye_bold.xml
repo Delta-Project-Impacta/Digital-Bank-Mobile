@@ -6,7 +6,7 @@
     <path
         android:pathData="M22,12C20.253,15.576 15.877,19 12,19C8.122,19 3.746,15.576 2,12"
         android:strokeLineJoin="round"
-        android:strokeWidth="1.5"
+        android:strokeWidth="2"
         android:fillColor="#00000000"
         android:fillType="evenOdd"
         android:strokeColor="#5E5E5E"
@@ -14,7 +14,7 @@
     <path
         android:pathData="M22,12C20.253,8.424 15.878,5 12,5C8.123,5 3.746,8.423 2,12"
         android:strokeLineJoin="round"
-        android:strokeWidth="1.5"
+        android:strokeWidth="2"
         android:fillColor="#00000000"
         android:fillType="evenOdd"
         android:strokeColor="#5E5E5E"

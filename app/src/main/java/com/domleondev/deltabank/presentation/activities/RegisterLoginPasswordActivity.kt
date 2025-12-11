@@ -8,6 +8,7 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.MotionEvent
 import android.widget.Toast
+import com.domleondev.deltabank.R
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -101,17 +102,37 @@ class RegisterLoginPasswordActivity : AppCompatActivity() {
     }
 
     private fun setupPasswordToggle(edit: TextInputEditText) {
+
+        // Começa com a senha escondida e com olho fechado
+        edit.inputType = InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_PASSWORD
+        edit.setSelection(edit.text?.length ?: 0)
+        edit.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_eye_off, 0)
+
         edit.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_UP) {
+
                 val drawableEnd = edit.compoundDrawables[2] ?: return@setOnTouchListener false
+
                 if (event.rawX >= (edit.right - drawableEnd.bounds.width())) {
 
-                    val isVisible = edit.inputType == InputType.TYPE_CLASS_NUMBER
+                    val isPasswordHidden =
+                        edit.inputType and InputType.TYPE_NUMBER_VARIATION_PASSWORD ==
+                                InputType.TYPE_NUMBER_VARIATION_PASSWORD
 
-                    edit.inputType = if (isVisible)
-                        InputType.TYPE_CLASS_NUMBER or InputType.TYPE_NUMBER_VARIATION_PASSWORD
-                    else
-                        InputType.TYPE_CLASS_NUMBER
+                    if (isPasswordHidden) {
+                        // Mostrar senha
+                        edit.inputType = InputType.TYPE_CLASS_NUMBER
+                        edit.setCompoundDrawablesWithIntrinsicBounds(
+                            0, 0, R.drawable.ic_eye, 0
+                        )
+                    } else {
+                        // Ocultar senha
+                        edit.inputType = InputType.TYPE_CLASS_NUMBER or
+                                InputType.TYPE_NUMBER_VARIATION_PASSWORD
+                        edit.setCompoundDrawablesWithIntrinsicBounds(
+                            0, 0, R.drawable.ic_eye_off, 0
+                        )
+                    }
 
                     edit.setSelection(edit.text?.length ?: 0)
                     return@setOnTouchListener true
