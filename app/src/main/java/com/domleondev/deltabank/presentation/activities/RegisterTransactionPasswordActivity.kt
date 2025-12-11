@@ -6,7 +6,9 @@ import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
@@ -18,16 +20,26 @@ import com.domleondev.deltabank.viewModel.RegisterTransactionPasswordViewModel
 import com.domleondev.deltabank.viewModel.RegisterTransactionPasswordViewModelFactory
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
+import com.domleondev.deltabank.R
+
+import android.graphics.Color
+import android.os.Build
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 
 class RegisterTransactionPasswordActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterTransactionPasswordBinding
+    private lateinit var passwordTransactionButtonBack: ImageView
     private val viewModel: RegisterTransactionPasswordViewModel by viewModels {
         RegisterTransactionPasswordViewModelFactory(RegisterTransactionPasswordUseCase(
             AuthRepository(FirebaseAuth.getInstance())))
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         binding = ActivityRegisterTransactionPasswordBinding.inflate(layoutInflater)
@@ -35,11 +47,61 @@ class RegisterTransactionPasswordActivity : AppCompatActivity() {
 
         setupListeners()
         observeViewModel()
+
+        passwordTransactionButtonBack = findViewById(R.id.password_Transaction_Button_Back)
+
+        passwordTransactionButtonBack.setOnClickListener {
+            finish()
+        }
+
+        //  Configuração universal de status bar transparente
+        val window = window
+
+// LÓGICA DE VERSÕES CORRIGIDA
+        when {
+            // Android 10 e anteriores (API < 30)
+            Build.VERSION.SDK_INT < Build.VERSION_CODES.R -> {
+                @Suppress("DEPRECATION")
+                window.decorView.systemUiVisibility =
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION // <--- ESSA É A CHAVE!
+
+                @Suppress("DEPRECATION")
+                window.statusBarColor = Color.TRANSPARENT
+                @Suppress("DEPRECATION")
+                window.navigationBarColor = Color.TRANSPARENT // <--- Força a cor aqui
+            }
+
+            // Android 11+ (API >= 30)
+            else -> {
+                // Este comando diz: "Não ajuste o layout pelas barras, deixe passar por trás"
+                WindowCompat.setDecorFitsSystemWindows(window, false)
+
+                val controller = WindowInsetsControllerCompat(window, window.decorView)
+                controller.isAppearanceLightStatusBars = true
+                // controller.isAppearanceLightNavigationBars = true // Descomente se os ícones da navbar sumirem
+
+                @Suppress("DEPRECATION")
+                window.statusBarColor = Color.TRANSPARENT
+                @Suppress("DEPRECATION")
+                window.navigationBarColor = Color.TRANSPARENT // <--- Garante a transparência
+            }
+        }
+
+        val headerContainer = findViewById<View>(R.id.password_Account_Toolbar)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.password_Account_Toolbar)) { v, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(bars.left, 0, bars.right, 0)
+            headerContainer.setPadding(0, bars.top, 0, 0)
+            insets
+        }
     }
+
 
     private fun setupListeners() {
 
-        // Botão "Next"
+        // Botão "Next" (Mantive igual)
         binding.passwordAccountButtonNext.setOnClickListener {
             val transactionPassword = binding.passwordEditAccount.text.toString()
             val confirmTransactionPassword = binding.passwordEditConfirmAccount.text.toString()
@@ -64,32 +126,63 @@ class RegisterTransactionPasswordActivity : AppCompatActivity() {
         }
 
 
-        // ----- Olho senha -----
         val passwordField = binding.passwordEditAccount
+        val confirmField = binding.passwordEditConfirmAccount
+
+        // 1. GARANTIR QUE INICIA OCULTO E COM O ÍCONE DE OLHO (ic_eye)
+        passwordField.transformationMethod = PasswordTransformationMethod.getInstance()
+        passwordField.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_eye, 0)
+
+        confirmField.transformationMethod = PasswordTransformationMethod.getInstance()
+        confirmField.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_eye, 0)
+
+        // 2. LÓGICA DE CLIQUE PARA SENHA
         passwordField.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 val drawableEnd = 2
+                // Verifica se clicou no ícone
                 if (event.rawX >= (passwordField.right - passwordField.compoundDrawables[drawableEnd].bounds.width())) {
+
+                    val selection = passwordField.selectionEnd // Salva posição do cursor
                     val isHidden = passwordField.transformationMethod is PasswordTransformationMethod
-                    passwordField.transformationMethod =
-                        if (isHidden) null else PasswordTransformationMethod.getInstance()
-                    passwordField.setSelection(passwordField.text?.length ?: 0)
+
+                    if (isHidden) {
+                        // Estava oculto -> Torna VISÍVEL
+                        passwordField.transformationMethod = null
+                        // Muda ícone para "eye_off"
+                        passwordField.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_eye, 0)
+                    } else {
+                        // Estava visível -> Torna OCULTO
+                        passwordField.transformationMethod = PasswordTransformationMethod.getInstance()
+                        // Muda ícone para "eye"
+                        passwordField.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_eye_off, 0)
+                    }
+
+                    passwordField.setSelection(selection) // Restaura cursor
                     return@setOnTouchListener true
                 }
             }
             false
         }
 
-        // ----- Olho confirmar senha -----
-        val confirmField = binding.passwordEditConfirmAccount
+        // 3. LÓGICA DE CLIQUE PARA CONFIRMAR SENHA (A mesma lógica acima)
         confirmField.setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 val drawableEnd = 2
                 if (event.rawX >= (confirmField.right - confirmField.compoundDrawables[drawableEnd].bounds.width())) {
+
+                    val selection = confirmField.selectionEnd
                     val isHidden = confirmField.transformationMethod is PasswordTransformationMethod
-                    confirmField.transformationMethod =
-                        if (isHidden) null else PasswordTransformationMethod.getInstance()
-                    confirmField.setSelection(confirmField.text?.length ?: 0)
+
+                    if (isHidden) {
+                        confirmField.transformationMethod = null
+                        confirmField.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_eye, 0)
+                    } else {
+                        confirmField.transformationMethod = PasswordTransformationMethod.getInstance()
+                        confirmField.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_eye_off, 0)
+                    }
+
+                    confirmField.setSelection(selection)
                     return@setOnTouchListener true
                 }
             }
