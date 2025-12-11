@@ -235,7 +235,7 @@
 
     <string name="transfer_password_title">Senha</string>
     <string name="transfer_password_description_01">Digite sua senha de 4 dígitos</string>
-    <string name="transfer_password_description_02">Essa é a mesma senha de 4 dígitos do seu cartão Delta</string>
+    <string name="transfer_password_description_02">Essa é a mesma senha de 4 dígitos de transações Delta</string>
     <string name="transfer_password_button">Enviar</string>
 
     <string name="transfer_success_title">Comprovante</string>
