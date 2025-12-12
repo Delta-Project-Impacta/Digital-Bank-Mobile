@@ -1,5 +1,6 @@
 package com.domleondev.deltabank.presentation.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,15 @@ import androidx.fragment.app.Fragment
 import com.domleondev.deltabank.R
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.domleondev.deltabank.presentation.dialogs.MessageAdapter
 import com.domleondev.deltabank.repository.geminirepository.GeminiClient
 import com.domleondev.deltabank.repository.geminirepository.Message
+import com.domleondev.deltabank.presentation.activities.ForgotPasswordActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.domleondev.deltabank.repository.request.GeminiContent
 import com.domleondev.deltabank.repository.request.GeminiPart
 import com.domleondev.deltabank.repository.request.GeminiRequest
@@ -21,6 +25,10 @@ import com.domleondev.deltabank.repository.util.ChatStorage
 import kotlinx.coroutines.launch
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+
+private const val ACTION_TAG = "[ACTION:RESET_PASSWORD_BUTTON]"
+private const val ACTION_ID_RESET_PASSWORD = "RESET_PASSWORD"
+
 private const val KONTEIN_SYSTEM_PROMPT = """
 Você é o Kontein, assistente virtual do Banco Delta.
 Seu comportamento varia de acordo com o tipo de pergunta do usuário. 
@@ -37,17 +45,18 @@ Use o fluxo abaixo **somente** quando o usuário pedir ajuda com:
 - ou qualquer variação claramente relacionada à Recuperação de Senha.
 
 Fluxo oficial da Recuperação de Senha:
-1. Na tela “Entrar”, tocar em **"Esqueci a senha"**.  
-2. Na tela de Identificação, inserir o e-mail e tocar em **"Continuar"**.  
-3. Inserir o **código enviado por e-mail** no campo "Código de Verificação" e tocar em **"Continuar"**.  
-4. O código expira em **1 minuto**. Se expirar, o usuário pode tocar em **"Reenviar"**.  
-5. Digitar a **nova senha** duas vezes e tocar em **"Redefinir"**.  
-6. Tocar em **"Fazer Login"** para voltar à tela “Entrar”.
+1. Na tela “Entrar”, tocar em <b>"Esqueci a senha"</b>.  
+2. Na tela de Identificação, inserir o e-mail e tocar em <b>"Continuar"</b>.  
+3. Inserir o <b>código enviado por e-mail</b> no campo "Código de Verificação" e tocar em <b>"Continuar"</b>.  
+4. O código expira em <b>1 minuto</b>. Se expirar, o usuário pode tocar em <b>"Reenviar"</b>.  
+5. Digitar a <b>nova senha</b> duas vezes e tocar em <b>"Redefinir"</b>.  
+6. Tocar em <b>"Fazer Login"</b> para voltar à tela “Entrar”.
 
 Ao explicar esse fluxo:
 - Seja direto, educado e objetivo.
 - Nunca invente passos adicionais.
 - Nunca entre em detalhes técnicos internos do sistema.
+- **IMPORTANTE:** Ao finalizar a explicação, anexe a tag [ACTION:RESET_PASSWORD_BUTTON] na última linha da sua resposta.
 
 ====================  
 💬 PERGUNTAS COMUNS (conversa casual)  
@@ -86,6 +95,8 @@ class FragmentChat : Fragment() {
     private lateinit var adapter: MessageAdapter
     private val messages = mutableListOf<Message>()
 
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -97,6 +108,8 @@ class FragmentChat : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        auth = FirebaseAuth.getInstance()
+
         // Apaga o arquivo salvo, resetando o chat!!
         // ChatStorage.clearHistory(requireContext())
         // messages.clear()
@@ -105,8 +118,29 @@ class FragmentChat : Fragment() {
         val editMessage = view.findViewById<EditText>(R.id.editMessage)
         val btnSend = view.findViewById<ImageView>(R.id.btnSend)
 
-        // Adapter
-        adapter = MessageAdapter(messages)
+        // ********************************************************
+        // 1. Definição do Callback de Clique do Botão (COM LOGOUT)
+        // ********************************************************
+        val onButtonClick: (actionId: String) -> Unit = { actionId ->
+            if (actionId == ACTION_ID_RESET_PASSWORD) {
+
+                auth.signOut()
+                Toast.makeText(requireContext(), "Logout realizado", Toast.LENGTH_SHORT).show()
+
+                val intent = Intent(requireContext(), ForgotPasswordActivity::class.java)
+
+               intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                startActivity(intent)
+
+                requireActivity().finish()
+            }
+        }
+
+        // ********************************************************
+        // 2. Inicialização do Adapter com o Callback
+        // ********************************************************
+        adapter = MessageAdapter(messages, onButtonClick)
 
         recyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext()).apply {
@@ -143,29 +177,47 @@ class FragmentChat : Fragment() {
         }
     }
 
-    private fun addChatMessage(text: String, isUser: Boolean) {
+    // ********************************************************
+    // 3. Função addChatMessage
+    // ********************************************************
+    private fun addChatMessage(
+        text: String,
+        isUser: Boolean,
+        isButton: Boolean = false,
+        actionId: String? = null
+    ) {
         val today = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
 
         val todayDate = messages.any { it.text == "[DATE]$today" }
 
         if (!todayDate) {
-            messages.add(Message("[DATE]$today", false))
+            messages.add(Message("[DATE]$today", isSentByUser = false))
             adapter.notifyItemInserted(messages.lastIndex)
         }
 
-        messages.add(Message(text, isUser))
-        adapter.notifyItemInserted(messages.lastIndex)
+        // Cria o objeto Message completo
+        messages.add(Message(
+            text = text,
+            isSentByUser = isUser,
+            isButton = isButton,
+            actionId = actionId
+        ))
 
+        adapter.notifyItemInserted(messages.lastIndex)
         recyclerView.scrollToPosition(messages.lastIndex)
     }
+
+
 
     private fun sendToGemini(userMessage: String) {
         // Fragment-safe coroutine
         viewLifecycleOwner.lifecycleScope.launch {
             val thinkingIndex = messages.size
-            addChatMessage("Pensando...", false)
+            // Chamada de addChatMessage para "Pensando..."
+            addChatMessage("Pensando...", isUser = false)
 
             try {
+                // ... (Requisição ao Gemini)
                 val request = GeminiRequest(
                     model = "gemini-2.5-flash",
                     contents = listOf(
@@ -175,20 +227,39 @@ class FragmentChat : Fragment() {
                 )
 
                 val response = GeminiClient.geminiApi.generateContent(request)
-                val bot = response.candidates.first().content.parts.first().text
+                var botResponseText = response.candidates.first().content.parts.first().text
 
                 // remove “Pensando...”
                 messages.removeAt(thinkingIndex)
                 adapter.notifyItemRemoved(thinkingIndex)
 
-                addChatMessage(bot, false)
+                // ********************************************************
+                // 4. Lógica de Detecção do Botão
+                // ********************************************************
+                val shouldShowButton = botResponseText.contains(ACTION_TAG)
+
+                if (shouldShowButton) {
+                    // Remove a tag do texto final da mensagem
+                    botResponseText = botResponseText.replace(ACTION_TAG, "").trim()
+                }
+
+                // Adiciona a mensagem final do bot, setando as flags se o botão for necessário
+                addChatMessage(
+                    text = botResponseText,
+                    isUser = false,
+                    isButton = shouldShowButton,
+                    actionId = if (shouldShowButton) ACTION_ID_RESET_PASSWORD else null
+                )
+
                 ChatStorage.saveHistory(requireContext(), messages)
 
             } catch (e: Exception) {
-                messages.removeLast()
-                adapter.notifyItemRemoved(messages.size)
+                if (messages.size > thinkingIndex && messages[thinkingIndex].text == "Pensando...") {
+                    messages.removeAt(thinkingIndex)
+                    adapter.notifyItemRemoved(thinkingIndex)
+                }
 
-                addChatMessage("Erro: ${e.message}", false)
+                addChatMessage("Erro: ${e.message}", isUser = false)
             }
         }
     }
