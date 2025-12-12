@@ -7,19 +7,16 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/chat_Title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:paddingTop="30dp"
         android:background="@drawable/bg_toolbar"
         app:contentInsetStartWithNavigation="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="25dp"
-            android:paddingBottom="15dp"
             android:text="@string/chat_bot_title"
             android:textAlignment="center"
             android:textColor="@color/white"

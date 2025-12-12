@@ -8,11 +8,14 @@ import android.os.Build
 import android.view.View
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import android.text.Editable
+import android.text.TextWatcher
 
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.biometric.BiometricManager
@@ -91,6 +94,9 @@ class LoginActivity : AppCompatActivity() {
         val passwordInput = findViewById<TextInputEditText>(R.id.input_password)
         val loginButton = findViewById<AppCompatButton>(R.id.btn_login)
         cpfInput.addCpfMask()
+
+        cpfInput.manageHintVisibility(R.string.login_cpf_input)
+        passwordInput.manageHintVisibility(R.string.login_password_input)
 
         suspend fun validateCpfInFirebase(cpfClean: String): Boolean {
             return viewModel.checkCpfExists(cpfClean)
@@ -198,7 +204,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Digite os 11 dígitos do CPF", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (passwordText.length < 6) {
+            if (passwordText.length != 6) {
                 Toast.makeText(this, "A senha deve conter no mínimo 6 dígitos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -241,6 +247,35 @@ class LoginActivity : AppCompatActivity() {
             headerContainer.setPadding(0, bars.top, 0, 0)
             bottomBar.setPadding(0, 0, 0, bars.bottom)
             insets
+        }
+    }
+    private fun TextInputEditText.manageHintVisibility(@StringRes hintResId: Int) {
+
+        this.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+
+                if (s.isNullOrEmpty()) {
+                    setHint(hintResId)
+                } else {
+                    hint = null
+                }
+            }
+        })
+
+        this.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+
+                if (this.text.toString().isNotEmpty()) {
+                    this.hint = null
+                }
+            } else {
+                if (this.text.toString().isEmpty()) {
+                    this.setHint(hintResId)
+                }
+            }
         }
     }
 }
