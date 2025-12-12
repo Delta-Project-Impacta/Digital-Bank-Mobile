@@ -118,7 +118,8 @@
             android:exported="false" />
         <activity
             android:name=".presentation.activities.HomeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".presentation.activities.PasswordResetedActivity"
             android:exported="false" />

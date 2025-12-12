@@ -505,6 +505,7 @@
     <string name="chat_bot_hint">Digite sua mensagem...</string>
     <string name="chat_bot_arrow_send_description">Icone para enviar a mensagem</string>
     <string name="chat_bot_welcome">Oi! Sou o Kontein, inteligência artificial do Delta. Como posso ajudar hoje? 😊</string>
+    <string name="chat_button_reset_password">Deslogar e ir resetar a senha</string>
 
     <string name="read_title">O que deseja pagar?</string>
     <string name="read_barcode">Ler o código de barras</string>

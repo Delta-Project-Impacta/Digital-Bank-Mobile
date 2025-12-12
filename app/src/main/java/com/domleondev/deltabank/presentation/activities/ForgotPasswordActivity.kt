@@ -33,7 +33,8 @@ class ForgotPasswordActivity : AppCompatActivity() {
         val backArrow = findViewById<ImageView>(R.id.forgot_Password_Arrow_Back)
 
         backArrow.setOnClickListener {
-            finish()
+            intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
         // 1. CLIQUE DO BOTÃO (Apenas dispara a ação)
