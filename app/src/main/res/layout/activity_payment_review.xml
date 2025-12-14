@@ -10,8 +10,9 @@
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/payment_Review"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:background="@drawable/bg_toolbar"
+        android:paddingTop="30dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -88,7 +89,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/payment_Review_Description_03_View" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/payment_Review_Description_04_View"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -99,6 +100,11 @@
         android:text="@string/payment_review_description_04"
         android:textColor="@color/grey"
         android:textSize="20sp"
+        android:maxLines="1"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeMinTextSize="18sp"
+        app:autoSizeStepGranularity="1sp"
+        app:autoSizeTextType="uniform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/divider_1" />
