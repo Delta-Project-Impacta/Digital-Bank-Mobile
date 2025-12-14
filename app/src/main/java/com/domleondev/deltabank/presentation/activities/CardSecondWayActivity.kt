@@ -4,8 +4,9 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.domleondev.deltabank.R
-import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 
 class CardSecondWayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,14 +14,15 @@ class CardSecondWayActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_card_second_way)
 
-        setupTransparentStatusBarNoPadding(
-            rootViewId = R.id.card_Second_Way_Container,
-            darkIcons = true
-        )
-
         val backArrow = findViewById<ImageView>(R.id.card_Second_Way_Arrow_Back)
         backArrow.setOnClickListener {
             finish()
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.card_Second_Way_Container)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
         }
     }
 }

@@ -6,8 +6,9 @@ import android.widget.ImageView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.domleondev.deltabank.R
-import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 
 class PaymentPasswordActivity : AppCompatActivity() {
 
@@ -20,11 +21,6 @@ class PaymentPasswordActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_payment_password)
-
-        setupTransparentStatusBarNoPadding(
-            rootViewId = R.id.payment_Password_Container,
-            darkIcons = true
-        )
 
         amount = intent.getStringExtra("EXTRA_AMOUNT") ?: ""
         recipientName = intent.getStringExtra("EXTRA_RECIPIENT_NAME") ?: ""
@@ -45,6 +41,12 @@ class PaymentPasswordActivity : AppCompatActivity() {
             }
 
             startActivity(intent)
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.payment_Password_Container)) { v, insets ->
+            val sys = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(sys.left, sys.top, sys.right, sys.bottom)
+            insets
         }
     }
 }

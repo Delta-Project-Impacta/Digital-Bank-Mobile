@@ -21,7 +21,7 @@ class TransferAmountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_tranfer_amount)
+        setContentView(R.layout.activity_transfer_amount)
 
         val backArrow = findViewById<ImageView>(R.id.transfer_Amount_Arrow_Back)
         backArrow.setOnClickListener {

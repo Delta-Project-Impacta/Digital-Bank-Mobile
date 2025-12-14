@@ -16,6 +16,8 @@ androidx-viewmodel = "2.9.3"
 livedata = "2.6.2"
 recyclerview = "1.4.0"
 retrofit = "2.9.0"
+firebaseFunctionsKtx = "22.1.0"
+firebaseAppcheckKtx = "19.0.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -33,6 +35,8 @@ retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version = "3.0
 retrofit-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version = "3.0.0" }
 androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version = "1.4.0" }
 androidx-tools-core = { group = "androidx.privacysandbox.tools", name = "tools-core", version.ref = "toolsCore" }
+firebase-functions-ktx = { group = "com.google.firebase", name = "firebase-functions-ktx", version.ref = "firebaseFunctionsKtx" }
+firebase-appcheck-ktx = { group = "com.google.firebase", name = "firebase-appcheck-ktx", version.ref = "firebaseAppcheckKtx" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

@@ -42,9 +42,7 @@ class AuthRepository(private val auth: FirebaseAuth) {
             // 2. Atualiza displayName e espera o retorno
             val profileUpdates = UserProfileChangeRequest.Builder()
                 .setDisplayName(name).build()
-            Log.d("AUTH_REPO", "Usuário criado: ${auth.currentUser?.uid}")
             user.updateProfile(profileUpdates).await()
-            Log.d("AUTH_REPO", "Perfil atualizado: ${auth.currentUser?.displayName}")
 
             fun hash(input: String): String {
                 return MessageDigest.getInstance("SHA-256")
@@ -82,8 +80,6 @@ class AuthRepository(private val auth: FirebaseAuth) {
             .whereEqualTo("cpf", cpf)
             .get()
             .await()
-
-        Log.d("AUTH_REPO", "Documentos encontrados: ${query.documents.size}")
 
         query.documents.forEach {
             Log.d("AUTH_REPO", "DOC → cpf salvo: '${it.getString("cpf")}'")
