@@ -7,12 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".presentation.activities.LoginActivity">
 
-    <!-- HEADER -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/header_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="90dp"
         android:background="@drawable/bg_toolbar"
+        android:paddingTop="30dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -24,7 +24,6 @@
 
     </com.google.android.material.appbar.MaterialToolbar>
 
-    <!-- Logo + Texto -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/content_with_background"
         android:layout_width="0dp"
@@ -70,7 +69,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <!-- FORMULÁRIO -->
         <LinearLayout
             android:id="@+id/form_container"
             android:layout_width="0dp"
@@ -82,7 +80,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/logo_container">
 
-            <!-- CPF LABEL -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -92,7 +89,6 @@
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 
-            <!-- CPF INPUT -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -113,7 +109,6 @@
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- SENHA LABEL -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,7 +118,6 @@
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 
-            <!-- SENHA INPUT -->
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -146,7 +140,6 @@
                     android:textSize="16sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- ESQUECI A SENHA -->
             <TextView
                 android:id="@+id/tv_forgot_password"
                 android:layout_width="wrap_content"
@@ -167,7 +160,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- BOTÃO ENTRAR -->
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login"
         android:layout_width="150dp"
@@ -183,7 +175,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/content_with_background" />
 
-    <!-- BOTTOM BAR -->
     <LinearLayout
         android:id="@+id/bottom_bar"
         android:layout_width="0dp"
