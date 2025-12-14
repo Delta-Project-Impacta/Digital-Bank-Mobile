@@ -7,8 +7,9 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.domleondev.deltabank.R
-import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 
 class PaymentConfirmationActivity : AppCompatActivity() {
 
@@ -16,11 +17,6 @@ class PaymentConfirmationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_payment_confirmation)
-
-        setupTransparentStatusBarNoPadding(
-            rootViewId = R.id.payment_Confirmation_Container,
-            darkIcons = true
-        )
 
         val amount = intent.getStringExtra("EXTRA_AMOUNT") ?: ""
         val recipientName = intent.getStringExtra("EXTRA_RECIPIENT_NAME") ?: ""
@@ -47,6 +43,12 @@ class PaymentConfirmationActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.payment_Confirmation_Container)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
         }
     }
 }

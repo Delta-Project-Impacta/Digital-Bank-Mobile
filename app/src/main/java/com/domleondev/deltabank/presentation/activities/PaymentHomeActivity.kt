@@ -11,9 +11,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import com.domleondev.deltabank.R
-import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -21,14 +22,8 @@ class PaymentHomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         enableEdgeToEdge()
         setContentView(R.layout.activity_payment_home)
-
-        setupTransparentStatusBarNoPadding(
-            rootViewId = R.id.payment_Home_Container,
-            darkIcons = true
-        )
 
         val backArrow = findViewById<ImageView>(R.id.payment_Home_Arrow_Back)
         backArrow.setOnClickListener { finish() }
@@ -40,11 +35,13 @@ class PaymentHomeActivity : AppCompatActivity() {
 
         editText.addTextChangedListener { editable ->
             val hasText = !editable.isNullOrBlank()
+
             val tintColor = if (hasText) {
                 ContextCompat.getColor(this, R.color.orange)
             } else {
                 ContextCompat.getColor(this, android.R.color.transparent)
             }
+
             inputLayout.setEndIconTintList(ColorStateList.valueOf(tintColor))
         }
 
@@ -52,6 +49,12 @@ class PaymentHomeActivity : AppCompatActivity() {
             val text = editText.text?.toString()?.trim() ?: ""
             if (text.isBlank()) return@setEndIconOnClickListener
             handleCodeInput(text)
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.payment_Home_Container)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
         }
     }
 

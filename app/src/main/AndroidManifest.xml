@@ -68,7 +68,7 @@
             android:name=".presentation.activities.PixAmountActivity"
             android:exported="false" />
         <activity
-            android:name="com.domleondev.deltatransfers.presentation.activities.TransfersDataActivity"
+            android:name="com.domleondev.deltatransfers.presentation.activities.TransferDataActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.activities.TransferSuccessActivity"
@@ -118,8 +118,7 @@
             android:exported="false" />
         <activity
             android:name=".presentation.activities.HomeActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            android:exported="false" />
         <activity
             android:name=".presentation.activities.PasswordResetedActivity"
             android:exported="false" />

@@ -57,7 +57,7 @@ class RegisterTransactionPasswordActivity : AppCompatActivity() {
         //  Configuração universal de status bar transparente
         val window = window
 
-// LÓGICA DE VERSÕES CORRIGIDA
+        // LÓGICA DE VERSÕES CORRIGIDA
         when {
             // Android 10 e anteriores (API < 30)
             Build.VERSION.SDK_INT < Build.VERSION_CODES.R -> {
@@ -65,12 +65,12 @@ class RegisterTransactionPasswordActivity : AppCompatActivity() {
                 window.decorView.systemUiVisibility =
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
                             View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION // <--- ESSA É A CHAVE!
+                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 
                 @Suppress("DEPRECATION")
                 window.statusBarColor = Color.TRANSPARENT
                 @Suppress("DEPRECATION")
-                window.navigationBarColor = Color.TRANSPARENT // <--- Força a cor aqui
+                window.navigationBarColor = Color.TRANSPARENT
             }
 
             // Android 11+ (API >= 30)
@@ -85,7 +85,7 @@ class RegisterTransactionPasswordActivity : AppCompatActivity() {
                 @Suppress("DEPRECATION")
                 window.statusBarColor = Color.TRANSPARENT
                 @Suppress("DEPRECATION")
-                window.navigationBarColor = Color.TRANSPARENT // <--- Garante a transparência
+                window.navigationBarColor = Color.TRANSPARENT
             }
         }
 
@@ -193,23 +193,19 @@ class RegisterTransactionPasswordActivity : AppCompatActivity() {
     private fun observeViewModel() {
         lifecycleScope.launch {
             viewModel.state.collect { state ->
-                Log.d("RegisterActivity", "ViewModel state changed: $state")
                 when (state) {
 
                     is RegisterTransactionPasswordState.Idle -> {
-                        Log.d("RegisterActivity", "State: Idle")
                         binding.passwordAccountProgress.visibility = View.GONE
                         binding.passwordAccountButtonNext.isEnabled = true
                     }
 
                     is RegisterTransactionPasswordState.Loading -> {
-                        Log.d("RegisterActivity", "State: Loading")
                         binding.passwordAccountProgress.visibility = View.VISIBLE
                         binding.passwordAccountButtonNext.isEnabled = false
                     }
 
                     is RegisterTransactionPasswordState.Success -> {
-                        Log.d("RegisterActivity", "State: Success -> navigating to next activity")
                         binding.passwordAccountProgress.visibility = View.GONE
 
                         Toast.makeText(
@@ -231,7 +227,6 @@ class RegisterTransactionPasswordActivity : AppCompatActivity() {
                     }
 
                     is RegisterTransactionPasswordState.Error -> {
-                        Log.d("RegisterActivity", "State: Error -> ${state.message}")
                         binding.passwordAccountProgress.visibility = View.GONE
                         binding.passwordAccountButtonNext.isEnabled = true
 

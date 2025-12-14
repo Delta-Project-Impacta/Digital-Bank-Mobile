@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.domleondev.deltabank.R
-import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 
 class PaymentReviewActivity : AppCompatActivity() {
 
@@ -17,11 +18,6 @@ class PaymentReviewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_payment_review)
-
-        setupTransparentStatusBarNoPadding(
-            rootViewId = R.id.payment_Review_Container,
-            darkIcons = true
-        )
 
         val qrData = intent.getStringExtra("QR_CODE_DATA")
         val rawBarcodeData = intent.getStringExtra("BARCODE_DATA")
@@ -59,6 +55,12 @@ class PaymentReviewActivity : AppCompatActivity() {
             }
 
             startActivity(intent)
+        }
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.payment_Review_Container)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
         }
     }
 

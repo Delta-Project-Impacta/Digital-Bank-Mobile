@@ -1,4 +1,4 @@
-package com.domleondev.deltatransfers.presentation.activities
+package com.domleondev.deltabank.presentation.activities
 
 import android.content.Intent
 import android.graphics.Color
@@ -22,7 +22,6 @@ import com.domleondev.deltabank.R
 import com.domleondev.deltabank.databinding.ActivityTransfersDataBinding
 import com.domleondev.deltabank.databinding.CustomBottomSheetBinding
 import com.domleondev.deltabank.domain.usecase.applyAccountMask
-import com.domleondev.deltabank.presentation.activities.TransferAmountActivity
 import com.domleondev.deltabank.viewModel.TransfersViewModel
 import com.domleondev.deltabank.viewModel.TransfersViewModel.ValidationError
 import com.domleondev.deltabank.viewModel.TransfersViewModel.BankItem
@@ -33,7 +32,7 @@ import com.google.android.material.textfield.TextInputLayout
 import kotlin.collections.listOf
 import kotlin.text.matches
 
-class TransfersDataActivity : AppCompatActivity() {
+class TransferDataActivity : AppCompatActivity() {
 
     private val viewModel: TransfersViewModel by viewModels ()
     private lateinit var layoutBankName : TextInputLayout
