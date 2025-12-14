@@ -21,3 +21,5 @@ node_modules/
 /node_modules/
 *.local
 /app/build/
+package-lock.json
+functions/package-lock.json
