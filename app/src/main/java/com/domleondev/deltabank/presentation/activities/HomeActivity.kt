@@ -83,6 +83,16 @@ class HomeActivity : AppCompatActivity() {
             newInsets
 
         }
+
+        ViewCompat.setOnApplyWindowInsetsListener(navContainer) { view, insets ->
+
+            val imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime())
+
+            view.visibility = if (imeVisible) View.GONE else View.VISIBLE
+
+            insets
+        }
+
     }
 
     private fun replaceFragment(fragment: Fragment) {

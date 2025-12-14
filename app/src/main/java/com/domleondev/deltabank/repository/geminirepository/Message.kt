@@ -3,5 +3,7 @@ package com.domleondev.deltabank.repository.geminirepository
 data class Message(
     val text: String,
     val isSentByUser: Boolean,
-    val timestamp: Long = System.currentTimeMillis()
+    val timestamp: Long = System.currentTimeMillis(),
+    val isButton: Boolean = false,
+    val actionId: String? = null
 )
