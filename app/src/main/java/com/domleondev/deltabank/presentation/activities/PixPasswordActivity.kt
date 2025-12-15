@@ -17,6 +17,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.domleondev.deltabank.R
+import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 import com.domleondev.deltabank.viewModel.TransferPasswordViewModel
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.flow.collect
@@ -47,10 +48,14 @@ class PixPasswordActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_pix_password)
 
+        setupTransparentStatusBarNoPadding(
+            rootViewId = R.id.pix_Password_Container,
+            darkIcons = true
+        )
+
         findViewById<ImageView>(R.id.pix_Password_Arrow_Back).setOnClickListener {
             finish()
         }
-
 
         hiddenInput = findViewById(R.id.hidden_otp_input)
         val dot1 = findViewById<View>(R.id.pin_dot_1)
@@ -92,12 +97,6 @@ class PixPasswordActivity : AppCompatActivity() {
                 }
             }
         })
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         // bind inputs
 //        pin1 = findViewById(R.id.dot_Input_1)

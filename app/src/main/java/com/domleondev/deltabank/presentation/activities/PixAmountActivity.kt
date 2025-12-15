@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.domleondev.deltabank.R
+import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 import com.google.android.material.textfield.TextInputEditText
 import java.util.Locale
 
@@ -38,17 +39,15 @@ class PixAmountActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_pix_amount)
 
+        setupTransparentStatusBarNoPadding(
+            rootViewId = R.id.pix_Amount_Container,
+            darkIcons = true
+        )
+
         val backArrow = findViewById<ImageView>(R.id.pix_Amount_Arrow_Back)
         backArrow.setOnClickListener {
             Log.d(TAG, "Back arrow pressed - finishing activity")
             finish()
-        }
-
-        // PRESERVANDO O BLOCO DE STATUS BAR / INSETS (não alterei nada)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.pix_Amount_Container)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
         }
 
         // Views

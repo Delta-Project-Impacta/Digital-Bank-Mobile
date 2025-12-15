@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.domleondev.deltabank.R
+import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 import kotlinx.coroutines.flow.collect
 
 class PixSuccessActivity : AppCompatActivity() {
@@ -53,6 +54,11 @@ class PixSuccessActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_pix_success)
 
+        setupTransparentStatusBarNoPadding(
+            rootViewId = R.id.pix_Success_Toolbar_Container,
+            darkIcons = true
+        )
+
         Log.d(TAG, "onCreate chamado (Activity)")
 
         // bind views
@@ -71,12 +77,6 @@ class PixSuccessActivity : AppCompatActivity() {
         tvOriginInstitutionValue = findViewById(R.id.pix_Success_OriginInstitution_Value)
 
         tvDeltaTransactionIdValue = findViewById(R.id.pix_Success_Delta_TransactionId_Value)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
 
         // read extras
         recipientName = intent.getStringExtra("recipientName")

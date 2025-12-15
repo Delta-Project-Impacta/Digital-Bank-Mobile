@@ -7,6 +7,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.domleondev.deltabank.R
+import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 
 class PixConfirmationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,16 +15,15 @@ class PixConfirmationActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_pix_confirmation)
 
+        setupTransparentStatusBarNoPadding(
+            rootViewId = R.id.pix_Confirmation_Container,
+            darkIcons = true
+        )
+
         val pixSuccessButtonNext = findViewById<AppCompatButton>(R.id.pix_Confirmation_Button_Next)
         pixSuccessButtonNext.setOnClickListener {
             // Tela desativada temporariamente
             return@setOnClickListener
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
         }
     }
 }
