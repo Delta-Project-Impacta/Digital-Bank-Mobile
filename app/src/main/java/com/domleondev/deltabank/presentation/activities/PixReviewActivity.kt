@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import com.domleondev.deltabank.R
+import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 import kotlinx.coroutines.flow.collect
 import java.text.NumberFormat
 import java.util.Locale
@@ -37,16 +38,15 @@ class PixReviewActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_pix_review)
 
+        setupTransparentStatusBarNoPadding(
+            rootViewId = R.id.pix_Review_Container,
+            darkIcons = true
+        )
+
         val backArrow = findViewById<ImageView>(R.id.pix_Review_Arrow_Back)
         backArrow.setOnClickListener {
             Log.d(TAG, "Back arrow pressed - finishing activity")
             finish()
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.pix_Review_Container)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
         }
 
         // binds (keep defensive try/catch like original)
