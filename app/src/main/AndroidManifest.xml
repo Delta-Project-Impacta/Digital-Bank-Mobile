@@ -68,7 +68,7 @@
             android:name=".presentation.activities.PixAmountActivity"
             android:exported="false" />
         <activity
-            android:name="com.domleondev.deltatransfers.presentation.activities.TransferDataActivity"
+            android:name=".presentation.activities.TransferDataActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.activities.TransferSuccessActivity"

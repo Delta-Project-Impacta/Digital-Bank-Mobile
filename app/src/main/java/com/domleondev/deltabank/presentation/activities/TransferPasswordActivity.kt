@@ -18,6 +18,7 @@ import android.graphics.Color
 import android.os.Build
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.domleondev.deltabank.presentation.util.setupTransparentStatusBarNoPadding
 
 class TransferPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +26,10 @@ class TransferPasswordActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_transfer_password)
 
+        setupTransparentStatusBarNoPadding(
+            rootViewId = R.id.transfer_password_root,
+            darkIcons = true
+        )
 
         val transferPasswordArrowBack = findViewById<ImageView>(R.id.transfer_Password_Arrow_Back)
         val transferPasswordButtonNext = findViewById<AppCompatButton>(R.id.transfer_Password_Button_Next)
@@ -37,50 +42,12 @@ class TransferPasswordActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //  Configuração universal de status bar transparente
-        val window = window
-
-// LÓGICA DE VERSÕES CORRIGIDA
-        when {
-            // Android 10 e anteriores (API < 30)
-            Build.VERSION.SDK_INT < Build.VERSION_CODES.R -> {
-                @Suppress("DEPRECATION")
-                window.decorView.systemUiVisibility =
-                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                            View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                            View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION // <--- ESSA É A CHAVE!
-
-                @Suppress("DEPRECATION")
-                window.statusBarColor = Color.TRANSPARENT
-                @Suppress("DEPRECATION")
-                window.navigationBarColor = Color.TRANSPARENT // <--- Força a cor aqui
-            }
-
-            // Android 11+ (API >= 30)
-            else -> {
-                // Este comando diz: "Não ajuste o layout pelas barras, deixe passar por trás"
-                WindowCompat.setDecorFitsSystemWindows(window, false)
-
-                val controller = WindowInsetsControllerCompat(window, window.decorView)
-                controller.isAppearanceLightStatusBars = true
-                // controller.isAppearanceLightNavigationBars = true // Descomente se os ícones da navbar sumirem
-
-                @Suppress("DEPRECATION")
-                window.statusBarColor = Color.TRANSPARENT
-                @Suppress("DEPRECATION")
-                window.navigationBarColor = Color.TRANSPARENT // <--- Garante a transparência
-            }
-        }
-
             val hiddenInput = findViewById<EditText>(R.id.hidden_otp_input)
             val dot1 = findViewById<View>(R.id.pin_dot_1)
             val dot2 = findViewById<View>(R.id.pin_dot_2)
             val dot3 = findViewById<View>(R.id.pin_dot_3)
             val dot4 = findViewById<View>(R.id.pin_dot_4)
             val dots = listOf(dot1, dot2, dot3, dot4)
-
-            // Força o teclado a abrir e focar no input invisível
-
 
         hiddenInput.postDelayed({
             hiddenInput.requestFocus()
@@ -115,13 +82,5 @@ class TransferPasswordActivity : AppCompatActivity() {
                     }
                 }
             })
-        val headerContainer = findViewById<View>(R.id.transfer_Password)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.transfer_password_root)) { v, insets ->
-            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(bars.left, 0, bars.right, 0)
-            headerContainer.setPadding(0, bars.top, 0, 0)
-            insets
-        }
     }
 }
