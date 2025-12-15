@@ -2,7 +2,10 @@ package com.domleondev.deltabank.presentation.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
+import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
@@ -25,10 +28,11 @@ class PixPasswordActivity : AppCompatActivity() {
 
     private val vm: TransferPasswordViewModel by viewModels()
 
-    private lateinit var pin1: EditText
-    private lateinit var pin2: EditText
-    private lateinit var pin3: EditText
-    private lateinit var pin4: EditText
+    private lateinit var hiddenInput: EditText
+//    private lateinit var pin1: EditText
+//    private lateinit var pin2: EditText
+//    private lateinit var pin3: EditText
+//    private lateinit var pin4: EditText
     private lateinit var btnNext: AppCompatButton
 
     // extras
@@ -47,6 +51,48 @@ class PixPasswordActivity : AppCompatActivity() {
             finish()
         }
 
+
+        hiddenInput = findViewById(R.id.hidden_otp_input)
+        val dot1 = findViewById<View>(R.id.pin_dot_1)
+        val dot2 = findViewById<View>(R.id.pin_dot_2)
+        val dot3 = findViewById<View>(R.id.pin_dot_3)
+        val dot4 = findViewById<View>(R.id.pin_dot_4)
+        val dots = listOf(dot1, dot2, dot3, dot4)
+
+        hiddenInput.postDelayed({
+            hiddenInput.requestFocus()
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+            imm.showSoftInput(hiddenInput, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+        }, 200)
+
+        val pinContainer = findViewById<View>(R.id.pin_container)
+        pinContainer.setOnClickListener {
+            hiddenInput.requestFocus()
+            val imm = getSystemService(INPUT_METHOD_SERVICE) as android.view.inputmethod.InputMethodManager
+            imm.showSoftInput(hiddenInput, android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT)
+        }
+
+        // Listener simples
+        hiddenInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                val length = s?.length ?: 0
+
+                // Loop para "acender" ou "apagar" as bolinhas
+                for (i in dots.indices) {
+                    // Se o índice for menor que o tamanho do texto, a bolinha está preenchida
+                    dots[i].isSelected = (i < length)
+                }
+
+                if (length == 4) {
+                    // Senha completa! Pode habilitar o botão ou validar automaticamente
+                    // binding.transferPasswordButtonNext.isEnabled = true
+                }
+            }
+        })
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -54,10 +100,10 @@ class PixPasswordActivity : AppCompatActivity() {
         }
 
         // bind inputs
-        pin1 = findViewById(R.id.dot_Input_1)
-        pin2 = findViewById(R.id.dot_Input_2)
-        pin3 = findViewById(R.id.dot_Input_3)
-        pin4 = findViewById(R.id.dot_Input_4)
+//        pin1 = findViewById(R.id.dot_Input_1)
+//        pin2 = findViewById(R.id.dot_Input_2)
+//        pin3 = findViewById(R.id.dot_Input_3)
+//        pin4 = findViewById(R.id.dot_Input_4)
         btnNext = findViewById(R.id.pix_Password_Button_Next)
 
         // read extras
@@ -171,10 +217,6 @@ class PixPasswordActivity : AppCompatActivity() {
     }
 
     private fun collectPin(): String {
-        val a = pin1.text?.toString()?.trim().orEmpty()
-        val b = pin2.text?.toString()?.trim().orEmpty()
-        val c = pin3.text?.toString()?.trim().orEmpty()
-        val d = pin4.text?.toString()?.trim().orEmpty()
-        return a + b + c + d
+        return hiddenInput.text.toString().trim()
     }
 }

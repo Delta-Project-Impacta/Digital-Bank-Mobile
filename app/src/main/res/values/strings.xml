@@ -105,7 +105,7 @@
 
     <string name="email_verification_header">Verifique seu E-mail</string>
     <string name="email_verification_title">Verifique seu E-mail</string>
-    <string name="email_verification_description">Acabamos de enviar um código para o seu E-mail registrado</string>
+    <string name="email_verification_description">Acabamos de enviar um link para o seu E-mail registrado</string>
     <string name="email_verification_check_text_timer">01:00</string>
     <string name="email_verification_bottom_01">Não recebeu um código?</string>
     <string name="email_verification_bottom_02">Reenviar</string>
@@ -407,6 +407,8 @@
     <string name="cards_home_description_card_type">Débito</string>
     <string name="cards_home_card_unlocked_locked_01">Cartão Desbloqueado</string>
     <string name="cards_home_card_unlocked_locked_02">Bloquear</string>
+    <string name="cards_home_card_locked_locked_01">Cartão Bloqueado</string>
+    <string name="cards_home_card_locked_locked_02">Desbloquear</string>
     <string name="cards_home_display_password">Exibir Senha</string>
     <string name="cards_home_change_password">Alterar Senha</string>
     <string name="cards_home_second_way">2ª via do cartão</string>
